@@ -8,7 +8,6 @@ An artist collaboration app built with HTML, CSS, and JavaScript.
 - [Setup](#setup)
 - [Illustrations](#illustrations)
 - [Features](#features)
-- [Setup](#setup)
 
 ## Technologies
 
