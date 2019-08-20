@@ -1,12 +1,8 @@
 # Electra - An artist collaboration web application
 
----
-
 An artist collaboration app built with HTML, CSS, and JavaScript.
 
 ## Table of contents
-
----
 
 - [Technologies](#technologies)
 - [Setup](#setup)
@@ -15,8 +11,6 @@ An artist collaboration app built with HTML, CSS, and JavaScript.
 - [Setup](#setup)
 
 ## Technologies
-
----
 
 Web App created with:
 
@@ -30,8 +24,6 @@ Web App created with:
 
 ## Setup
 
----
-
 To run this project, install it locally via command line
 
 ```
@@ -42,8 +34,6 @@ $ code .
 
 ## Illustrations
 
----
-
 A responsive web app used to post images, give critique and receive critique
 
 ###### Beta phase web app simages
@@ -53,8 +43,6 @@ A responsive web app used to post images, give critique and receive critique
 ![CSS Grid image - Modal](https://github.com/electrala/documentation/blob/master/Images/ElectraCritiquesModalTemplate.png)
 
 ## Features
-
----
 
 - Add your own art work
 - Receive feedback by other artists
