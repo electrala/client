@@ -1,6 +1,6 @@
 # Electra - An artist collaboration web application
 
-An artist collaboration app built with HTML, CSS, and JavaScript.
+An artist collaboration app. Frontend built with HTML, CSS, and JavaScript.
 
 ## Table of contents
 
@@ -8,7 +8,6 @@ An artist collaboration app built with HTML, CSS, and JavaScript.
 - [Setup](#setup)
 - [Illustrations](#illustrations)
 - [Features](#features)
-- [Setup](#setup)
 
 ## Technologies
 
