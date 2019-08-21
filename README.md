@@ -34,8 +34,11 @@ $ code .
 ## Illustrations
 
 A responsive web app used to post images, give critique and receive critique
+###### Prototype links
+- [Web prototype](https://xd.adobe.com/view/a09a6bb2-c574-4bb1-7517-6de3f8a265c0-d6ab/?fullscreen)
+- [Mobile prototype](https://xd.adobe.com/view/fdba7ccc-9072-4245-7ac6-bc7548bf26ad-8b8b/?fullscreen)
 
-###### Beta phase web app simages
+###### Beta phase web app images
 
 ![CSS Grid image](https://github.com/electrala/documentation/blob/master/Images/ElectraCSSGridTemplate.png)
 
