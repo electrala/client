@@ -8,7 +8,7 @@ function generateHTML([h, v]) {
         <div class="item h${h} v${v}">
           <img src="images/${randomNumber(13)}.jpg">
           <div class="item__overlay">
-            <button>View →</button>
+            <button>Take a closer <span>👀</span></button>
           </div>
         </div>
       `;
