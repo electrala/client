@@ -23,6 +23,13 @@
   border-radius: 10px;
   border: none;
   padding: 5px;
+  transition: all .4s;
+}
+
+#signup-form input:focus {
+  transform: scale(1.1);
+  border: 1px solid black;
+  outline: none;
 }
 
 #signup-form button {
