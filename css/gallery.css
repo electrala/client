@@ -10,12 +10,17 @@
   transition: all 0.2s ease-in 0s;
   z-index: 9999;
   cursor: pointer;
-  display: grid;
   opacity: 0.55;
 }
 
 #float-button:hover {
   opacity: 1;
+}
+
+#float-button a {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
 }
 
 #float-button img {

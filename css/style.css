@@ -3,6 +3,7 @@
 @import "./navigation.css";
 @import "./gallery.css";
 @import "./signup.css";
+@import "./upload.css";
 
 * {
   box-sizing: border-box;

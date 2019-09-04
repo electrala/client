@@ -1,22 +1,21 @@
-#logo {
+#logo img{
   max-height: 2.5rem;
-  position: relative;
-  left: -2.5rem;
+}
+
+#logo {
+  place-self: center;
 }
 
 #critiques {
-  position: relative;
-  left: 8rem;
+  place-self: center;
 }
 
 #gallery {
-  position: relative;
-  right: 3rem;
+  place-self: center;
 }
 
 #profile {
-  position: relative;
-  left: 4.5rem;
+  place-self: center;
 }
 
 header {
@@ -37,7 +36,6 @@ header nav ul {
 
 header nav li {
   display: inline-block;
-  place-self: center;
 }
 
 
