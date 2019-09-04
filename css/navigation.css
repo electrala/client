@@ -1,0 +1,52 @@
+#logo img{
+  max-height: 2.5rem;
+}
+
+#logo {
+  place-self: center;
+}
+
+#critiques {
+  place-self: center;
+}
+
+#gallery {
+  place-self: center;
+}
+
+#profile {
+  place-self: center;
+}
+
+header {
+  max-width: 80%;
+}
+
+header nav ul {
+  background-color: #141414;
+  width: 100%;
+  height: 4rem;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+header nav li {
+  display: inline-block;
+}
+
+
+
+header nav li a {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #ff5600;
+}
+
+header nav li a:hover {
+  color: rgb(250, 143, 90);
+}
