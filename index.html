@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CSS Grid Image Gallery!</title>
+    <title>Electra</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -12,13 +12,12 @@
     <header>
       <nav>
         <ul>
-          <li>
+          <li id="logo">
             <a href="/"
               ><img
-                id="logo"
+                id="logo-img"
                 src="./images/ElectraLogooooooo.png"
                 alt="Electra Logo"
-                sty
             /></a>
           </li>
           <li id="critiques"><a href="/">Critiques</a></li>
@@ -37,7 +36,9 @@
       </div>
     </div>
     <div id="float-button">
-      <img src="./images/plusSignArtBoard.png" alt="plus sign for upload" />
+      <a href="pages/upload.html">
+        <img src="./images/plusSignArtBoard.png" alt="plus sign for upload" />
+      </a>
     </div>
     <section class="gallery"></section>
     <script src="index.js"></script>

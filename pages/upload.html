@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Electra</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://kit.fontawesome.com/91e5220830.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li id="logo">
+            <a href="/"
+              ><img
+                id="logo-img"
+                src="../images/ElectraLogooooooo.png"
+                alt="Electra Logo"
+            /></a>
+          </li>
+          <li id="critiques"><a href="/">Critiques</a></li>
+          <li id="gallery"><a href="/">Gallery</a></li>
+          <li id="profile"><a href="userSignup.html">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="upload-container">
+        <h2 style="margin: 2rem auto; font-size: 1.6rem;">
+          Upload Your Art for Critique!
+        </h2>
+        <div class="upload-grid">
+          <div class="left-side">
+            <a href="#"><i class="fas fa-upload fa-4x"></i></a>
+            <h3>Select a file to <a href="#"><span>upload</span></a></h3>
+          </div>
+          <form id="upload-form" action="">
+            <input type="text" placeholder="Title" />
+            <textarea
+              name="description"
+              id="critique-description"
+              placeholder="description"
+              cols="30"
+              rows="4"
+            ></textarea>
+            <textarea
+              name="desired-feedback"
+              id="desired-feedback"
+              placeholder="desired feedback"
+              cols="30"
+              rows="4"
+            ></textarea>
+            <select name="genre" id="genre">
+              <option value="select-one">select your genre</option>
+              <option value="film">film</option>
+              <option value="photography">photography</option>
+              <option value="digital">digital</option>
+              <option value="performance">performance</option>
+              <option value="music">music</option>
+            </select>
+            <button type="submit">Send it!</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
