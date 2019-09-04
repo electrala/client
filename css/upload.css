@@ -1,0 +1,125 @@
+#upload-container {
+  margin: 6.5rem auto;
+  width: 50vw;
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+}
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.left-side {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.left-side a {
+  place-self: center;
+  color: #587b7f;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.left-side a:hover {
+  color: #8fe0e9;
+}
+
+.left-side h3 {
+  place-self: start center;
+}
+
+.left-side span {
+  color: #587b7f;
+  transition: all .2s;
+}
+
+.left-side span:hover {
+  color: #8fe0e9;
+}
+
+#upload-form {
+  margin: 0 auto;
+  width: 70%;
+  display: grid;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+#upload-form input {
+  background-color: rgb(219, 219, 219);
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  transition: all .4s;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+#upload-form input:focus {
+  transform: scale(1.1);
+  border: 1px solid black;
+  outline: none;
+}
+
+#upload-form textarea {
+  background-color: rgb(219, 219, 219);
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  transition: all .4s;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+#upload-form textarea:focus {
+  transform: scale(1.1);
+  border: 1px solid black;
+  outline: none;
+}
+
+#upload-form select {
+  background-color: rgb(219, 219, 219);
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  transition: all .4s;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+#upload-form select:focus {
+  transform: scale(1.1);
+  border: 1px solid black;
+  outline: none;
+}
+
+#upload-form option {
+  border-radius: 10px;
+  border: none;
+}
+
+#upload-form option:focus {
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+#upload-form button {
+  align-self: center;
+  width: 75%;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #587b7f;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+#upload-form button:focus {
+  background-color: #8fe0e9;
+  outline: none;
+}
