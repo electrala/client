@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Front-end of Electra",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.10.2"
   },
