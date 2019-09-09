@@ -3,19 +3,23 @@
 }
 
 #logo {
-  place-self: center;
+  place-self: center start;
+  padding-left: 2.5rem;
 }
 
 #critiques {
-  place-self: center;
+  place-self: center end;
+  padding-right: 1rem;
 }
 
 #gallery {
-  place-self: center;
+  place-self: center start;
+  padding-left: 1rem;
 }
 
 #profile {
-  place-self: center;
+  place-self: center end;
+  padding-right: 2.5rem;
 }
 
 header {
@@ -44,9 +48,9 @@ header nav li a {
   text-transform: uppercase;
   font-size: 1.2rem;
   text-decoration: none;
-  color: #ff5600;
+  color: #fff;
 }
 
 header nav li a:hover {
-  color: rgb(250, 143, 90);
+  color: #ff5600;
 }

@@ -33,26 +33,8 @@
           Upload Your Art for Critique!
         </h2>
         <div class="upload-grid">
-          <div class="left-side">
-            <a href="#"><i class="fas fa-upload fa-4x"></i></a>
-            <h3>Select a file to <a href="#"><span>upload</span></a></h3>
-          </div>
           <form id="upload-form" action="">
             <input type="text" placeholder="Title" />
-            <textarea
-              name="description"
-              id="critique-description"
-              placeholder="description"
-              cols="30"
-              rows="4"
-            ></textarea>
-            <textarea
-              name="desired-feedback"
-              id="desired-feedback"
-              placeholder="desired feedback"
-              cols="30"
-              rows="4"
-            ></textarea>
             <select name="genre" id="genre">
               <option value="select-one">select your genre</option>
               <option value="film">film</option>
@@ -61,8 +43,29 @@
               <option value="performance">performance</option>
               <option value="music">music</option>
             </select>
-            <button type="submit">Send it!</button>
+            <textarea
+              name="description"
+              id="critique-description"
+              placeholder="Description"
+              cols="30"
+              rows="4"
+            ></textarea>
+            <textarea
+              name="desired-feedback"
+              id="desired-feedback"
+              placeholder="I would like critique on..."
+              cols="30"
+              rows="6"
+            ></textarea>
+            <button class="submit" type="submit">Send it!</button>
+            <button class="cancel" type="button">Just kidding!</button>
           </form>
+          <div class="right-side">
+            <a href="#"><i class="fas fa-upload fa-6x"></i></a>
+            <h3>
+              Select a file to <a href="#"><span>upload</span></a>
+            </h3>
+          </div>
         </div>
       </div>
     </main>

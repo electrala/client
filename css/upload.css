@@ -1,6 +1,6 @@
 #upload-container {
   margin: 6.5rem auto;
-  width: 50vw;
+  width: 70vw;
   height: 100%;
   background-color: #ffffff;
   border: 1px solid black;
@@ -11,36 +11,41 @@
 
 .upload-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
 }
 
-.left-side {
+.right-side {
+  padding: 1rem;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 1.5fr;
 }
 
-.left-side a {
+.right-side i {
+  color: #4DB6A5;
+  transition: all 0.2s;
+}
+
+.right-side i:hover {
+  color: rgba(77, 182, 165, 0.678);
+}
+
+.right-side a {
   place-self: center;
-  color: #587b7f;
   text-decoration: none;
   transition: all .2s;
 }
 
-.left-side a:hover {
-  color: #8fe0e9;
-}
-
-.left-side h3 {
+.right-side h3 {
   place-self: start center;
 }
 
-.left-side span {
-  color: #587b7f;
+.right-side span {
+  color: #4DB6A5;
   transition: all .2s;
 }
 
-.left-side span:hover {
-  color: #8fe0e9;
+.right-side span:hover {
+  color: rgba(77, 182, 165, 0.678);
 }
 
 #upload-form {
@@ -49,15 +54,17 @@
   display: grid;
   grid-gap: 1rem;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
 }
 
 #upload-form input {
-  background-color: rgb(219, 219, 219);
+  background-color: #fff;
   border-radius: 10px;
-  border: none;
+  border: 2px solid grey;
   padding: 5px;
   transition: all .4s;
   font-family: 'Lexend Deca', sans-serif;
+  grid-column: 1 / span 2;
 }
 
 #upload-form input:focus {
@@ -67,12 +74,13 @@
 }
 
 #upload-form textarea {
-  background-color: rgb(219, 219, 219);
+  background-color: #fff;
   border-radius: 10px;
-  border: none;
+  border: 2px solid grey;
   padding: 5px;
   transition: all .4s;
   font-family: 'Lexend Deca', sans-serif;
+  grid-column: 1 / span 2;
 }
 
 #upload-form textarea:focus {
@@ -82,12 +90,13 @@
 }
 
 #upload-form select {
-  background-color: rgb(219, 219, 219);
+  background-color: #fff;
   border-radius: 10px;
-  border: none;
+  border: 2px solid grey;
   padding: 5px;
   transition: all .4s;
   font-family: 'Lexend Deca', sans-serif;
+  grid-column: 1 / span 2;
 }
 
 #upload-form select:focus {
@@ -101,6 +110,10 @@
   border: none;
 }
 
+#upload-form option[value="select-one"] {
+  color: grey;
+}
+
 #upload-form option:focus {
   border-radius: 10px;
   border: none;
@@ -108,18 +121,43 @@
 }
 
 #upload-form button {
-  align-self: center;
-  width: 75%;
-  margin: 1.5rem auto;
+  background-color: #ffffff;
+  width: 100%;
+  margin: .5rem auto 2rem auto;
   border-radius: 6px;
-  border: none;
   padding: 0.5rem;
   font-size: 1rem;
-  background-color: #587b7f;
   font-family: 'Lexend Deca', sans-serif;
+  transition: all 0.2s;
+  box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
 }
 
-#upload-form button:focus {
-  background-color: #8fe0e9;
+button.submit {
+  border: 2px solid #4DB6A5;
+}
+
+button:hover.submit {
+  color: white;
+  outline: none;
+  background-color: rgba(77, 182, 165, 0.678) !important;
+}
+
+button:focus.submit {
+  background-color: rgba(77, 182, 165, 0.836) !important;
+  outline: none;
+}
+
+button.cancel {
+  border: 2px solid red;
+}
+
+button:hover.cancel {
+  color: white;
+  background-color: lightcoral !important;
+  outline: none;
+}
+
+button:focus.cancel {
+  background-color: coral !important;
   outline: none;
 }
