@@ -28,6 +28,12 @@ function close() {
   overlay.classList.remove('open');
 }
 
+function getUser() {
+  fetch('http://127.0.0.1:5500/db/users.json').then(response =>
+    response.json()
+  );
+}
+
 const digits = Array.from({ length: 50 }, () => [
   randomNumber(4),
   randomNumber(4),
