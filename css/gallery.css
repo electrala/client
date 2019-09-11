@@ -4,7 +4,7 @@
   height: 3rem;
   border-radius: 50%;
   position: fixed;
-  right: 3rem;
+  right: 2.2rem;
   bottom: 3rem;
   transition: all 0.2s ease-in 0s;
   z-index: 9999;
@@ -48,8 +48,8 @@ p {
 
 .gallery {
   /* margin: 1rem; */
-  width: 60vw;
-  margin: 8rem auto 0px auto;
+  width: 80vw;
+  margin: 6rem auto 0px auto;
   /* padding: 12rem; */
   display: grid;
   grid-gap: 1rem;
