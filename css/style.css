@@ -3,6 +3,7 @@
 @import "./navigation.css";
 @import "./gallery.css";
 @import "./signup.css";
+@import "./userProfile.css";
 @import "./upload.css";
 
 * {
@@ -20,4 +21,3 @@ body {
   padding: 0;
   background: #fff6e2;
 }
-
