@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Electra</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li id="logo">
+            <a href="/"
+              ><img
+                id="logo-img"
+                src="../images/ElectraLogooooooo.png"
+                alt="Electra Logo"
+            /></a>
+          </li>
+          <li id="critiques"><a href="/">Critiques</a></li>
+          <li id="gallery"><a href="/">Gallery</a></li>
+          <li id="profile"><a href="pages/userSignup.html">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="profile-container">
+        <h2 style="margin: 2rem auto; font-size: 1.6rem;">
+          Your Electra Profile Info
+        </h2>
+        <form
+          name="form"
+          id="profile-form"
+          onsubmit="postUserInfo(event)"
+          action=""
+        >
+          <input
+            type="text"
+            value="Loraine"
+            name="firstName"
+            placeholder="first name"
+            id="firstName"
+          />
+          <input
+            type="text"
+            value="Morie"
+            name="lastName"
+            placeholder="last name"
+            id="lastName"
+          />
+          <input
+            type="email"
+            value="lma@gmail.com"
+            name="email"
+            placeholder="email"
+            id="email"
+          />
+          <input
+            type="text"
+            value="lmorie234"
+            name="userName"
+            placeholder="username"
+            id="userName"
+          />
+          <input
+            type="text"
+            value="Los Angeles"
+            name="location"
+            placeholder="location"
+            id="location"
+          />
+          <input
+            type="text"
+            value="they/them"
+            name="pronoun"
+            placeholder="pronoun"
+            id="pronoun"
+          />
+          <input
+            type="password"
+            value="Lit"
+            name="password"
+            placeholder="password"
+            id="password"
+          />
+          <input
+            type="password"
+            value="Lit"
+            name="confirmPassword"
+            placeholder="confirmPassword"
+            id="confirmPassword"
+          />
+          <div class="button-container">
+            <button type="submit">Edit Info</button>
+            <button type="button">Back to Home</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="../lib/usersSignup.js"></script>
+  </body>
+</html>
