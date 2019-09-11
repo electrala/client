@@ -63,7 +63,7 @@ p {
   justify-content: space-between;
 }
 
-img {
+.gallery img {
   border-radius: 20px;
 }
 
