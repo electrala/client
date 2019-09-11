@@ -1,3 +1,0 @@
-describe('functionName', () => {
-  it('should ', () => {});
-});
