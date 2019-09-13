@@ -39,12 +39,7 @@
         <h2 style="margin: 2rem auto; font-size: 1.6rem;">
           Let's get you signed up and sharing!
         </h2>
-        <form
-          name="form"
-          id="signup-form"
-          onsubmit="postUserInfo(event)"
-          action=""
-        >
+        <form name="form" id="signup-form" onsubmit="postUserInfo(event)">
           <input
             type="text"
             value="Ayana"
@@ -104,6 +99,7 @@
           <button type="submit">Let's a go!</button>
           <a href="tempDeleteUser.html">go to delete</a>
           <a href="userProfile.html">go to profile</a>
+          <button onclick="getUserId(event)">get my json info</button>
         </form>
       </div>
     </main>
