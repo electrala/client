@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Navbar.css';
+import '../../../css/style.css';
 import logo from './images/ElectraLogo.png';
 
 export default class Navbar extends Component {
