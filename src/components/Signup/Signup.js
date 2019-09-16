@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Signup extends Component {
   render() {
     let h1 = {
-      marginTop: "4rem",
+      marginTop: "3rem",
       fontSize: "3rem",
     }
     return (
