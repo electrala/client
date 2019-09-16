@@ -38,18 +38,18 @@ header nav ul {
   grid-template-columns: repeat(4, 1fr);
 }
 
-header nav li {
+header nav Link {
   display: inline-block;
 }
 
 
 
-header nav li a {
+header nav Link a {
   font-size: 1.2rem;
   text-decoration: none;
   color: #fff;
 }
 
-header nav li a:hover {
+header nav Link a:hover {
   color: #ff5600;
 }
