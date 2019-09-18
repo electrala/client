@@ -5,6 +5,9 @@ import uploadPlus from './images/plusSign.png';
 // import { generateHtml, placeholder } 
 
 export default class Gallery extends Component {
+  handleClick = event => {
+    event.preventDefault();
+  }
 
   render() {
     return (
@@ -19,7 +22,9 @@ export default class Gallery extends Component {
       </div>
       <div id="float-button">
         <a href="pages/upload.html">
-          <img src={uploadPlus} alt="plus sign for upload" />
+          <button onClick={this.handleClick}>
+            <img src={uploadPlus} alt="plus sign for upload" />
+          </button>
         </a>
       </div>
         <section className="gallery">
