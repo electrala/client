@@ -27,6 +27,14 @@
   place-self: center;
 }
 
+#float-button button {
+  border-radius: 50px;
+  border: 0;
+  outline: none;
+  background-color: #444444;
+  padding-top: 0.3rem;
+}
+
 h1,
 h2,
 h3,
