@@ -16,11 +16,6 @@ export default class Signup extends Component {
     };
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.createUser(this.state)
-  }
-  
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -28,9 +23,14 @@ export default class Signup extends Component {
     });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    this.createUser(this.state);
+  };
+
   createUser = async userData => {
-    await axios.post("http://localhost:5000/users/register", userData)
-  }
+    axios.post("http://localhost:5000/users/register", userData);
+  };
 
   render() {
     let h1 = {
@@ -38,7 +38,7 @@ export default class Signup extends Component {
       fontSize: "3rem"
     };
     return (
-      <form style={h1} onSubmit={this.createUser}>
+      <form style={h1} onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="firstName"
