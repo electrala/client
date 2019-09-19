@@ -5,6 +5,7 @@ import Gallery from '../../Gallery/Gallery';
 import Signup from '../../Signup/Signup';
 import Login from '../../Login/Login';
 
+
 import logo from './images/ElectraLogo.png';
 
 export default class Navbar extends Component {
@@ -34,6 +35,7 @@ export default class Navbar extends Component {
       <Route exact path="/" component={Gallery} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
+  
       </Router>
     )
   }

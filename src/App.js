@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import './css/style.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Layout from './components/common/Layout/Layout';
 import Gallery from './components/Gallery/Gallery';
 import Modal from '../Modal/Modal';
 
-App() {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
