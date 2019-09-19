@@ -2,31 +2,12 @@ import React, { Component } from 'react'
 import fillerPic from './images/32.jpg';
 import './gallery.css';
 import uploadPlus from './images/plusSign.png';
-import Modal from '../Modal/Modal';
 // import { generateHtml, placeholder } 
 
 export default class Gallery extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-    };
-  }
-
-  handleClick = event => {
-    console.log('Button clicked!');
-    event.preventDefault();
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
   render() {
     return (
       <div id="gallery-container">
-        <Modal show={this.state.isOpen} onClose={this.handleClick}>
-          Modal content
-        </Modal>
         <div className="overlay">
           <div className="overlay-inner">
             <button className="close">× Close</button>

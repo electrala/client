@@ -34,7 +34,6 @@ class Modal extends React.Component {
       <div className="backdrop" style={{backdropStyle}}>
         <div className="modal" style={{modalStyle}}>
           {this.props.children}
-          Why can't I see anything?
           <div className="footer">
             <button onClick={this.props.onClose}>
               Close
