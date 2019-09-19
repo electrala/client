@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Gallery from '../../Gallery/Gallery';
 import Signup from '../../Signup/Signup';
 import Login from '../../Login/Login';
-import SignUp from '../'
+
 
 import logo from './images/ElectraLogo.png';
 
