@@ -1,0 +1,10 @@
+.modal {
+  width: 85%;
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+  background-color: #ff5600;
+  border-radius: 10px;
+  z-index: 2;
+  line-height: 2rem;
+}
