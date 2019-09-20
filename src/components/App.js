@@ -2,39 +2,48 @@ import React from 'react';
 import './App.css';
 import '../css/style.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Layout from './common/Layout/Layout';
+// import Layout from './common/Layout/Layout';
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
+import Navbar from './common/Navbar/Navbar';
+import UploadCrit from './UploadCrit/UploadCrit';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
+      show: false,
     };
   }
 
-  handleClick = event => {
+  showModal = event => {
     event.preventDefault();
-    console.log('Button clicked!');
     this.setState({
-      isOpen: !this.state.isOpen
+      show: true,
     });
+  }
+
+  closeModal = event => {
+    event.preventDefault();
+    this.setState({
+      show: false,
+    })
   }
 
   render() {
     return (
-       <Layout>
-         <Modal show={this.state.isOpen} onClick={this.handleClick}>
-            Modal content
-         </Modal>
-         <div id="float-button">
-          <button onClick={this.handleClick}>
+      <Router>
+        <Navbar />
+        <Modal show={this.state.show} onClose={this.closeModal}>
+          <UploadCrit/>
+        </Modal>
+        <div id="float-button">
+          <button onClick={this.showModal}>
             <img src={require('./plusSign.png')} alt="plus sign for upload" />
           </button>
-         </div>
-         <Gallery />
-       </Layout>
+        </div>
+        <Route path="/" exact component={Gallery} />
+      </Router>
     );
   }
 }
