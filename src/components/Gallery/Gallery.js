@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import fillerPic from './images/32.jpg';
 import './gallery.css';
-import uploadPlus from './images/plusSign.png';
 // import { generateHtml, placeholder } 
 
 export default class Gallery extends Component {
@@ -15,13 +14,6 @@ export default class Gallery extends Component {
             <h3>Title of the Piece</h3>
             <p>Description of the piece</p>
           </div>
-        </div>
-        <div id="float-button">
-          <a href="pages/upload.html">
-            <button onClick={this.handleClick}>
-              <img src={uploadPlus} alt="plus sign for upload" />
-            </button>
-          </a>
         </div>
         <section className="gallery">
         <div className="item h2 v2">

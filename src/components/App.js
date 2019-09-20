@@ -28,6 +28,11 @@ class App extends React.Component {
          <Modal show={this.state.isOpen} onClick={this.handleClick}>
             Modal content
          </Modal>
+         <div id="float-button">
+          <button onClick={this.handleClick}>
+            <img src={require('./plusSign.png')} alt="plus sign for upload" />
+          </button>
+         </div>
          <Gallery />
        </Layout>
     );
