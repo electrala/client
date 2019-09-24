@@ -1,4 +1,4 @@
-#signup-container {
+/* #signup-container {
   margin: 6.5rem auto;
   width: 50vw;
   height: 100%;
@@ -7,36 +7,26 @@
   border-radius: 10px;
   display: grid;
   align-items: center;
-}
+} */
 
-#signup-form {
+/* #signup-form {
   margin: 0 auto;
   width: 70%;
   display: grid;
   grid-gap: 1rem;
   align-items: center;
-}
+} */
 
-#signup-form input {
-  background-color: #fff;
-  text-align: center;
-  /* border-radius: 10px; */
-  border: none;
-  border-bottom: 2px solid lightgrey;
-  padding: 5px;
-  transition: all .4s;
-}
-
-#signup-form input:focus {
+/* #signup-form input:focus {
   transform: scale(1.1);
   border: none;
   border-bottom: .5px solid lightgrey;
   outline: none;
   box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
   border-radius: 10px;
-}
+} */
 
-#signup-form button {
+/* #signup-form button {
   background-color: #fff;
   align-self: center;
   width: 75%;
@@ -48,15 +38,78 @@
   border-bottom: 2px solid #4DB6A5;
   transition: all 0.2s;
   box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
-}
+} */
 
-#signup-form button:hover {
+/* #signup-form button:hover {
   color: white;
   background-color: rgba(77, 182, 165, 0.678) !important;
   outline: none;
-}
+} */
 
-#signup-form button:focus {
+/* #signup-form button:focus {
   background-color: rgba(77, 182, 165, 0.836) !important;
   outline: none;
+} */
+
+#signUp-form {
+  width: 85%;
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff6e2;
+  border-radius: 10px;
+  line-height: 2rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  left: 10px;
+  bottom: 10px;
+}
+
+.signUp-form .footer {
+  width: 100%;
+  background-color: #141414;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem;
+}
+
+.signUp-form .header {
+  width: 100%;
+  background-color: #141414;
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+
+}
+
+#signUp-title {
+  color: antiquewhite;
+}
+
+#firstName-title {
+  width: 45%;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#firstName {
+  width: 45%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: wrap;
 }

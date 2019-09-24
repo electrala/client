@@ -38,68 +38,91 @@ export default class Signup extends Component {
       fontSize: "3rem"
     };
     return (
-      <form style={h1} onSubmit={this.handleSubmit}>
+      <div className="signUp-form">
+
+      <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
+        <div className="header">
+        <label id="signUp-title">Sign up!</label>
+        </div>
+        <div className="input-container">
+          <label id="firstName-title">First Name</label>
         <input
           type="text"
           name="firstName"
-          id=""
+          id="firstName"
+          placeholder="First Name"
           value={this.state.firstName}
           onChange={this.handleChange}
-        />
+          />
+      <label id="lastName-title">Last Name</label>
         <input
           type="text"
           name="lastName"
-          id=""
+          placeholder="Last Name"
+          id="lastName"
           value={this.state.lastName}
           onChange={this.handleChange}
-        />
+          />
+      <label id="userName-title">User Name</label>
         <input
           type="text"
           name="userName"
-          id=""
+          placeholder="User Name"
+          id="userName"
           value={this.state.userName}
           onChange={this.handleChange}
-        />
+          />
+       <label id="pronoun-title">Pronoun</label>
+
         <input
           type="text"
           name="pronoun"
-          id=""
+          placeholder="Pronouns"
+          id="pronoun"
           value={this.state.pronoun}
           onChange={this.handleChange}
-        />
+          />
         <input
           type="text"
           name="location"
-          id=""
+          placeholder="Location"
+          id="location"
           value={this.state.location}
           onChange={this.handleChange}
-        />
+          />
         <input
           type="text"
           name="email"
-          id=""
+          placeholder="email"
+          id="email"
           value={this.state.email}
           onChange={this.handleChange}
-        />
+          />
         <input
           type="text"
           name="password"
-          id=""
+          placeholder="password"
+          id="password"
           value={this.state.password}
           onChange={this.handleChange}
-        />
+          />
         <input
           type="text"
           name="confirmPassword"
-          id=""
+          placeholder="confirm password"
+          id="confirmPassword"
           value={this.state.confirmPassword}
           onChange={this.handleChange}
-        />
+          />
+        </div>
         <button type="submit">
           click me
-
         </button>
+      <div className="footer"></div>
+      
       </form>
+      </div>
+
     );
   }
 }
