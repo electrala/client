@@ -1,14 +1,28 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class UploadCrit extends React.Component {
+constructor(props){
+super(props); 
+this.state={
+  title: "", 
+  genre:"", 
+  description:"", 
+  
+}
+}
+
+
+
   render() {
     return (
+      <div>
       <div id="upload-container">
-        <h2 style="margin: 2rem auto; font-size: 1.6rem;">
+        <h2 >
           Upload Your Art for Critique!
         </h2>
         <div class="upload-grid">
-          <form id="upload-form" action="">
+          <form id="upload-form" >
             <input type="text" placeholder="Title" />
             <select name="genre" id="genre">
               <option value="select-one">select your genre</option>
@@ -35,6 +49,7 @@ export default class UploadCrit extends React.Component {
             <button class="submit" type="submit">Send it!</button>
             <button class="cancel" type="button">Just kidding!</button>
           </form>
+
           <div class="right-side">
             <a href="#"><i class="fas fa-upload fa-6x"></i></a>
             <h3>
@@ -42,6 +57,7 @@ export default class UploadCrit extends React.Component {
             </h3>
           </div>
         </div>
+      </div>
       </div>
     )
   }

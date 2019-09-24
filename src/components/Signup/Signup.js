@@ -97,7 +97,7 @@ export default class Signup extends Component {
         />
         <button type="submit">
           click me
-          noooooooooooooooooooooooooooooowwwwwwwwwwwwww!!!!!!!!!!!!!!!!!!!!!!!!!
+
         </button>
       </form>
     );
