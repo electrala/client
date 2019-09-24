@@ -1,14 +1,14 @@
-import React from 'react';
-import './App.css';
-import './css/style.css';
-import Layout from './components/common/Layout/Layout';
-import Gallery from './components/Gallery/Gallery';
+import React from "react";
+import "./App.css";
+import "./css/style.css";
+import Layout from "./components/common/Layout/Layout";
+import Gallery from "./components/Gallery/Gallery";
 
 function App() {
   return (
-     <Layout>
-       <Gallery />
-     </Layout>
+    <Layout>
+      <Gallery />
+    </Layout>
   );
 }
 

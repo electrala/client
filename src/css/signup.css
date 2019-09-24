@@ -1,4 +1,4 @@
-#signup-container {
+.signup-container {
   margin: 6.5rem auto;
   width: 50vw;
   height: 100%;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-#signup-form {
+.signup-form {
   margin: 0 auto;
   width: 70%;
   display: grid;
@@ -17,26 +17,26 @@
   align-items: center;
 }
 
-#signup-form input {
+.signup-form input {
   background-color: #fff;
   text-align: center;
   /* border-radius: 10px; */
   border: none;
   border-bottom: 2px solid lightgrey;
   padding: 5px;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
-#signup-form input:focus {
+.signup-form input:focus {
   transform: scale(1.1);
   border: none;
-  border-bottom: .5px solid lightgrey;
+  border-bottom: 0.5px solid lightgrey;
   outline: none;
   box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
   border-radius: 10px;
 }
 
-#signup-form button {
+.signup-form button {
   background-color: #fff;
   align-self: center;
   width: 75%;
@@ -45,18 +45,18 @@
   padding: 0.5rem;
   font-size: 1rem;
   border: none;
-  border-bottom: 2px solid #4DB6A5;
+  border-bottom: 2px solid #4db6a5;
   transition: all 0.2s;
   box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
 }
 
-#signup-form button:hover {
+.signup-form button:hover {
   color: white;
   background-color: rgba(77, 182, 165, 0.678) !important;
   outline: none;
 }
 
-#signup-form button:focus {
+.signup-form button:focus {
   background-color: rgba(77, 182, 165, 0.836) !important;
   outline: none;
 }

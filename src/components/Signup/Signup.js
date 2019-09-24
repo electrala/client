@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../../css/signup.css";
 
 export default class Signup extends Component {
   constructor(props) {
@@ -38,68 +39,67 @@ export default class Signup extends Component {
       fontSize: "3rem"
     };
     return (
-      <form style={h1} onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          id=""
-          value={this.state.firstName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="lastName"
-          id=""
-          value={this.state.lastName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="userName"
-          id=""
-          value={this.state.userName}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="pronoun"
-          id=""
-          value={this.state.pronoun}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="location"
-          id=""
-          value={this.state.location}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="email"
-          id=""
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="password"
-          id=""
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="confirmPassword"
-          id=""
-          value={this.state.confirmPassword}
-          onChange={this.handleChange}
-        />
-        <button type="submit">
-          click me
-          noooooooooooooooooooooooooooooowwwwwwwwwwwwww!!!!!!!!!!!!!!!!!!!!!!!!!
-        </button>
-      </form>
+      <div className="signup-container">
+        <form className="signup-form" style={h1} onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="first name"
+            value={this.state.firstName}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="last name"
+            value={this.state.lastName}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="userName"
+            placeholder="user name"
+            value={this.state.userName}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="pronoun"
+            placeholder="pronoun"
+            value={this.state.pronoun}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="location"
+            placeholder="location"
+            value={this.state.location}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="confirmPassword"
+            placeholder="confirm password"
+            value={this.state.confirmPassword}
+            onChange={this.handleChange}
+          />
+          <button type="submit">click me</button>
+        </form>
+      </div>
     );
   }
 }
