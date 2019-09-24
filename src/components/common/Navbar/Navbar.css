@@ -38,18 +38,32 @@ header nav ul {
   grid-template-columns: repeat(4, 1fr);
 }
 
-header nav Link {
+header nav link {
   display: inline-block;
 }
 
-
-
-header nav Link a {
+header nav link a {
   font-size: 1.2rem;
   text-decoration: none;
   color: #fff;
 }
 
-header nav Link a:hover {
+header nav link a:hover {
+  color: #ff5600;
+}
+
+.signup-login {
+  background-color: #141414;
+  color: #fff;
+  border: 0;
+  outline: none;
+
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.2rem;
+
+  transition: all 250ms;
+}
+
+.signup-login:hover {
   color: #ff5600;
 }
