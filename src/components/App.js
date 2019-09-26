@@ -6,28 +6,31 @@ import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
+import Signup from './Signup/Signup';
 import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
+      showCrit: false,
+      showUser: false,
       critiques: [],
+      users: [], 
     };
   }
 
-  showModal = event => {
+  showCritModal = event => {
     event.preventDefault();
     this.setState({
-      show: true,
+      showCrit: true,
     });
   }
 
-  closeModal = event => {
+  closeCritModal = event => {
     event.preventDefault();
     this.setState({
-      show: false,
+      showCrit: false,
     })
   }
 
@@ -44,6 +47,19 @@ class App extends React.Component {
       show: false,
     })
   }
+
+  showUserModal = event => {
+    this.setState({
+      showUser: true,
+    });
+  }
+
+  closeUserModal = event => {
+    this.setState({
+      showUser: false,
+    });
+  }
+
   uploadCrit = async data => {
     console.log(data);
     const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
@@ -54,16 +70,30 @@ class App extends React.Component {
     })
   }
 
+  signUp = async data => {
+    
+    console.log(data); 
+    const new_user = await axios.post('http://localhost:5000/users/register', data); 
+    const user = this.state.users;
+    user.push(new_user); 
+    this.setState({
+      users: user, 
+    })
+  }
+
   render() {
     return (
       <Router>
-        <Navbar />
-        <Modal show={this.state.show} onClose={this.closeModal}>
-          <UploadCrit onUpload={this.uploadCrit}/>
+        <Navbar onSignup={this.showUserModal}/>
+        <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
+          <UploadCrit onUpload={this.uploadCrit} />
+        </Modal>
+        <Modal show={this.state.showUser} onClose={this.closeUserModal}>
+          <Signup createUser={this.signUp}/>
         </Modal>
         
         <div id="float-button">
-          <button onClick={this.showModal}>
+          <button onClick={this.showCritModal}>
             <img src={require('./plusSign.png')} alt="plus sign for upload" />
           </button>
         </div>

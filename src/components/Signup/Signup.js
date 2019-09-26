@@ -24,13 +24,16 @@ export default class Signup extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
-    this.createUser(this.state);
+    const { password, confirmPassword } = this.state; 
+    if (password !== confirmPassword) {
+      alert("Passwords don't match"); 
+    } else {
+      event.preventDefault();
+      this.props.createUser(this.state);
+    }
   };
 
-  createUser = async userData => {
-    axios.post("http://localhost:5000/users/register", userData);
-  };
+   
 
   render() {
     let h1 = {
@@ -42,10 +45,9 @@ export default class Signup extends Component {
 
       <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
         <div className="header">
-        <label id="signUp-title">Sign up!</label>
+        <label id="signUp-title">Sign up, Gurl!</label>
         </div>
         <div className="input-container">
-          <label id="firstName-title">First Name</label>
         <input
           type="text"
           name="firstName"
@@ -54,7 +56,6 @@ export default class Signup extends Component {
           value={this.state.firstName}
           onChange={this.handleChange}
           />
-      <label id="lastName-title">Last Name</label>
         <input
           type="text"
           name="lastName"
@@ -63,7 +64,6 @@ export default class Signup extends Component {
           value={this.state.lastName}
           onChange={this.handleChange}
           />
-      <label id="userName-title">User Name</label>
         <input
           type="text"
           name="userName"
@@ -72,7 +72,6 @@ export default class Signup extends Component {
           value={this.state.userName}
           onChange={this.handleChange}
           />
-       <label id="pronoun-title">Pronoun</label>
 
         <input
           type="text"
@@ -98,6 +97,7 @@ export default class Signup extends Component {
           value={this.state.email}
           onChange={this.handleChange}
           />
+
         <input
           type="text"
           name="password"
@@ -106,6 +106,7 @@ export default class Signup extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           />
+
         <input
           type="text"
           name="confirmPassword"
@@ -114,10 +115,10 @@ export default class Signup extends Component {
           value={this.state.confirmPassword}
           onChange={this.handleChange}
           />
-        </div>
-        <button type="submit">
-          click me
+        <button id="signUpButton" type="submit">
+          Sign Me Up, Gurl!
         </button>
+        </div>
       <div className="footer"></div>
       
       </form>
