@@ -16,7 +16,6 @@ class App extends React.Component {
       showCrit: false,
       showUser: false,
       critiques: [],
-      users: [], 
     };
   }
 
@@ -61,7 +60,6 @@ class App extends React.Component {
   }
 
   uploadCrit = async data => {
-    console.log(data);
     const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
     const crits = this.state.critiques;
     crits.push(new_crit);
@@ -71,14 +69,12 @@ class App extends React.Component {
   }
 
   signUp = async data => {
-    
-    console.log(data); 
-    const new_user = await axios.post('http://localhost:5000/users/register', data); 
-    const user = this.state.users;
-    user.push(new_user); 
-    this.setState({
-      users: user, 
-    })
+    const new_user = await axios.post('http://localhost:5000/users/register', data);
+    const new_user_data = JSON.parse(new_user.config.data);
+    console.log(new_user_data);
+    // const userName = new_user.config.data.userName;
+    // const password = new_user.config.data.password;
+    // console.log(`Username: ${userName} | Password: ${password}`);
   }
 
   render() {

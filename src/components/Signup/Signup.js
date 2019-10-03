@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 export default class Signup extends Component {
   constructor(props) {
@@ -32,8 +31,6 @@ export default class Signup extends Component {
       this.props.createUser(this.state);
     }
   };
-
-   
 
   render() {
     let h1 = {
