@@ -71,10 +71,13 @@ class App extends React.Component {
   signUp = async data => {
     const new_user = await axios.post('http://localhost:5000/users/register', data);
     const new_user_data = JSON.parse(new_user.config.data);
-    console.log(new_user_data);
-    // const userName = new_user.config.data.userName;
-    // const password = new_user.config.data.password;
-    // console.log(`Username: ${userName} | Password: ${password}`);
+    this.logIn(new_user_data);
+  }
+
+  logIn = async data => {
+    const result = await axios.post('http://localhost:5000/users/login', data);
+    const token = result.data.token;
+    console.log(token);
   }
 
   render() {
