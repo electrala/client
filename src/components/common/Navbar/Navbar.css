@@ -9,17 +9,22 @@
 
 #critiques {
   place-self: center end;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 
 #gallery {
   place-self: center start;
-  padding-left: 1rem;
+  padding-left: 10rem;
 }
 
 #profile {
   place-self: center end;
   padding-right: 2.5rem;
+}
+
+#login {
+  place-self: center end;
+  padding-right: 10rem;
 }
 
 header {
@@ -65,5 +70,22 @@ header nav link a:hover {
 }
 
 .signup-login:hover {
+  color: #ff5600;
+}
+
+.login {
+  background-color: #141414;
+  color: #fff;
+  outline: none;
+  border: 10px;
+  border-color: #fff;
+
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.2rem;
+
+  transition: all 250ms;
+}
+
+.login:hover {
   color: #ff5600;
 }

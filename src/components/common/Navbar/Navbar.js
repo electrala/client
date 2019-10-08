@@ -17,7 +17,12 @@ export default class Navbar extends Component {
   }
 
   handleClick = event => {
+    event.preventDefault(); 
     this.props.onSignup();
+  }
+
+  handleLoginClick = event => {
+    this.props.onLogin(); 
   }
 
   render() {
@@ -36,8 +41,9 @@ export default class Navbar extends Component {
                 <Link to="/">Gallery</Link>
               </li>
               <li id="profile">
-                <button className="signup-login" onClick={this.handleClick}>Signup</button>
+                <button className="signup-login" onClick={this.handleClick}>Signup/Login</button>
               </li>
+  
             </ul>
           </nav>
         </header>
