@@ -18,6 +18,7 @@ export default class Login extends Component {
   
   handleSubmit = event => {
     event.preventDefault(); 
+    console.log(this.state);
     this.props.loginUser(this.state);
   }; 
 
@@ -25,38 +26,31 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login-form">
-        <form id="login-form">
-      <div className="header">
-        <label id="login-title">Login, Gurl!</label>
-      </div>
-      <div className="input-container"> 
-      <input
-      type="text"
-      name="userName"
-      id="userName"
-      placeholder="username"
-      />
-      <input
-      type="text"
-      name="password"
-      id="password"
-      placeholder="password"
-      />
-      <button id="loginButton" type="button">
-        Login, Gurl!
-        </button>
-
-        <p>Already have an account?</p>
-
-      </div>
-
-
-
-      <div className="footer">
-
-
-      </div>
-
+        <form id="login-form" onSubmit={this.handleSubmit}>
+          <div className="header">
+            <label id="login-title">Login, Gurl!</label>
+          </div>
+          <div className="input-container"> 
+            <input
+              type="text"
+              name="userName"
+              id="userName"
+              placeholder="username"
+              value={this.state.userName}
+              onChange={this.handleChange}
+            />
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <button id="loginButton" type="submit">Login, Gurl!</button>
+          </div>
+          <div className="footer">
+          </div>
         </form>
       </div>
     ); 
