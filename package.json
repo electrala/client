@@ -1,20 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "client",
-  "version": "1.0.0",
-  "description": "Front-end of Electra",
-  "main": "index.js",
-  "dependencies": {
-    "cors": "^2.8.5"
-  },
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.2"
-  },
-  "scripts": {
-    "start": "open index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-=======
   "name": "electra-react-client",
   "version": "0.1.0",
   "private": true,
@@ -50,15 +34,11 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
->>>>>>> reactifyElectra
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electrala/client.git"
   },
-<<<<<<< HEAD
-=======
   "keywords": [],
->>>>>>> reactifyElectra
   "author": "",
   "license": "ISC",
   "bugs": {

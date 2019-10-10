@@ -79,9 +79,15 @@ class App extends React.Component {
   logIn = async data => {
     const result = await axios.post('http://localhost:5000/users/login', data);
     const token = result.data.token;
-    localStorage.setItem ('jwt', token); 
-    console.log(token);
+    localStorage.setItem('jwt', token);
+    this.setToken(token);
   }
+
+  setToken = (token = null) => {
+    let tempToken = token;
+    if (tempToken !== null) tempToken = localStorage.getItem('jwt');
+    axios.defaults.headers.common['Authorization'] = `Bearer ${tempToken}`;
+  };
 
   render() {
     return (
