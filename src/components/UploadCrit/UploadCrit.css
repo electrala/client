@@ -1,0 +1,157 @@
+/* .right-side {
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 1.5fr;
+}
+
+.right-side i {
+  color: #4db6a5;
+  transition: all 0.2s;
+}
+
+.right-side i:hover {
+  color: rgba(77, 182, 165, 0.678);
+}
+
+.right-side a {
+  place-self: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.right-side h3 {
+  place-self: start center;
+}
+
+.right-side span {
+  color: #4db6a5;
+  transition: all 0.2s;
+}
+
+.right-side span:hover {
+  color: rgba(77, 182, 165, 0.678);
+} */
+
+#upload-form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+#form-title {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  background-color: #141414;
+  color: #fff6e2;
+  border-radius: 10px 10px 0 0;
+}
+
+#title-label,
+#genre-label {
+  width: 45%;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#title,
+#genre {
+  width: 45%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+#description-label,
+#feedback-label {
+  width: 92%;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#description,
+#feedback {
+  width: 92%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+#upload-form input {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  padding: 5px;
+
+  font-family: "Lexend Deca", sans-serif;
+}
+
+#upload-form textarea {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  padding: 5px;
+
+  font-family: "Lexend Deca", sans-serif;
+}
+
+#upload-form select {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  padding: 5px;
+
+  font-family: "Lexend Deca", sans-serif;
+}
+
+#upload-form button {
+  background-color: #fff;
+  width: 45%;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: "Lexend Deca", sans-serif;
+  transition: all 0.2s;
+  box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.144);
+}
+
+#upload-form button:hover {
+  background-color: #51b5a4;
+}
+
+/* button.submit {
+  border: 2px solid #4db6a5;
+}
+
+button:hover.submit {
+  color: white;
+  outline: none;
+  background-color: rgba(77, 182, 165, 0.678) !important;
+}
+
+button:focus.submit {
+  background-color: rgba(77, 182, 165, 0.836) !important;
+  outline: none;
+}
+
+button.cancel {
+  border: 2px solid red;
+}
+
+button:hover.cancel {
+  color: white;
+  background-color: lightcoral !important;
+  outline: none;
+}
+
+button:focus.cancel {
+  background-color: coral !important;
+  outline: none;
+} */

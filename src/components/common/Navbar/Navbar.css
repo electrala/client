@@ -1,0 +1,91 @@
+#logo img {
+  max-height: 2.5rem;
+}
+
+#logo {
+  place-self: center start;
+  padding-left: 2.5rem;
+}
+
+#critiques {
+  place-self: center end;
+  padding-right: 2rem;
+}
+
+#gallery {
+  place-self: center start;
+  padding-left: 10rem;
+}
+
+#profile {
+  place-self: center end;
+  padding-right: 2.5rem;
+}
+
+#login {
+  place-self: center end;
+  padding-right: 10rem;
+}
+
+header {
+  max-width: 80%;
+}
+
+header nav ul {
+  background-color: #141414;
+  width: 100%;
+  height: 4rem;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+header nav link {
+  display: inline-block;
+}
+
+header nav link a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+header nav link a:hover {
+  color: #ff5600;
+}
+
+.signup-login {
+  background-color: #141414;
+  color: #fff;
+  border: 0;
+  outline: none;
+
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.2rem;
+
+  transition: all 250ms;
+}
+
+.signup-login:hover {
+  color: #ff5600;
+}
+
+.login {
+  background-color: #141414;
+  color: #fff;
+  outline: none;
+  border: 10px;
+  border-color: #fff;
+
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 1.2rem;
+
+  transition: all 250ms;
+}
+
+.login:hover {
+  color: #ff5600;
+}

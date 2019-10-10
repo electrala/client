@@ -1,0 +1,169 @@
+.signUp-form .footer {
+  width: 100%;
+  background-color: #141414;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem;
+}
+
+
+
+.signUp-form .header {
+  width: 100%;
+  background-color: #141414;
+  position: absolute;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  top: 0;
+  padding: 1rem;
+}
+
+#signUp-title {
+  color: #fff6e2;
+
+}
+
+
+#firstName,
+#firstName-title {
+  width: 70%;
+  padding: 5px;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  border: 0px;
+  border-radius: 5px;
+
+}
+
+#firstName::placeholder {
+  text-align: center;
+}
+
+#lastName,
+#lastName-title {
+  width: 70%;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+#lastName::placeholder {
+  text-align: center;
+}
+
+#userName,
+#userName-title {
+  width: 70%;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#userName::placeholder {
+  text-align: center;
+}
+
+#pronoun,
+#pronoun-title {
+  width: 70%;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#pronoun::placeholder {
+  text-align: center;
+}
+
+#location,
+#location-title {
+  width: 70%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#location::placeholder {
+  text-align: center;
+}
+
+#email,
+#email-title {
+  width: 70%;
+  padding: 5px;
+  margin-left: 1rem;
+  border: 0px;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+#email::placeholder {
+  text-align: center;
+}
+
+#password,
+#password-title {
+  width: 70%;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#password::placeholder {
+  text-align: center;
+}
+
+#confirmPassword,
+#confirmPassword-title {
+  width: 70%;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#confirmPassword::placeholder {
+  text-align: center;
+}
+
+#signUpButton {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  padding: 0.5rem;
+  transition: all 0.2s;
+  margin-top: 1rem;
+  position: absolute;
+  top: 395px;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+#signUpButton:hover {
+  background-color: #51b5a4;
+
+}
+
+.input-container {
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: wrap;
+
+}
