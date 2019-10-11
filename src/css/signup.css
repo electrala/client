@@ -1,3 +1,14 @@
+.signup-container {
+  font-size: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
 .signUp-form .footer {
   width: 100%;
   background-color: #141414;
@@ -147,23 +158,11 @@
   transition: all 0.2s;
   margin-top: 1rem;
   position: absolute;
-  top: 395px;
+  top: 500px;
   font-family: "Lexend Deca", sans-serif;
 }
 
 #signUpButton:hover {
   background-color: #51b5a4;
-
-}
-
-.input-container {
-  font-size: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  flex-flow: wrap;
 
 }

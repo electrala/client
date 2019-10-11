@@ -44,7 +44,7 @@ export default class Signup extends Component {
         <div className="header">
         <label id="signUp-title">Sign up, Gurl!</label>
         </div>
-        <div className="input-container">
+        <div className="signup-container">
         <input
           type="text"
           name="firstName"
