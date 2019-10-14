@@ -94,7 +94,8 @@ class App extends React.Component {
           <Signup createUser={this.signUp}/>
         </Modal> */}
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>< Updated upstream
+          <Login loginUser={this.logIn}/>
+          <Signup Signup={this.signUp}/>
         </Modal>
 
         
