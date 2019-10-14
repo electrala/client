@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
