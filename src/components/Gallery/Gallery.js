@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { Component } from 'react'
 import fillerPic from './images/32.jpg';
 import './gallery.css';
