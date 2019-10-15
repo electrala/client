@@ -6,33 +6,62 @@ import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
+import Signup from './Signup/Signup';
+import Login from './Login/Login'; 
 import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false,
+      showCrit: false,
+      showUser: false,
+      showLogin: false,
       critiques: [],
     };
   }
 
-  showModal = event => {
+  showCritModal = event => {
     event.preventDefault();
     this.setState({
-      show: true,
+      showCrit: true,
     });
   }
 
-  closeModal = event => {
+  closeCritModal = event => {
     event.preventDefault();
     this.setState({
-      show: false,
+      showCrit: false,
     })
   }
 
+  showUserModal = event => {
+    this.setState({
+      showUser: true,
+    });
+  }
+
+
+  closeUserModal = event => {
+    this.setState({
+      showUser: false,
+    });
+  }
+
+  showLoginModal = event => {
+    this.setState({
+      showLogin: true, 
+    });
+  }
+
+  closeLoginModal = event => {
+    this.setState({
+      showLogin: false,
+    }); 
+  }
+
+
   uploadCrit = async data => {
-    console.log(data);
     const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
     const crits = this.state.critiques;
     crits.push(new_crit);
@@ -41,15 +70,37 @@ class App extends React.Component {
     })
   }
 
+  signUp = async data => {
+    const new_user = await axios.post('http://localhost:5000/users/register', data);
+    const new_user_data = JSON.parse(new_user.config.data);
+    this.logIn(new_user_data);
+  }
+
+  logIn = async data => {
+    const result = await axios.post('http://localhost:5000/users/login', data);
+    const token = result.data.token;
+    localStorage.setItem ('jwt', token); 
+    console.log(token);
+  }
+
   render() {
     return (
       <Router>
-        <Navbar />
-        <Modal show={this.state.show} onClose={this.closeModal}>
-          <UploadCrit onUpload={this.uploadCrit}/>
+        <Navbar onSignup={this.showLoginModal}/>
+        <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
+          <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
+        {/* <Modal show={this.state.showUser} onClose={this.closeUserModal}>
+          <Signup createUser={this.signUp}/>
+        </Modal> */}
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <Login loginUser={this.logIn}/>
+          <Signup Signup={this.signUp}/>
+        </Modal>
+
+        
         <div id="float-button">
-          <button onClick={this.showModal}>
+          <button onClick={this.showCritModal}>
             <img src={require('./plusSign.png')} alt="plus sign for upload" />
           </button>
         </div>

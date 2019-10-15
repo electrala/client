@@ -4,6 +4,7 @@
 @import "./gallery.css";
 @import "./signup.css";
 @import "./userProfile.css";
+@import "../components/Login/Login.css";
 
 * {
   box-sizing: border-box;
