@@ -51,13 +51,7 @@ export default class Login extends Component {
               
             <button id="loginButton" type="submit">Login, Gurl!</button>
           </div>
-<<<<<<< HEAD
-          <div className="footer">
-          </div>
-
-=======
           
->>>>>>> b01118f749bf72851c9ef2c992f4a1af6ac1eadf
         </form>
       </div>
       // End of the Login      

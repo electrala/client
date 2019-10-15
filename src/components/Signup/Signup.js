@@ -1,10 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import axios from "axios";
-import "../../css/signup.css";
-=======
->>>>>>> 4df4834cddbfa68b4bea6e9dc057e9ba8742915a
-
 export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -43,69 +37,6 @@ export default class Signup extends Component {
       fontSize: "3rem"
     };
     return (
-<<<<<<< HEAD
-      <div className="signup-container">
-        <form className="signup-form" style={h1} onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="first name"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="last name"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="userName"
-            placeholder="user name"
-            value={this.state.userName}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="pronoun"
-            placeholder="pronoun"
-            value={this.state.pronoun}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="location"
-            placeholder="location"
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="email"
-            placeholder="email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            name="confirmPassword"
-            placeholder="confirm password"
-            value={this.state.confirmPassword}
-            onChange={this.handleChange}
-          />
-          <button type="submit">click me</button>
-        </form>
-      </div>
-=======
       <div className="signUp-form">
 
       <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
@@ -184,12 +115,11 @@ export default class Signup extends Component {
           Sign Me Up, Gurl!
         </button>
         </div>
-      
+      <div className="footer"></div>
       
       </form>
       </div>
 
->>>>>>> 4df4834cddbfa68b4bea6e9dc057e9ba8742915a
     );
   }
 }
