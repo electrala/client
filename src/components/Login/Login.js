@@ -46,11 +46,11 @@ export default class Login extends Component {
               placeholder="password"
               value={this.state.password}
               onChange={this.handleChange}
-            />
+              />
+              
             <button id="loginButton" type="submit">Login, Gurl!</button>
           </div>
-          <div className="footer">
-          </div>
+          
         </form>
       </div>
     ); 
