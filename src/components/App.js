@@ -96,13 +96,13 @@ class App extends React.Component {
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
-        <Modal show={this.state.showUser} onClose={this.closeUserModal}>
+        {/* <Modal show={this.state.showUser} onClose={this.closeUserModal}>
           <Signup createUser={this.signUp}/>
-        </Modal>
+        </Modal> */}
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <Login loginUser={this.logIn}/>
-        </Modal>
-
+          <Signup createUser={this.signUp}/>
+          </Modal>
         
         <div id="float-button">
           <button onClick={this.showCritModal}>
