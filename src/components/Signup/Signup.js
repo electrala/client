@@ -184,7 +184,7 @@ export default class Signup extends Component {
           Sign Me Up, Gurl!
         </button>
         </div>
-      <div className="footer"></div>
+      
       
       </form>
       </div>

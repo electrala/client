@@ -4,6 +4,8 @@
   max-width: 800px;
   overflow: auto;
   margin: auto;
+  display: flex;
+  flex-direction: row;
   background-color: #fff6e2;
   border-radius: 10px;
   line-height: 2rem;
@@ -15,6 +17,7 @@
   left: 10px;
   bottom: 10px;
 }
+
 
 .modal .footer {
   width: 100%;

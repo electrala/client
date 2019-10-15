@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .signup-container {
   font-size: 1rem;
   width: 100%;
@@ -18,133 +19,155 @@
   padding: 1rem;
 }
 
-.signUp-form .header {
-  width: 100%;
-  background-color: #141414;
-  position: absolute;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  top: 0;
-  padding: 1rem;
+=======
+.signUp-form {
+  width: 50%;
 }
 
-#signUp-title {
+.signUp-form .input-container {
+  font-size: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* margin-left: 0rem; */
+  align-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-flow: wrap;
+
+}
+
+>>>>>>> b01118f749bf72851c9ef2c992f4a1af6ac1eadf
+.signUp-form .header {
+  background-color: #141414;
+  position: absolute;
+  font-size: 2rem;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  top: 1rem;
+  margin-left: 6rem;
+}
+
+.signUp-form #signUp-title {
   color: #fff6e2;
 }
 
+<<<<<<< HEAD
 #firstName,
 #firstName-title {
+=======
+
+.signUp-form #firstName {
+>>>>>>> b01118f749bf72851c9ef2c992f4a1af6ac1eadf
   width: 70%;
   padding: 5px;
   margin-left: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   border: 0px;
   border-radius: 5px;
+<<<<<<< HEAD
+=======
+  padding-top: 5px;
+
+>>>>>>> b01118f749bf72851c9ef2c992f4a1af6ac1eadf
 }
 
 #firstName::placeholder {
   text-align: center;
 }
 
-#lastName,
-#lastName-title {
+.signUp-form #lastName {
   width: 70%;
   padding: 5px;
   border: 0px;
   border-radius: 5px;
-  margin-top: 1rem;
   margin-left: 1rem;
+  margin-top: .5rem;
 }
 
 #lastName::placeholder {
   text-align: center;
 }
 
-#userName,
-#userName-title {
+.signUp-form #userName {
   width: 70%;
   padding: 5px;
   border: 0px;
   border-radius: 5px;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #userName::placeholder {
   text-align: center;
 }
 
-#pronoun,
-#pronoun-title {
+.signUp-form #pronoun {
   width: 70%;
   padding: 5px;
   border: 0px;
   border-radius: 5px;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #pronoun::placeholder {
   text-align: center;
 }
 
-#location,
-#location-title {
+.signUp-form #location {
   width: 70%;
   padding: 5px;
   border-radius: 5px;
   border: 0px;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #location::placeholder {
   text-align: center;
 }
 
-#email,
-#email-title {
+.signUp-form #email {
   width: 70%;
   padding: 5px;
   margin-left: 1rem;
   border: 0px;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #email::placeholder {
   text-align: center;
 }
 
-#password,
-#password-title {
+.signUp-form #password {
   width: 70%;
   padding: 5px;
   border: 0px;
   border-radius: 5px;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #password::placeholder {
   text-align: center;
 }
 
-#confirmPassword,
-#confirmPassword-title {
+.signUp-form #confirmPassword {
   width: 70%;
   padding: 5px;
   border: 0px;
   border-radius: 5px;
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #confirmPassword::placeholder {
   text-align: center;
 }
 
-#signUpButton {
+.signUp-form #signUpButton {
   background-color: #fff;
   border-radius: 5px;
   border: 0;
@@ -159,4 +182,9 @@
 
 #signUpButton:hover {
   background-color: #51b5a4;
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> b01118f749bf72851c9ef2c992f4a1af6ac1eadf
