@@ -25,9 +25,7 @@ export default class Login extends Component {
   
   render() {
     return (
-      // Start of the Login Form
       <div className="login-form">
-<<<<<<< Updated upstream
         <form id="login-form" onSubmit={this.handleSubmit}>
           <div className="header">
             <label id="login-title">Login, Gurl!</label>
@@ -53,37 +51,8 @@ export default class Login extends Component {
           </div>
           <div className="footer">
           </div>
-=======
-        <form id="login-form">
-      <div className="header">
-        <label id="login-title">Login, Gurl!</label>
-      </div>
-      <div className="input-container"> 
-      <input
-      type="text"
-      name="userName"
-      id="userName"
-      placeholder="username"
-      />
-      <input
-      type="text"
-      name="password"
-      id="password"
-      placeholder="password"
-      />
-      <button id="loginButton" type="button">
-        Login, Gurl!
-        </button>
-
-      </div>
-      <div className="SignUp-form">
-        </div>
-      <div className="footer">
-      </div>
->>>>>>> Stashed changes
         </form>
       </div>
-      // End of the Login      
     ); 
   }
 }
