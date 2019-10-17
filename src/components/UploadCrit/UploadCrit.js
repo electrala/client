@@ -2,6 +2,8 @@ import React from 'react';
 import './UploadCrit.css';
 
 export default class UploadCrit extends React.Component {
+  // The default username is b, but this needs to be pulled from local storage
+  // because the user should already be logged in.
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +15,22 @@ export default class UploadCrit extends React.Component {
     }
   }
 
+  /**
+   * This handles submitting the upload form. It sends the data from the form
+   * to the App component, where it will be sent to the back end.
+   * @param {object} event This is the event triggered by clicking the upload
+   *                       button.
+   */
   handleSubmit = event => {
     event.preventDefault();
     this.props.onUpload(this.state);
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     const { target } = event;
     const { value } = target;

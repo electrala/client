@@ -4,8 +4,6 @@ import './Navbar.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Signup from '../../Signup/Signup';
 import Login from '../../Login/Login';
-
-
 import logo from './images/ElectraLogo.png';
 
 export default class Navbar extends Component {
