@@ -28,7 +28,7 @@ export default class Signup extends Component {
       alert("Passwords don't match"); 
     } else {
       event.preventDefault();
-      this.props.createUser(this.state);
+      this.props.signUp(this.state);
     }
   };
 
@@ -116,8 +116,7 @@ export default class Signup extends Component {
           Sign Me Up, Gurl!
         </button>
         </div>
-      
-      
+     
       </form>
       </div>
 

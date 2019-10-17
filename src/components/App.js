@@ -75,10 +75,12 @@ class App extends React.Component {
    * Logs a user in.
    * @param {object} data This is the data from the sign up form
    */
+
   signUp = async data => {
     const new_user = await axios.post('http://localhost:5000/users/register', data);
     const new_user_data = JSON.parse(new_user.config.data);
     this.logIn(new_user_data);
+    
   }
 
   /**
