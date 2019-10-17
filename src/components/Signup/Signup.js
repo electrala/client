@@ -4,14 +4,14 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      userName: "",
-      pronoun: "",
-      location: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
+      firstName: "Ayana Test",
+      lastName: "Hawk ",
+      userName: "Ayana",
+      pronoun: "She",
+      location: "LA ",
+      email: "ayanahawk11@gmail.com",
+      password: "m",
+      confirmPassword: "m"
     };
   }
 
@@ -29,6 +29,7 @@ export default class Signup extends Component {
     } else {
       event.preventDefault();
       this.props.signUp(this.state);
+     
     }
   };
 
