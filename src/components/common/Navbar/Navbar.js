@@ -16,13 +16,13 @@ export default class Navbar extends Component {
     }
   }
 
+  /**
+   * This handles clicking on the signup/login button, which toggles the signup/login modal.
+   * @param {object} event This is the event triggered by clicking the button. 
+   */
   handleClick = event => {
     event.preventDefault(); 
     this.props.onSignup();
-  }
-
-  handleLoginClick = event => {
-    this.props.onLogin(); 
   }
 
   render() {
