@@ -15,6 +15,11 @@ export default class Signup extends Component {
     };
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -22,6 +27,13 @@ export default class Signup extends Component {
     });
   };
 
+  /**
+   * This handles submitting the signup form.
+   * Checks to see if the user retyped their password correctly. If they did,
+   * it will send the form data to the App component, where the it will be
+   * sent to the back end.
+   * @param {object} event This is the event triggered by the signup button
+   */
   handleSubmit = event => {
     const { password, confirmPassword } = this.state; 
     if (password !== confirmPassword) {
@@ -69,7 +81,6 @@ export default class Signup extends Component {
           value={this.state.userName}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="pronoun"
@@ -94,7 +105,6 @@ export default class Signup extends Component {
           value={this.state.email}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="password"
@@ -103,7 +113,6 @@ export default class Signup extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="confirmPassword"
@@ -116,11 +125,9 @@ export default class Signup extends Component {
           Sign Me Up, Gurl!
         </button>
         </div>
-      
-      
       </form>
-      </div>
 
+      </div>
     );
   }
 }

@@ -54,7 +54,6 @@ class App extends React.Component {
     }); 
   }
 
-
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
