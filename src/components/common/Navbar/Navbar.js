@@ -43,12 +43,9 @@ export default class Navbar extends Component {
               <li id="profile">
                 <button className="signup-login" onClick={this.handleClick}>Signup/Login</button>
               </li>
-  
             </ul>
           </nav>
         </header>
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
       </Router>
     )
   }
