@@ -92,14 +92,17 @@ showProfilePic=event=>{
    */
   signUp = async data => {
    
-       const new_user = await axios.post('http://localhost:5000/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
-
+    try{
+      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
+      // const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true,
       })
+    }catch{
+      alert("error")
+    }
 
    
     // const userName = new_user.config.data.userName;
