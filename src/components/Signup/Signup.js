@@ -81,7 +81,6 @@ export default class Signup extends Component {
           value={this.state.userName}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="pronoun"
@@ -106,7 +105,6 @@ export default class Signup extends Component {
           value={this.state.email}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="password"
@@ -115,7 +113,6 @@ export default class Signup extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="confirmPassword"
@@ -128,11 +125,9 @@ export default class Signup extends Component {
           Sign Me Up, Gurl!
         </button>
         </div>
-      
-      
       </form>
-      </div>
 
+      </div>
     );
   }
 }
