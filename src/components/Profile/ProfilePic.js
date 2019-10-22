@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-import Pic from './pic.png'
+import Pic from './tattoo.jpg'
 import {Link} from 'react-router-dom';
 import './Profile.css';
 

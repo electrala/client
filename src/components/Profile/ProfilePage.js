@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pic from './pic.png'
+import Pic from './tattoo.jpg'
 
 
 export default class ProfilePage extends Component {
