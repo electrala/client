@@ -40,7 +40,7 @@ export default class Navbar extends Component {
         <li id="profile">
         <button className="signup-login" onClick={this.handleClick}>Login | Sign Up</button>
       </li>} 
-        }
+        
         </ul>
       </nav>
     </header>

@@ -9,6 +9,7 @@ import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
 import Login from './Login/Login'; 
 import axios from 'axios';
+import ProfilePage from './Profile/ProfilePage';
 
 class App extends React.Component {
   constructor(props) {
@@ -144,7 +145,7 @@ showProfilePic=event=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          {/* <Route path='/profile' component={Profile} /> */}
+        <Route path='/profile' component={ProfilePage} /> 
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
