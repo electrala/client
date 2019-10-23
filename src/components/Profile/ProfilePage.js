@@ -15,19 +15,22 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
 
+
                 <div className="container">
-                    <div>
+                  {/* 
+                   <div className='img'>
                         <img className="photo" src={Pic} alt="profile pic" ></img>
-                    </div>
+                    </div>  */}
 
                     <div className="row">
 
                         <div className="left col-lg-4">
                             <div >
                                 <ul className="nav">
+                                    <li>About</li>
                                     <li>Gallery</li>
                                     <li>Collections</li>
-                                    <li>About</li>
+
                                 </ul>
                                 <span className="follow">Follow</span>
 
