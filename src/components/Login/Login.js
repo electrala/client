@@ -9,6 +9,11 @@ export default class Login extends Component {
     };
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     event.preventDefault(); 
     this.setState({
@@ -16,12 +21,17 @@ export default class Login extends Component {
     });
   };
   
+  /**
+   * This handle submitting the login form.
+   * It sends the form data to the App component, where it will be sent to the
+   * back end.
+   * @param {object} event This is the event triggered by the login button.
+   */
   handleSubmit = event => {
     event.preventDefault(); 
     console.log(this.state);
     this.props.loginUser(this.state);
   }; 
-
   
   render() {
     return (
@@ -46,10 +56,8 @@ export default class Login extends Component {
               placeholder="password"
               value={this.state.password}
               onChange={this.handleChange}
-            />
+              />   
             <button id="loginButton" type="submit">Login, Gurl!</button>
-          </div>
-          <div className="footer">
           </div>
         </form>
       </div>
