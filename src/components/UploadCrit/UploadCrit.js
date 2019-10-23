@@ -11,7 +11,8 @@ export default class UploadCrit extends React.Component {
       genre: "",
       description: "",
       questions: "",
-      selectedFile: null
+      selectedFile: null,
+      s3locationurl: ""
     };
   }
 
@@ -21,7 +22,8 @@ export default class UploadCrit extends React.Component {
     });
   };
 
-  singleFileUploadHandler = () => {
+  singleFileUploadHandler = (evt) => {
+    evt.preventDefault();
     const data = new FormData();
     // If file selected
     if (this.state.selectedFile) {
@@ -57,6 +59,9 @@ export default class UploadCrit extends React.Component {
               console.log("fileData", fileName);
               // this.ocShowAlert("File Uploaded", "#3089cf");
               console.log('File uploaded!');
+              this.setState({
+                "s3locationurl": fileName.location
+              })
             }
           }
         })
