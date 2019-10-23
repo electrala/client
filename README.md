@@ -1,29 +1,40 @@
-# Electra - An artist collaboration web application
+# ELECTRA
+### Collaboration for the modern artist
+---
+### Current Features:
+- __Critiques__ (In development) - Artists can upload their work using the Critique Upload Form. This work is sent to a (secure) AWS S3 bucket, and a link to that work is stored in a (secure) PostgreSQL database. These links are used to render all the art on the Critiques page.
+- __Profile__ (In development) - Users can see their information in an organized profile. They can also see the work they've uploaded.
 
-An artist collaboration app. Frontend built with HTML, CSS, and JavaScript.
+### Table of Contents:
 
-## Table of contents
+1. [Technology](#technolgy)
+2. [Setup](#setup)
+3. [UX](#ux)
+4. [Future Work](#futurework)
 
-- [Technologies](#technologies)
-- [Setup](#setup)
-- [Illustrations](#illustrations)
-- [Features](#features)
+### Technology
 
-## Technologies
+- PERN Stack:
+  - PostgreSQL Database (Not used in client)
+  - Express API Framework (Not used in client)
+  - React UI Framework
+  - Node JS Environment
+- Languages:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - SQL (Not used in client)
+- Frameworks:
+  - React
+  - CSS Grid
+  - Flexbox
+- Developer Tools:
+  - VSCode
+  - Firefox Developer Edition (Grid debugging)
+  
+### Setup
 
-Web App created with:
-
-- HTML5
-- CSS3
-- CSS Grid
-  - Firefox Developer Edition(debugging CSS Grid)
-- Flexbox
-- Javascript
-- VSCode
-
-## Setup
-
-To run this project, install it locally via command line
+To run this project, start by installing it locally via command line:
 
 ```
 $ git clone https://github.com/electrala/client
@@ -31,35 +42,47 @@ $ cd client
 $ code .
 ```
 
-## Illustrations
+Next open a terminal in your developing environment:
 
-A responsive web app used to post images, give critique and receive critique
-###### Prototype links
-- [Web prototype](https://xd.adobe.com/view/a09a6bb2-c574-4bb1-7517-6de3f8a265c0-d6ab/?fullscreen)
-- [Mobile prototype](https://xd.adobe.com/view/fdba7ccc-9072-4245-7ac6-bc7548bf26ad-8b8b/?fullscreen)
+```
+> npm init -y 
+> npm install
+> npm start
+```
 
-###### Beta phase web app images
+You may have to install more dependencies to run `npm start`:
+
+```
+> npm install name_of_dependency
+```
+
+### UX
+
+#### Prototypes:
+
+- [Web](https://xd.adobe.com/view/a09a6bb2-c574-4bb1-7517-6de3f8a265c0-d6ab/?fullscreen)
+- [Mobile](https://xd.adobe.com/view/fdba7ccc-9072-4245-7ac6-bc7548bf26ad-8b8b/?fullscreen)
+
+#### Wireframes:
 
 ![CSS Grid image](https://github.com/electrala/documentation/blob/master/Images/ElectraCSSGridTemplate.png)
 
 ![CSS Grid image - Modal](https://github.com/electrala/documentation/blob/master/Images/ElectraCritiquesModalTemplate.png)
 
-## Features
-
-- Add your own art work
-- Receive feedback by other artists
-- Give feedback to other artists
-- Browse artwork
-
-###### To Do:
-
-- Post images
-- Comment on artwork
-- Define art size templates
-  
+### Future Work
+- __Critiques__
+  - Comments
+  - Filtering and sorting
+- __Gallery__  - A page for completed work (No comments)
+- __Accessibility__
+- __Security__
+- __Calendar__
+- __Direct & Group Messaging__
+- __Mobile App__
+---
 # React Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 ## Available Scripts
 
