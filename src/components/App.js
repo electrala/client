@@ -68,13 +68,13 @@ showProfilePic=event=>{
     }); 
   }
 
-
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
    * being used, but it might be useful for rendering critiques.)
    * @param {object} data This is the data from the critique upload form
    */
+
   uploadCrit = async data => {
     const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
     const crits = this.state.critiques;
@@ -117,6 +117,7 @@ showProfilePic=event=>{
    * If both are true, then the JWT is stored in local storage.
    * @param {object} data This is the data from the log in form
    */
+
   logIn = async data => {
     const result = await axios.post('http://localhost:5000/users/login', data);
     const token = result.data.token;

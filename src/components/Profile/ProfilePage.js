@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import Pic from './tattoo.jpg'
-
+import axios from 'axios';
 
 export default class ProfilePage extends Component {
 
+getbyId= async data=>{
+  const user=await axios.post('http://localhost:5000/user/user:id', data)
 
+}
+
+uploadCrit = async data => {
+    const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
+    const crits = this.state.critiques;
+    crits.push(new_crit);
+    this.setState({
+      critiques: crits,
+    })
+  }
 
     render() {
         return (
@@ -14,13 +26,11 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <br />
-
-
                 <div className="container">
-                  {/* 
+    
                    <div className='img'>
                         <img className="photo" src={Pic} alt="profile pic" ></img>
-                    </div>  */}
+                    </div>  
 
                     <div className="row">
 
@@ -45,8 +55,6 @@ export default class ProfilePage extends Component {
 
                             <div className="stats row">
                                 <div className="stat col-xs-4" >
-
-
                                     <p className="number-stat">3,619</p>
                                     <p className="desc-stat">Followers</p>
                                 </div>
