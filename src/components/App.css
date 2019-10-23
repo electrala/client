@@ -2,14 +2,16 @@
   text-align: center;
 }
 
-/* .line-container {
+.line-container {
   align-content: center;
-  width: 10px;
-  height: 30%;
+  width: 20px;
+
   border-right: solid;
-  border-color: #141414;
+  border-color: #51b5a4;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
   border-width: 1px;
-} */
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

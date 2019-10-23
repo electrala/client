@@ -28,14 +28,14 @@ export default class Login extends Component {
       <div className="login-form">
         <form id="login-form" onSubmit={this.handleSubmit}>
           <div className="header">
-            <label id="login-title">Login, Gurl!</label>
+            <label id="login-title">Login</label>
           </div>
           <div className="input-container"> 
             <input
               type="text"
               name="userName"
               id="userName"
-              placeholder="username"
+              placeholder="User Name"
               value={this.state.userName}
               onChange={this.handleChange}
             />
@@ -43,12 +43,12 @@ export default class Login extends Component {
               type="text"
               name="password"
               id="password"
-              placeholder="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange}
               />
               
-            <button id="loginButton" type="submit">Login, Gurl!</button>
+            <button id="loginButton" type="submit">Login</button>
           </div>
           
         </form>

@@ -41,7 +41,7 @@ export default class Navbar extends Component {
                 <Link to="/">Gallery</Link>
               </li>
               <li id="profile">
-                <button className="signup-login" onClick={this.handleClick}>Login/SignUp</button>
+                <button className="signup-login" onClick={this.handleClick}>Signup | Login</button>
               </li>
   
             </ul>

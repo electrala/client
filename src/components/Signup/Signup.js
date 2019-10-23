@@ -43,7 +43,7 @@ export default class Signup extends Component {
 
       <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
         <div className="header">
-        <label id="signUp-title">Sign up, Gurl!</label>
+        <label id="signUp-title">Sign Up</label>
         </div>
         <div className="input-container">
         <input
@@ -90,7 +90,7 @@ export default class Signup extends Component {
         <input
           type="text"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           id="email"
           value={this.state.email}
           onChange={this.handleChange}
@@ -99,7 +99,7 @@ export default class Signup extends Component {
         <input
           type="text"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           id="password"
           value={this.state.password}
           onChange={this.handleChange}
@@ -108,13 +108,13 @@ export default class Signup extends Component {
         <input
           type="text"
           name="confirmPassword"
-          placeholder="confirm password"
+          placeholder="Confirm Password"
           id="confirmPassword"
           value={this.state.confirmPassword}
           onChange={this.handleChange}
           />
         <button id="signUpButton" type="submit">
-          Sign Me Up, Gurl!
+          Sign Up
         </button>
         </div>
       
