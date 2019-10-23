@@ -1,16 +1,10 @@
 .login-form {
     width: 50%;
-
+    margin-bottom: 10px;
 
 }
 
-/* .line-container {
-    width: 300px;
-    min-height: 400px;
-    border-right: solid;
-    border-color: #141414;
-    border-width: 1px;
-} */
+
 
 .login-form .input-container {
     font-size: 2rem;
@@ -37,17 +31,18 @@
 
 #login-title {
     color: #fff6e2;
-    margin-left: 6rem;
+    margin-left: 8.5rem;
 }
 
 .login-form #loginButton {
     background-color: #fff;
+    width: 100px;
     border-radius: 5px;
     border: 0;
     outline: none;
     padding: 0.5rem;
     transition: all 0.2s;
-    margin-top: 1rem;
+    margin-top: 0rem;
     position: absolute;
     top: 395px;
     font-family: "Lexend Deca",
@@ -56,6 +51,7 @@
 
 #loginButton:hover {
     background-color: #51b5a4;
+    transform: scale(1.1);
 
 }
 
@@ -63,16 +59,48 @@
     width: 70%;
     padding: 5px;
     margin-left: 1rem;
-    margin-top: 6rem;
+    margin-top: 10rem;
+    color: black;
+    transition: all 0.2s;
     border: 0px;
     border-radius: 5px;
+}
+
+#userName::placeholder {
+    color: black;
+    transition: all 0.2s;
+
+}
+
+
+#userName:hover {
+    background-color: #ff5600;
+    transform: scale(1.1);
+}
+
+#userName:hover::placeholder {
+    color: #fff;
 }
 
 #password {
     width: 70%;
     padding: 5px;
     border: 0px;
+    transition: all 0.2s;
     border-radius: 5px;
     margin-top: 1rem;
     margin-left: 1rem;
+}
+
+#password:hover {
+    background-color: #ff5600;
+    transform: scale(1.1);
+}
+
+#password::placeholder {
+    color: black;
+}
+
+#password:hover::placeholder {
+    color: #fff;
 }
