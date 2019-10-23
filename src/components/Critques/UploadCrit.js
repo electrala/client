@@ -8,7 +8,7 @@ this.state={
   title: "", 
   genre:"", 
   description:"", 
-  
+
 }
 }
 
