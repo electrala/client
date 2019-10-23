@@ -113,7 +113,7 @@ class App extends React.Component {
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <Login loginUser={this.logIn}/>
           {/* <div className="line-container"></div> */}
-          <Signup signUp={this.signUp}/>
+          <Signup createUser={this.signUp}/>
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
