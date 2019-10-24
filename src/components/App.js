@@ -1,14 +1,15 @@
-import React from 'react';
-import './App.css';
-import '../css/style.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Gallery from './Gallery/Gallery';
-import Modal from './Modal/Modal';
-import Navbar from './common/Navbar/Navbar';
-import UploadCrit from './UploadCrit/UploadCrit';
-import Signup from './Signup/Signup';
-import Login from './Login/Login'; 
-import axios from 'axios';
+import React from "react";
+import "./App.css";
+import "../css/style.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Gallery from "./Gallery/Gallery";
+import Modal from "./Modal/Modal";
+import Navbar from "./common/Navbar/Navbar";
+import UploadCrit from "./UploadCrit/UploadCrit";
+import Signup from "./Signup/Signup";
+import Login from "./Login/Login";
+import axios from "axios";
+import UserProfile from "./UserProfile/UserProfile";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends React.Component {
     this.state = {
       showCrit: false,
       showLogin: false,
-      critiques: [],
+      critiques: []
     };
   }
 
@@ -27,16 +28,16 @@ class App extends React.Component {
   showCritModal = event => {
     event.preventDefault();
     this.setState({
-      showCrit: true,
+      showCrit: true
     });
-  }
+  };
 
   closeCritModal = event => {
     event.preventDefault();
     this.setState({
-      showCrit: false,
-    })
-  }
+      showCrit: false
+    });
+  };
 
   /**
    * The following 2 function toggle the signup/login modal.
@@ -44,16 +45,15 @@ class App extends React.Component {
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true, 
+      showLogin: true
     });
-  }
+  };
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false,
-    }); 
-  }
-
+      showLogin: false
+    });
+  };
 
   /**
    * Uploads a critique to our critiques table on postgres.
@@ -62,13 +62,16 @@ class App extends React.Component {
    * @param {object} data This is the data from the critique upload form
    */
   uploadCrit = async data => {
-    const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
+    const new_crit = await axios.post(
+      "http://localhost:5000/critiques/new",
+      data
+    );
     const crits = this.state.critiques;
     crits.push(new_crit);
     this.setState({
-      critiques: crits,
-    })
-  }
+      critiques: crits
+    });
+  };
 
   /**
    * Adds a user to our users table on postgres.
@@ -76,10 +79,13 @@ class App extends React.Component {
    * @param {object} data This is the data from the sign up form
    */
   signUp = async data => {
-    const new_user = await axios.post('http://localhost:5000/users/register', data);
+    const new_user = await axios.post(
+      "http://localhost:5000/users/register",
+      data
+    );
     const new_user_data = JSON.parse(new_user.config.data);
     this.logIn(new_user_data);
-  }
+  };
 
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -87,11 +93,11 @@ class App extends React.Component {
    * @param {object} data This is the data from the log in form
    */
   logIn = async data => {
-    const result = await axios.post('http://localhost:5000/users/login', data);
+    const result = await axios.post("http://localhost:5000/users/login", data);
     const token = result.data.token;
-    localStorage.setItem('jwt', token);
+    localStorage.setItem("jwt", token);
     this.setToken(token);
-  }
+  };
 
   /**
    * Sets the Authorization header to the JWT. This header will be used for
@@ -100,25 +106,26 @@ class App extends React.Component {
    */
   setToken = (token = null) => {
     let tempToken = token;
-    if (tempToken !== null) tempToken = localStorage.getItem('jwt');
-    axios.defaults.headers.common['Authorization'] = `Bearer ${tempToken}`;
+    if (tempToken !== null) tempToken = localStorage.getItem("jwt");
+    axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
   };
 
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal}/>
+        <Navbar onSignup={this.showLoginModal} />
+        <UserProfile userProfile={this.logIn} />
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>
+          <Login loginUser={this.logIn} />
           {/* <div className="line-container"></div> */}
-          <Signup signUp={this.signUp}/>
+          <Signup signUp={this.signUp} />
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
-            <img src={require('./plusSign.png')} alt="plus sign for upload" />
+            <img src={require("./plusSign.png")} alt="plus sign for upload" />
           </button>
         </div>
         <Route path="/" exact component={Gallery} />
