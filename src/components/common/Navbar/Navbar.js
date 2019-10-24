@@ -4,8 +4,6 @@ import './Navbar.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Signup from '../../Signup/Signup';
 import Login from '../../Login/Login';
-
-
 import logo from './images/ElectraLogo.png';
 
 export default class Navbar extends Component {
@@ -16,13 +14,13 @@ export default class Navbar extends Component {
     }
   }
 
+  /**
+   * This handles clicking on the signup/login button, which toggles the signup/login modal.
+   * @param {object} event This is the event triggered by clicking the button. 
+   */
   handleClick = event => {
     event.preventDefault(); 
     this.props.onSignup();
-  }
-
-  handleLoginClick = event => {
-    this.props.onLogin(); 
   }
 
   render() {
@@ -41,14 +39,11 @@ export default class Navbar extends Component {
                 <Link to="/">Gallery</Link>
               </li>
               <li id="profile">
-                <button className="signup-login" onClick={this.handleClick}>Signup/Login</button>
+                <button className="signup-login" onClick={this.handleClick}>Signup | Login</button>
               </li>
-  
             </ul>
           </nav>
         </header>
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
       </Router>
     )
   }

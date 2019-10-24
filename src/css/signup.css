@@ -22,7 +22,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   top: 1rem;
-  margin-left: 6rem;
+  margin-left: 8.5rem;
 }
 
 .signUp-form #signUp-title {
@@ -140,11 +140,12 @@
 .signUp-form #signUpButton {
   background-color: #fff;
   border-radius: 5px;
+  width: 100px;
   border: 0;
   outline: none;
   padding: 0.5rem;
   transition: all 0.2s;
-  margin-top: 1rem;
+  margin-top: 0rem;
   position: absolute;
   top: 395px;
   font-family: "Lexend Deca", sans-serif;
@@ -152,5 +153,23 @@
 
 #signUpButton:hover {
   background-color: #51b5a4;
+  transform: scale(1.1);
+}
 
+
+.signUp-form input[type=text] {
+  transition: all 0.2s;
+}
+
+.signUp-form input[type=text]:hover {
+  background-color: #ff5600;
+  transform: scale(1.1);
+}
+
+.signUp-form input[type=text]::placeholder {
+  color: black;
+}
+
+.signUp-form input[type=text]:hover::placeholder {
+  color: #fff;
 }

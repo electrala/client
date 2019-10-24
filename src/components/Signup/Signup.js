@@ -15,6 +15,11 @@ export default class Signup extends Component {
     };
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -22,11 +27,19 @@ export default class Signup extends Component {
     });
   };
 
+  /**
+   * This handles submitting the signup form.
+   * Checks to see if the user retyped their password correctly. If they did,
+   * it will send the form data to the App component, where the it will be
+   * sent to the back end.
+   * @param {object} event This is the event triggered by the signup button
+   */
   handleSubmit = event => {
     const { password, confirmPassword } = this.state; 
     if (password !== confirmPassword) {
       alert("Passwords don't match"); 
     } else {
+      console.log('your mom!')
       event.preventDefault();
       this.props.signUp(this.state);
     }
@@ -42,7 +55,7 @@ export default class Signup extends Component {
 
       <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
         <div className="header">
-        <label id="signUp-title">Sign up, Gurl!</label>
+        <label id="signUp-title">Sign Up</label>
         </div>
         <div className="input-container">
         <input
@@ -69,7 +82,6 @@ export default class Signup extends Component {
           value={this.state.userName}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="pronoun"
@@ -89,38 +101,34 @@ export default class Signup extends Component {
         <input
           type="text"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           id="email"
           value={this.state.email}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           id="password"
           value={this.state.password}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="confirmPassword"
-          placeholder="confirm password"
+          placeholder="Confirm Password"
           id="confirmPassword"
           value={this.state.confirmPassword}
           onChange={this.handleChange}
           />
         <button id="signUpButton" type="submit">
-          Sign Me Up, Gurl!
+          Sign Up
         </button>
         </div>
-      
-      
       </form>
-      </div>
 
+      </div>
     );
   }
 }

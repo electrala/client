@@ -51,9 +51,9 @@ class App extends React.Component {
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false
-    });
-  };
+      showLogin: false,
+    }); 
+  }
 
   /**
    * Uploads a critique to our critiques table on postgres.
@@ -119,9 +119,9 @@ class App extends React.Component {
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn} />
-          {/* <div className="line-container"></div> */}
-          <Signup signUp={this.signUp} />
+          <Login loginUser={this.logIn}/>
+          <div className="line-container"></div>
+          <Signup createUser={this.signUp}/>
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
