@@ -2,10 +2,37 @@
 import React, { Component } from "react";
 import fillerPic from "./images/32.jpg";
 import "./gallery.css";
+import axios from 'axios';
+import Crit from '../Crit/Crit';
 // import { generateHtml, placeholder }
 
 export default class Gallery extends Component {
+  static propTypes = {};
+
+  constructor(props) {
+    // call parent (React.Component) constructor
+    super(props);
+
+    // set intial state
+    this.state = {
+      critiques: [],
+    };
+  }
+
+  async componentDidMount() {
+    console.log('App Mounted');
+    // 1. request the data from our server
+    const { data } = await axios.get(
+      'http://localhost:5000/critiques/all'
+    );
+    // 2. hold that data in state so that it will be passed down to our Snips
+    this.setState({
+      critiques: data,
+    });
+
+  }
   render() {
+    if (!this.state.critiques[0]) return <div></div>
     return (
       <div id="gallery-container">
         <div className="overlay">
@@ -17,342 +44,57 @@ export default class Gallery extends Component {
           </div>
         </div>
         <section className="gallery">
-          <div className="item h2 v2">
+          {this.state.critiques.map(critique => (
+            <Crit key={critique.id} critique={critique} />
+          ))}
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h4 v2">
+          </div >
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h2 v3">
+          </div >
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h2 v2">
+          </div >
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h2 v2">
+          </div >
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h2 v2">
+          </div >
+          <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button>
                 Take a closer <span role="img">👀</span>
               </button>
             </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h4 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v3">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h2 v2">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
-          <div className="item h1 v1">
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div>
+          </div >
         </section>
       </div>
     );
