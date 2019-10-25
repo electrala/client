@@ -18,7 +18,8 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic:false
+      profilePic:false,
+      userInfo:{}
     };
   }
 
@@ -51,7 +52,6 @@ showProfilePic=event=>{
       showCrit: false,
     })
   }
-
   /**
    * The following 2 function toggle the signup/login modal.
    * @param {object} event This is the event triggered by clicking the signup/login button
@@ -66,6 +66,19 @@ showProfilePic=event=>{
     this.setState({
       showLogin: false,
     }); 
+  }
+
+  /**
+   * @param {object} event 
+   */
+
+  getUserById=async getUser=>{
+    const {user}=await axios.get(
+      'http://localhost:5000/user/:userid'
+    )
+    this.setState({
+      userInfo: user,
+    })
   }
 
   /**

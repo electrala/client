@@ -3,20 +3,25 @@ import Pic from './tattoo.jpg'
 import axios from 'axios';
 
 export default class ProfilePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userInfo: {}
+        }
 
-getbyId= async data=>{
-  const user=await axios.post('http://localhost:5000/user/user:id', data)
+    }
 
-}
+    async componentDidMonut(){
+        const user=await axios.get(
+            'http://localhost:5000/user/:userid'
+          )
+          this.setState({
+            userInfo: user,
+          })
 
-uploadCrit = async data => {
-    const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
-    const crits = this.state.critiques;
-    crits.push(new_crit);
-    this.setState({
-      critiques: crits,
-    })
-  }
+    }
+   
+
 
     render() {
         return (
@@ -27,10 +32,10 @@ uploadCrit = async data => {
                 <br />
                 <br />
                 <div className="container">
-    
-                   <div className='img'>
+
+                    <div className='img'>
                         <img className="photo" src={Pic} alt="profile pic" ></img>
-                    </div>  
+                    </div>
 
                     <div className="row">
 
@@ -47,7 +52,7 @@ uploadCrit = async data => {
                                 <div className="active"></div>
                             </div>
 
-                            <h4 className="name">Ayana Hawk</h4>
+                            <h4 className="name">{this.state.userInfo.firstName}</h4>
                             <br />
                             <p className="info">UI/UX Designer</p>
                             <br />
