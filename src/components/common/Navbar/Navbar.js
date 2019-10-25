@@ -14,7 +14,7 @@ export default class Navbar extends Component {
       userInfo:{}
     }
   }
-
+  
   handleClick = event => {
     event.preventDefault(); 
     this.props.onSignup();

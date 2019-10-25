@@ -1,7 +1,8 @@
 import React, {Component} from 'react'; 
-import Pic from './tattoo.jpg'
+import Pic from './bank_profile.png'
 import {Link} from 'react-router-dom';
 import './Profile.css';
+import './ProfilePic.css'
 import { userInfo } from 'os';
 
 export default class ProfilePc extends Component{
@@ -12,13 +13,13 @@ export default class ProfilePc extends Component{
           userData:false,
         }
       }
+      
     render(){
         return(
         <div id="picture">
             <Link to='/profile'>
                 <img id='profileImg' src={Pic} alt='pic'>
                 </img>
-
             </Link>
         </div>
         )

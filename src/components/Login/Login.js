@@ -9,6 +9,7 @@ export default class Login extends Component {
     };
   }
 
+
   handleChange = event => {
     event.preventDefault(); 
     this.setState({
@@ -22,7 +23,7 @@ export default class Login extends Component {
     this.props.loginUser(this.state);
   }; 
 
-  
+
   render() {
     return (
       <div className="login-form">

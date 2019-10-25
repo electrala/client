@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pic from './tattoo.jpg'
+import Pic from './bank_profile.png'
 import axios from 'axios';
 
 export default class ProfilePage extends Component {
@@ -10,18 +10,6 @@ export default class ProfilePage extends Component {
         }
 
     }
-
-    async componentDidMonut(){
-        const user=await axios.get(
-            'http://localhost:5000/user/:userid'
-          )
-          this.setState({
-            userInfo: user,
-          })
-
-    }
-   
-
 
     render() {
         return (

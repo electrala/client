@@ -20,6 +20,7 @@ class App extends React.Component {
       critiques: [],
       profilePic:false,
       userInfo:{}
+
     };
   }
 
@@ -71,15 +72,6 @@ showProfilePic=event=>{
   /**
    * @param {object} event 
    */
-
-  getUserById=async getUser=>{
-    const {user}=await axios.get(
-      'http://localhost:5000/user/:userid'
-    )
-    this.setState({
-      userInfo: user,
-    })
-  }
 
   /**
    * Uploads a critique to our critiques table on postgres.

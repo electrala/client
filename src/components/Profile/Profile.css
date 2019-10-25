@@ -23,8 +23,6 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
       }
       
-    
-      
       header i {
         position: relative;
         cursor: pointer;
@@ -54,7 +52,6 @@
         justify-content: center;
         flex-direction: column;
       }
-      
       
 
       .photo{
