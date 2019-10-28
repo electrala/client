@@ -9,7 +9,6 @@ import UploadCrit from "./UploadCrit/UploadCrit";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import axios from "axios";
-import UserProfile from "./UserProfile/UserProfile";
 
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +51,7 @@ class App extends React.Component {
   closeLoginModal = event => {
     this.setState({
       showLogin: false,
-    }); 
+    });
   }
 
   /**
@@ -114,14 +113,14 @@ class App extends React.Component {
     return (
       <Router>
         <Navbar onSignup={this.showLoginModal} />
-        <UserProfile userProfile={this.logIn} />
+        {/* <UserProfile userProfile={this.logIn} /> */}
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>
+          <Login loginUser={this.logIn} />
           <div className="line-container"></div>
-          <Signup createUser={this.signUp}/>
+          <Signup createUser={this.signUp} />
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
