@@ -66,7 +66,7 @@ showProfilePic=event=>{
   closeLoginModal = event => {
     this.setState({
       showLogin: false,
-    }); 
+    });
   }
   /**
    * Uploads a critique to our critiques table on postgres.
@@ -142,6 +142,7 @@ showProfilePic=event=>{
     return (
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic}/>
+
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
@@ -152,9 +153,9 @@ showProfilePic=event=>{
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>
+          <Login loginUser={this.logIn} />
           <div className="line-container"></div>
-          <Signup createUser={this.signUp}/>
+          <Signup createUser={this.signUp} />
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
