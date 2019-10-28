@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../../../css/style.css';
 import './Navbar.css';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Signup from '../../Signup/Signup';
+import Login from '../../Login/Login';
 import logo from './images/ElectraLogo.png';
 import ProfilePic from '../../Profile/ProfilePic'
 
@@ -15,13 +17,13 @@ export default class Navbar extends Component {
     }
   }
 
+  /**
+   * This handles clicking on the signup/login button, which toggles the signup/login modal.
+   * @param {object} event This is the event triggered by clicking the button. 
+   */
   handleClick = event => {
     event.preventDefault(); 
     this.props.onSignup();
-  }
-
-  handleLoginClick = event => {
-    this.props.onLogin(); 
   }
 
   render() {

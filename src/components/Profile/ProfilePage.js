@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Pic from './tattoo.jpg'
+import Pic from './bank_profile.png'
 import axios from 'axios';
 
 export default class ProfilePage extends Component {
@@ -11,18 +11,6 @@ export default class ProfilePage extends Component {
 
     }
 
-    async componentDidMonut(){
-        const user=await axios.get(
-            'http://localhost:5000/user/:userid'
-          )
-          this.setState({
-            userInfo: user,
-          })
-
-    }
-   
-
-
     render() {
         return (
             <div className="user">
@@ -33,31 +21,37 @@ export default class ProfilePage extends Component {
                 <br />
                 <div className="container">
 
-                    <div className='img'>
-                        <img className="photo" src={Pic} alt="profile pic" ></img>
-                    </div>
+                    <div className='grid'>
+                        <div className='img'>
+                            <img className="photo" src={Pic} alt="profile pic" ></img>
 
-                    <div className="row">
+                        </div>
 
-                        <div className="left col-lg-4">
-                            <div >
-                                <ul className="nav">
-                                    <li>About</li>
-                                    <li>Gallery</li>
-                                    <li>Collections</li>
+                       
+                        <div className="left" >
+                            <ul className="nav">
+                                <li>About</li>
+                                <li>Gallery</li>
+                                <li>Collections</li>
+                            </ul>
 
-                                </ul>
-                                <span className="follow">Follow</span>
 
-                                <div className="active"></div>
+                            <span className="follow">Follow</span>
+
+                            <div className="active"></div>
+
+                            <div className="row">
+
+                                <div className="">
+
+                                </div>
+
+                                <h4 className="name">{this.state.userInfo.firstName}</h4>
+                                <br />
+                                <p className="info">UI/UX Designer</p>
+                                <br />
+                                <p className="info">Los Angeles</p>
                             </div>
-
-                            <h4 className="name">{this.state.userInfo.firstName}</h4>
-                            <br />
-                            <p className="info">UI/UX Designer</p>
-                            <br />
-                            <p className="info">Los Angeles</p>
-
                             <div className="stats row">
                                 <div className="stat col-xs-4" >
                                     <p className="number-stat">3,619</p>
@@ -72,7 +66,7 @@ export default class ProfilePage extends Component {
                                     <p className="desc-stat">Uploads</p>
                                 </div>
                             </div>
-                            <p className="desc">Hi ! My name is Ayana I'm a UI/UX Designer from LA</p>
+
 
                         </div>
 
