@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../../../css/style.css';
 import './Navbar.css';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Signup from '../../Signup/Signup';
+import Login from '../../Login/Login';
 import logo from './images/ElectraLogo.png';
 import ProfilePic from '../../Profile/ProfilePic'
 
@@ -14,19 +16,14 @@ export default class Navbar extends Component {
       userInfo:{}
     }
   }
-  
+
   handleClick = event => {
     event.preventDefault(); 
     this.props.onSignup();
   }
 
-  handleLoginClick = event => {
-    this.props.onLogin(); 
-  }
-
   render() {
     return (
-     
       // From the header down, I changed the routing of the nav bar. We have the links here
       //but in the app is where the routes take place. 
       <header>
@@ -46,7 +43,6 @@ export default class Navbar extends Component {
         </ul>
       </nav>
     </header>
-   
     )
   }
 }

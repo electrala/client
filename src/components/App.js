@@ -20,7 +20,6 @@ class App extends React.Component {
       critiques: [],
       profilePic:false,
       userInfo:{}
-
     };
   }
 
@@ -43,36 +42,32 @@ showProfilePic=event=>{
   showCritModal = event => {
     event.preventDefault();
     this.setState({
-      showCrit: true,
+      showCrit: true
     });
-  }
+  };
 
   closeCritModal = event => {
     event.preventDefault();
     this.setState({
-      showCrit: false,
-    })
-  }
+      showCrit: false
+    });
+  };
+
   /**
    * The following 2 function toggle the signup/login modal.
    * @param {object} event This is the event triggered by clicking the signup/login button
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true, 
+      showLogin: true
     });
-  }
+  };
 
   closeLoginModal = event => {
     this.setState({
       showLogin: false,
     }); 
   }
-
-  /**
-   * @param {object} event 
-   */
-
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
@@ -81,13 +76,16 @@ showProfilePic=event=>{
    */
 
   uploadCrit = async data => {
-    const new_crit = await axios.post('http://localhost:5000/critiques/new', data);
+    const new_crit = await axios.post(
+      "http://localhost:5000/critiques/new",
+      data
+    );
     const crits = this.state.critiques;
     crits.push(new_crit);
     this.setState({
-      critiques: crits,
-    })
-  }
+      critiques: crits
+    });
+  };
 
   /**
    * Adds a user to our users table on postgres.
@@ -97,7 +95,6 @@ showProfilePic=event=>{
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-   
     try{
       //  const new_user = await axios.post('http://localhost:5000/users/register', data);
       // const new_user_data = JSON.parse(new_user.config.data);
@@ -124,11 +121,11 @@ showProfilePic=event=>{
    */
 
   logIn = async data => {
-    const result = await axios.post('http://localhost:5000/users/login', data);
+    const result = await axios.post("http://localhost:5000/users/login", data);
     const token = result.data.token;
-    localStorage.setItem('jwt', token);
+    localStorage.setItem("jwt", token);
     this.setToken(token);
-  }
+  };
 
   /**
    * Sets the Authorization header to the JWT. This header will be used for
@@ -137,8 +134,8 @@ showProfilePic=event=>{
    */
   setToken = (token = null) => {
     let tempToken = token;
-    if (tempToken !== null) tempToken = localStorage.getItem('jwt');
-    axios.defaults.headers.common['Authorization'] = `Bearer ${tempToken}`;
+    if (tempToken !== null) tempToken = localStorage.getItem("jwt");
+    axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
   };
 
   render() {
@@ -156,12 +153,12 @@ showProfilePic=event=>{
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <Login loginUser={this.logIn}/>
-          {/* <div className="line-container"></div> */}
-          <Signup signUp={this.signUp}/>
+          <div className="line-container"></div>
+          <Signup createUser={this.signUp}/>
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
-            <img src={require('./plusSign.png')} alt="plus sign for upload" />
+            <img src={require("./plusSign.png")} alt="plus sign for upload" />
           </button>
         </div>
       </Router>

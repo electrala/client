@@ -24,6 +24,7 @@ class Modal extends React.Component {
   }
 }
 
+// Prop validation
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool
