@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "../css/style.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Gallery from "./Gallery/Gallery";
 import Modal from "./Modal/Modal";
 import Navbar from "./common/Navbar/Navbar";
@@ -147,10 +147,10 @@ showProfilePic=event=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-        <Route path='/profile' component={ProfilePage} /> 
+        {/* <Route path='/profile' component={ProfilePage} />  */}
         </Switch>
 
-        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+        <Modal show={this.state.showLogin} class="rows" onClose={this.closeLoginModal}>
           <Login loginUser={this.logIn} />
           <div className="line-container"></div>
           <Signup createUser={this.signUp} />
