@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Pic from './bank_profile.png'
-
+import axios from 'axios';
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -26,6 +26,8 @@ export default class ProfilePage extends Component {
                             <img className="photo" src={Pic} alt="profile pic" ></img>
 
                         </div>
+
+                       
                         <div className="left" >
                             <ul className="nav">
                                 <li>About</li>

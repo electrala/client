@@ -97,9 +97,9 @@ class App extends React.Component {
    */
   signUp = async data => {
     try {
-      const new_user = await axios.post('http://localhost:5000/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
+      // const new_user = await axios.post('http://localhost:5000/users/register', data);
+      // const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true,
