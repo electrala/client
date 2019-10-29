@@ -43,8 +43,8 @@
     padding: 0.5rem;
     transition: all 0.2s;
     margin-top: 0rem;
-    position: absolute;
-    top: 395px;
+    /* position: absolute;
+top: 10%; */
     font-family: "Lexend Deca",
         sans-serif;
 }

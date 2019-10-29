@@ -11,6 +11,7 @@ import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +21,6 @@ class App extends React.Component {
       critiques: [],
       profilePic: false,
       userInfo: {}
-
     };
   }
 
@@ -96,10 +96,10 @@ class App extends React.Component {
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-    try{
-      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
-      // const new_user_data = JSON.parse(new_user.config.data);
-      // console.log(new_user_data);
+    try {
+      const new_user = await axios.post('http://localhost:5000/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true,
@@ -108,9 +108,6 @@ class App extends React.Component {
       alert("error")
     }
 
-    // const userName = new_user.config.data.userName;
-    // const password = new_user.config.data.password;
-    // console.log(`Username: ${userName} | Password: ${password}`);
   }
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -123,6 +120,7 @@ class App extends React.Component {
     const token = result.data.token;
     localStorage.setItem("jwt", token);
     this.setToken(token);
+    console.log(token);
   };
 
   /**

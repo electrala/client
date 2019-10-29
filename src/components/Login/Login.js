@@ -15,12 +15,12 @@ export default class Login extends Component {
    *                       into the form.
    */
   handleChange = event => {
-    event.preventDefault(); 
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
     });
   };
-  
+
   /**
    * This handle submitting the login form.
    * It sends the form data to the App component, where it will be sent to the
@@ -28,10 +28,11 @@ export default class Login extends Component {
    * @param {object} event This is the event triggered by the login button.
    */
   handleSubmit = event => {
-    event.preventDefault(); 
+    event.preventDefault();
     console.log(this.state);
     this.props.loginUser(this.state);
-  }; 
+  };
+
   render() {
     return (
       <div className="login-form">
@@ -39,7 +40,7 @@ export default class Login extends Component {
           <div className="header">
             <label id="login-title">Login</label>
           </div>
-          <div className="input-container"> 
+          <div className="input-container">
             <input
               type="text"
               name="userName"
@@ -49,7 +50,7 @@ export default class Login extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="password"
               name="password"
               id="password"
               placeholder="Password"
@@ -60,6 +61,6 @@ export default class Login extends Component {
           </div>
         </form>
       </div>
-    ); 
+    );
   }
 }
