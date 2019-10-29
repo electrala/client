@@ -108,7 +108,7 @@ class App extends React.Component {
         
         <div id="float-button">
           <button onClick={this.showCritModal}>
-            <img src={require('./plusSign.png')} alt="plus sign for upload" />
+            <img src={require('./small_arrow.png')} alt="plus sign for upload" />
           </button>
         </div>
         <Route path="/" exact component={Gallery} />
