@@ -17,22 +17,22 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic:false,
-      userInfo:{}
+      profilePic: false,
+      userInfo: {}
     };
   }
 
-/**
+  /**
    * This function shows the profile pic dislplayed on nav
-   * @param {object} event This is the event triggered after successfully logging in or signing up 
+   * @param {object} event This is the event triggered after successfully logging in or signing up
    */
 
-showProfilePic=event=>{
-  event.preventDefault(); 
-  this.setState({
-    profilePic:true,
-  })
-}
+  showProfilePic = event => {
+    event.preventDefault();
+    this.setState({
+      profilePic: true
+    });
+  };
 
   /**
    * The following 2 functions toggle the critique upload modal.
@@ -64,9 +64,9 @@ showProfilePic=event=>{
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false,
+      showLogin: false
     });
-  }
+  };
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
@@ -94,24 +94,25 @@ showProfilePic=event=>{
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-    try{
-      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
-      // const new_user_data = JSON.parse(new_user.config.data);
-      // console.log(new_user_data);
-      this.closeLoginModal()
+    try {
+      const new_user = await axios.post(
+        "http://localhost:5000/users/register",
+        data
+      );
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
+      this.closeLoginModal();
       this.setState({
-        profilePic: true,
-      })
-    }catch{
-      alert("error")
+        profilePic: true
+      });
+    } catch {
+      alert("error");
     }
 
-   
     // const userName = new_user.config.data.userName;
     // const password = new_user.config.data.password;
     // console.log(`Username: ${userName} | Password: ${password}`);
-  }
-
+  };
 
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -124,6 +125,7 @@ showProfilePic=event=>{
     const token = result.data.token;
     localStorage.setItem("jwt", token);
     this.setToken(token);
+    console.log(token);
   };
 
   /**
@@ -146,14 +148,16 @@ showProfilePic=event=>{
         </Modal>
 
         <Switch>
-          <Route exact path='/' component={Gallery} />
-        {/* <Route path='/profile' component={ProfilePage} />  */}
+          <Route exact path="/" component={Gallery} />
+          {/* <Route path='/profile' component={} /> */}
         </Switch>
 
-        <Modal show={this.state.showLogin} class="rows" onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn} />
-          <div className="line-container"></div>
-          <Signup createUser={this.signUp} />
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <div class="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
