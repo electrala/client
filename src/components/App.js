@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "../css/style.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Gallery from "./Gallery/Gallery";
 import Modal from "./Modal/Modal";
 import Navbar from "./common/Navbar/Navbar";
@@ -9,6 +9,7 @@ import UploadCrit from "./UploadCrit/UploadCrit";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import axios from "axios";
+import ProfilePage from './Profile/ProfilePage';
 
 class App extends React.Component {
   constructor(props) {
