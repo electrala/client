@@ -4,17 +4,22 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      userName: "",
-      pronoun: "",
-      location: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
+      firstName: "Ayana Test",
+      lastName: "Hawk ",
+      userName: "Ayana",
+      pronoun: "She",
+      location: "LA ",
+      email: "ayanahawk11@gmail.com",
+      password: "m",
+      confirmPassword: "m"
     };
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -22,6 +27,13 @@ export default class Signup extends Component {
     });
   };
 
+  /**
+   * This handles submitting the signup form.
+   * Checks to see if the user retyped their password correctly. If they did,
+   * it will send the form data to the App component, where the it will be
+   * sent to the back end.
+   * @param {object} event This is the event triggered by the signup button
+   */
   handleSubmit = event => {
     const { password, confirmPassword } = this.state; 
     if (password !== confirmPassword) {
@@ -29,7 +41,7 @@ export default class Signup extends Component {
     } else {
       console.log('your mom!')
       event.preventDefault();
-      this.props.createUser(this.state);
+      this.props.signUp(this.state);
     }
   };
 
@@ -70,7 +82,6 @@ export default class Signup extends Component {
           value={this.state.userName}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="pronoun"
@@ -95,7 +106,6 @@ export default class Signup extends Component {
           value={this.state.email}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="password"
@@ -104,7 +114,6 @@ export default class Signup extends Component {
           value={this.state.password}
           onChange={this.handleChange}
           />
-
         <input
           type="text"
           name="confirmPassword"
@@ -117,11 +126,9 @@ export default class Signup extends Component {
           Sign Up
         </button>
         </div>
-      
-      
       </form>
-      </div>
 
+      </div>
     );
   }
 }
