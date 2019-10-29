@@ -1,15 +1,14 @@
-import React from 'react';
-import './App.css';
-import '../css/style.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Gallery from './Gallery/Gallery';
-import Modal from './Modal/Modal';
-import Navbar from './common/Navbar/Navbar';
-import UploadCrit from './UploadCrit/UploadCrit';
-import Signup from './Signup/Signup';
-import Login from './Login/Login'; 
-import axios from 'axios';
-import ProfilePage from './Profile/ProfilePage';
+import React from "react";
+import "./App.css";
+import "../css/style.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Gallery from "./Gallery/Gallery";
+import Modal from "./Modal/Modal";
+import Navbar from "./common/Navbar/Navbar";
+import UploadCrit from "./UploadCrit/UploadCrit";
+import Signup from "./Signup/Signup";
+import Login from "./Login/Login";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -141,8 +140,7 @@ showProfilePic=event=>{
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic}/>
-
+        <Navbar onSignup={this.showLoginModal} />
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
