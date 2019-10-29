@@ -9,7 +9,6 @@ import UploadCrit from "./UploadCrit/UploadCrit";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import axios from "axios";
-import UserProfile from "./UserProfile/UserProfile";
 
 class App extends React.Component {
   constructor(props) {
@@ -114,7 +113,6 @@ class App extends React.Component {
     return (
       <Router>
         <Navbar onSignup={this.showLoginModal} />
-        <UserProfile userProfile={this.logIn} />
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
