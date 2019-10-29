@@ -3,7 +3,6 @@ import Pic from './bank_profile.png'
 import {Link} from 'react-router-dom';
 import './Profile.css';
 import './ProfilePic.css'
-import { userInfo } from 'os';
 
 export default class ProfilePc extends Component{
     constructor (props) {
