@@ -32,7 +32,6 @@ export default class Login extends Component {
     console.log(this.state);
     this.props.loginUser(this.state);
   }; 
-  
   render() {
     return (
       <div className="login-form">

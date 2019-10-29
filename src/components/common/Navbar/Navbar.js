@@ -28,7 +28,6 @@ export default class Navbar extends Component {
 
   render() {
     return (
-     
       // From the header down, I changed the routing of the nav bar. We have the links here
       //but in the app is where the routes take place. 
       <header>
@@ -48,7 +47,6 @@ export default class Navbar extends Component {
         </ul>
       </nav>
     </header>
-   
     )
   }
 }

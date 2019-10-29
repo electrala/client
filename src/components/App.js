@@ -50,16 +50,17 @@ class App extends React.Component {
   closeCritModal = event => {
     event.preventDefault();
     this.setState({
-      showCrit: false,
-    })
-  }
+      showCrit: false
+    });
+  };
+
   /**
    * The following 2 function toggle the signup/login modal.
    * @param {object} event This is the event triggered by clicking the signup/login button
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true,
+      showLogin: true
     });
   };
 
@@ -68,11 +69,6 @@ class App extends React.Component {
       showLogin: false,
     });
   }
-
-  /**
-   * @param {object} event 
-   */
-
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
@@ -100,11 +96,10 @@ class App extends React.Component {
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-
-    try {
-      const new_user = await axios.post('http://localhost:5000/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
+    try{
+      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
+      // const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true,
@@ -155,9 +150,9 @@ class App extends React.Component {
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>
+          <Login loginUser={this.logIn} />
           <div className="line-container"></div>
-          <Signup createUser={this.signUp}/>
+          <Signup createUser={this.signUp} />
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>
