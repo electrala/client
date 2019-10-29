@@ -1,0 +1,35 @@
+#critique-modal-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "img img title user"
+    "img img descr descr"
+    "ques ques ques ques"
+    ". button button .";
+}
+
+#critique-modal-img {
+  grid-area: img;
+  max-width: 80%;
+}
+
+#critique-title {
+  grid-area: title;
+}
+
+#critique-username {
+  grid-area: user;
+}
+
+#critique-description {
+  grid-area: descr;
+}
+
+#critique-question {
+  grid-area: ques;
+}
+
+#modal-close-button {
+  grid-area: button;
+}
