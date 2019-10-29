@@ -41,7 +41,7 @@ export default class Signup extends Component {
     } else {
       console.log('your mom!')
       event.preventDefault();
-     this.props.signUp(this.state);
+     this.props.createUser(this.state);
     }
   };
   render() {
