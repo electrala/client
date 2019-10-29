@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import "../css/style.css";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Gallery from "./Gallery/Gallery";
 import Modal from "./Modal/Modal";
 import Navbar from "./common/Navbar/Navbar";
@@ -9,7 +9,6 @@ import UploadCrit from "./UploadCrit/UploadCrit";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import axios from "axios";
-import ProfilePage from './Profile/ProfilePage';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,22 +17,22 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic:false,
-      userInfo:{}
+      profilePic: false,
+      userInfo: {}
     };
   }
 
-/**
-   * This function shows the profile pic dislplayed on nav
-   * @param {object} event This is the event triggered after successfully logging in or signing up 
-   */
+  /**
+     * This function shows the profile pic dislplayed on nav
+     * @param {object} event This is the event triggered after successfully logging in or signing up 
+     */
 
-showProfilePic=event=>{
-  event.preventDefault(); 
-  this.setState({
-    profilePic:true,
-  })
-}
+  showProfilePic = event => {
+    event.preventDefault();
+    this.setState({
+      profilePic: true,
+    })
+  }
 
   /**
    * The following 2 functions toggle the critique upload modal.
@@ -95,19 +94,19 @@ showProfilePic=event=>{
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-    try{
-      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
-      // const new_user_data = JSON.parse(new_user.config.data);
-      // console.log(new_user_data);
+    try {
+      const new_user = await axios.post('http://localhost:5000/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true,
       })
-    }catch{
+    } catch{
       alert("error")
     }
 
-   
+
     // const userName = new_user.config.data.userName;
     // const password = new_user.config.data.password;
     // console.log(`Username: ${userName} | Password: ${password}`);
@@ -125,6 +124,7 @@ showProfilePic=event=>{
     const token = result.data.token;
     localStorage.setItem("jwt", token);
     this.setToken(token);
+    console.log(token);
   };
 
   /**
@@ -148,7 +148,7 @@ showProfilePic=event=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-        <Route path='/profile' component={ProfilePage} /> 
+          {/* <Route path='/profile' component={} /> */}
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
