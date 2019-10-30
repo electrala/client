@@ -36,7 +36,7 @@ export default class Crit extends Component {
           <button onClick={this.handleOpenModal}>Check me out!</button>
           <ReactModal
             isOpen={this.state.showModal}
-            contentLabel="Modal #1 Global Style Override Example"
+            contentLabel="Critique Modal View"
             onRequestClose={this.handleCloseModal}
             style={{
               overlay: {
