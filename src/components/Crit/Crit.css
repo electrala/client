@@ -7,19 +7,25 @@
     "img img descr descr"
     "ques ques ques ques"
     ". button button .";
+  padding: 2rem;
+  color: #FFF6E2;
 }
 
 #critique-modal-img {
   grid-area: img;
   max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
 }
 
 #critique-title {
   grid-area: title;
+  margin-top: 1rem;
 }
 
 #critique-username {
   grid-area: user;
+  margin-top: 1rem;
 }
 
 #critique-description {
@@ -28,8 +34,11 @@
 
 #critique-question {
   grid-area: ques;
+  margin-top: 2rem;
 }
 
 #modal-close-button {
   grid-area: button;
+  position: absolute;
+  bottom: 1rem;
 }

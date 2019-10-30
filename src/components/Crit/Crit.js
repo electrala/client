@@ -45,7 +45,7 @@ export default class Crit extends Component {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                backgroundColor: 'rgba(65, 159, 161, 0.85)'
               },
               content: {
                 position: 'absolute',
@@ -53,8 +53,8 @@ export default class Crit extends Component {
                 left: '20%',
                 right: '20%',
                 bottom: '15%',
-                border: '1px solid #ccc',
-                background: '#fff',
+                border: 'none',
+                background: '#707070',
                 overflow: 'auto',
                 WebkitOverflowScrolling: 'touch',
                 borderRadius: '20px',
