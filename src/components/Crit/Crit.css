@@ -13,6 +13,14 @@
 }
 
 #critique-info-side {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
+  box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
+  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
