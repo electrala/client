@@ -47,7 +47,7 @@
 }
 
 #loginButton:hover {
-  background-color: #51b5a4;
+  background-color: var(--electra-cool);
   transform: scale(1.1);
 }
 
@@ -68,7 +68,7 @@
 }
 
 #userName:hover {
-  background-color: #ff5600;
+  background-color: var(--electra-orange);
   transform: scale(1.1);
 }
 

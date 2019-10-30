@@ -160,7 +160,7 @@ class App extends React.Component {
           </div>
         </Modal>
         <div id="float-button">
-            <img src={require('./upload-icon-cloud-loop-orange.png')} onClick={this.showCritModal} alt="plus sign for upload" />
+            <img src={require('./custom-button.png')} onClick={this.showCritModal} alt="plus sign for upload" />
         </div>
       </Router>
     );
