@@ -7,7 +7,7 @@
   width: 20px;
 
   border-right: solid;
-  border-color: #51b5a4;
+  border-color: var(--electra-cool);
   margin-top: 7rem;
   border-width: 1px;
 }
@@ -50,18 +50,18 @@
 
 #float-button img {
   background-color: var(--electra-black);
-  border-radius: 25%;
+  border-radius: 50%;
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   width: 3.5rem;
   height: 3.5rem;
-  padding: 10px 10px 10px 10px;
+  /* padding: 10px 10px 10px 10px; */
   margin: 10px 35px 10px 10px;
   transition: all 0.2s ease-in 0s;
   z-index: 9999;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 #float-button img:hover {
