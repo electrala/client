@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Pic from './bank_profile.png'
-import axios from 'axios';
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -9,7 +8,6 @@ export default class ProfilePage extends Component {
             userInfo: {}
         }
     }
-
     render() {
         return (
             <div className="user">
@@ -18,22 +16,26 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <br />
-                <div className="containerr">
+                <div className="container">
 
                     <div className='grid'>
                         <div className='img'>
 
                             <img className="photo" src={Pic} alt="profile pic"></img>
-                            
-                            <div className="userInfo">
+   
+                        </div> 
+                        <br/>
+                        
+                        <div className="userInfo">
                             <h4 className="info">Ayana</h4>
+                            <br/>
                             <p className="info">UI/UX Designer</p>
+                            <br/>
                             <p className="info">Los Angeles</p>
                             </div>
 
-                        </div>  
                         <div className="left" >
-                            <ul className="navv">
+                            <ul className="profileNav">
                                 <li>About</li>
                                 <li>Gallery</li>
                                 <li>Collections</li>

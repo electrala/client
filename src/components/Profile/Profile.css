@@ -6,14 +6,10 @@
     height: 50px;
     width: 50px;
     text-indent: -999em;
-    text-decoration: none;}
+    text-decoration: none;
+}
 
-
-    html {
-        font-family: "Arial";
-      }
-      
-      .containerr {
+      .container {
         max-width: 1250px;
         margin: 30px auto 30px;
         padding: 0 !important;
@@ -144,12 +140,12 @@
         padding: 0 25px 0 25px !important;
       }
       
-      .nav {
+      .profileNav {
         display: inline-flex;
         margin-top: -10%;
       }
       
-      .navv li {
+      .profileNav li {
         margin: 0px 10px  10px;
         cursor: pointer;
         font-size: 13pt;
@@ -160,7 +156,7 @@
       }
 
       
-      .nav li:hover, .nav li:nth-child(1)  { 
+      .profileNav li:hover, .profileNav li:nth-child(1)  { 
         color: #999;
         border-bottom: 2px solid #999;
       }
@@ -184,7 +180,7 @@
       }
       
       @media (max-width:990px) {
-        .nav {
+        .profileNav {
           display: none;
         }
         
@@ -212,6 +208,10 @@
         max-width: 100%;
       }
 
-      .grid{
-
+      .userInfo {
+       margin-left:90px;
+      
+      }
+      .userInfo h4{
+        margin: center;
       }
