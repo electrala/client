@@ -121,11 +121,21 @@ class App extends React.Component {
    */
 
   logIn = async data => {
-    const result = await axios.post("http://localhost:5000/users/login", data);
-    const token = result.data.token;
-    localStorage.setItem("jwt", token);
-    this.setToken(token);
-    console.log(token);
+    try {
+      const result = await axios.post(
+        "http://localhost:5000/users/login",
+        data
+      );
+      const token = result.data.token;
+      localStorage.setItem("jwt", token);
+      this.setToken(token);
+      console.log(token);
+      // Close the modal when you successfully login
+      this.closeLoginModal();
+      window.alert(`You're all logged in and ready to go!`);
+    } catch (err) {
+      window.alert(`Couldn't login!!!`);
+    }
   };
 
   /**
@@ -153,16 +163,18 @@ class App extends React.Component {
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <div class="rows">
+          <div className="rows">
             <Login loginUser={this.logIn} />
             <div className="line-container"></div>
             <Signup createUser={this.signUp} />
           </div>
         </Modal>
         <div id="float-button">
-          <button onClick={this.showCritModal}>
-            <img src={require("./plusSign.png")} alt="plus sign for upload" />
-          </button>
+          <img
+            src={require("./custom-button.png")}
+            onClick={this.showCritModal}
+            alt="plus sign for upload"
+          />
         </div>
       </Router>
     );

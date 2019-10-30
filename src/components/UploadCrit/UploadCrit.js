@@ -18,14 +18,13 @@ export default class UploadCrit extends React.Component {
     };
   }
 
-
   singleFileChangedHandler = event => {
     this.setState({
       selectedFile: event.target.files[0]
     });
   };
 
-  singleFileUploadHandler = (evt) => {
+  singleFileUploadHandler = evt => {
     evt.preventDefault();
     const data = new FormData();
     // If file selected
@@ -36,7 +35,7 @@ export default class UploadCrit extends React.Component {
         this.state.selectedFile.name
       );
       axios
-        .post('http://localhost:5000/aws/critique-img-upload', data, {
+        .post("http://localhost:5000/aws/critique-img-upload", data, {
           headers: {
             accept: "application/json",
             "Accept-Language": "en-US,en;q=0.8",
@@ -49,7 +48,7 @@ export default class UploadCrit extends React.Component {
             if (response.data.error) {
               if ("LIMIT_FILE_SIZE" === response.data.error.code) {
                 // this.ocShowAlert("Max size: 2MB", "red");
-                console.error('file too big');
+                console.error("file too big");
               } else {
                 console.log(response.data);
                 // If not the given file type
@@ -61,10 +60,10 @@ export default class UploadCrit extends React.Component {
               let fileName = response.data;
               console.log("fileData", fileName);
               // this.ocShowAlert("File Uploaded", "#3089cf");
-              console.log('File uploaded!');
+              console.log("File uploaded!");
               this.setState({
-                "s3locationurl": fileName.location
-              })
+                s3locationurl: fileName.location
+              });
             }
           }
         })
@@ -76,10 +75,9 @@ export default class UploadCrit extends React.Component {
     } else {
       // if file not selected throw error
       // this.ocShowAlert("Please upload file", "red");
-      console.log('Please upload file!');
+      console.log("Please upload file!");
     }
   };
-
 
   /**
    * This handles submitting the upload form. It sends the data from the form
@@ -154,14 +152,18 @@ export default class UploadCrit extends React.Component {
             value={this.state.questions}
             onChange={this.handleChange}
           ></textarea>
-          <div className="file-upload-container">
-            <input type="file" name="critique-image" id="critique-image"
-              onChange={this.singleFileChangedHandler}
-            />
-            <button onClick={this.singleFileUploadHandler}>Upload File</button>
-          </div>
-          <button className="submit" type="submit">
-            Submit Ya Crit!
+          <input
+            type="file"
+            name="critique-image"
+            id="critique-image"
+            onChange={this.singleFileChangedHandler}
+          />
+          <button
+            className="submit"
+            type="submit"
+            onClick={this.singleFileUploadHandler}
+          >
+            Upload File
           </button>
         </form>
       </div>
