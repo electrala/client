@@ -18,12 +18,13 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <br />
-                <div className="container">
+                <div className="containerr">
 
                     <div className='grid'>
                         <div className='img'>
 
                             <img className="photo" src={Pic} alt="profile pic"></img>
+                            
                             <div className="userInfo">
                             <h4 className="info">Ayana</h4>
                             <p className="info">UI/UX Designer</p>
@@ -32,7 +33,7 @@ export default class ProfilePage extends Component {
 
                         </div>  
                         <div className="left" >
-                            <ul className="nav">
+                            <ul className="navv">
                                 <li>About</li>
                                 <li>Gallery</li>
                                 <li>Collections</li>
