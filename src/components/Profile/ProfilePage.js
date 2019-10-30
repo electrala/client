@@ -18,14 +18,11 @@ export default class ProfilePage extends Component {
                 <br />
                 <div className="container">
 
-                    <div className='grid'>
+                    <div>
                         <div className='img'>
-
-                            <img className="photo" src={Pic} alt="profile pic"></img>
-   
-                        </div> 
+                            <img className="profilePhoto" src={Pic} alt="profile pic"></img>
+                        </div>   
                         <br/>
-                        
                         <div className="userInfo">
                             <h4 className="info">Ayana</h4>
                             <br/>

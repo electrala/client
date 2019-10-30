@@ -95,11 +95,12 @@ class App extends React.Component {
    * Added a try catch, when user signs in, modal closes, when error, alert
    * Once user is signed in, change to photo on navbar.
    */
+  
   signUp = async data => {
     try {
-      const new_user = await axios.post('http://localhost:5000/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
+      // const new_user = await axios.post('http://localhost:5000/users/register', data);
+      // const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true

@@ -1,4 +1,5 @@
-#picture img {
+/* This is the nav bar photo*/
+#picture img{
     border-radius: 50%;
     margin-right: 50%;
     margin-top: 17%;
@@ -18,29 +19,6 @@
         box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
       }
       
-      header i {
-        position: relative;
-        cursor: pointer;
-        right: -96%;
-        top: 25px;
-        font-size: 18px !important;
-        color: #fff;
-      }
-      
-      @media (max-width:800px) {
-        header {
-          height: 150px;
-        } 
-        
-        header i {
-          right: -90%;
-        }
-      }
-      
-      main {
-            padding: 20px 20px 0px 20px;
-      }
-      
       .left {
         display: flex;
         align-items: center;
@@ -49,8 +27,7 @@
         margin-top:20px ;
       }
       
-
-      .photo{
+      .profilePhoto{
         width: 150px;
         height: 150px;
         margin-top: 0px;
@@ -60,7 +37,6 @@
         border-radius: 100px;
         border: 4px solid #fff;
       }
-        
     
       @media (max-width:990px) {
         .active {
@@ -192,25 +168,9 @@
           text-align: center;
         }
       }
-      .gallery  {
-        margin-top: 35px;
-      }
-      
-      .gallery div {
-        margin-bottom: 30px;
-      }
-      
-      .gallery img {
-        box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
-        width: auto; 
-        height: auto;
-        cursor: pointer;
-        max-width: 100%;
-      }
-
+     
       .userInfo {
        margin-left:90px;
-      
       }
       .userInfo h4{
         margin: center;
