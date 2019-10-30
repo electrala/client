@@ -1,3 +1,11 @@
+:root {
+  --electra-orange: #FF5600;
+  --electra-cool: #51B5A4;
+  --electra-white: #FFF6E2;
+  --electra-grey: #444444;
+  --electra-black: #141414;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
