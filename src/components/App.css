@@ -9,8 +9,12 @@
   border-right: solid;
   border-color: #51b5a4;
   margin-top: 7rem;
-  margin-bottom: 7rem;
   border-width: 1px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -44,11 +48,7 @@
   }
 }
 
-
-
-
-
-#float-button img {
+<<<<<<< HEAD #float-button img {
   background-color: var(--electra-black);
   border-radius: 25%;
   position: fixed;

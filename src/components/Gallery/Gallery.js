@@ -4,6 +4,7 @@ import fillerPic from "./images/32.jpg";
 import "./gallery.css";
 import axios from 'axios';
 import Crit from '../Crit/Crit';
+import ReactModal from 'react-modal';
 // import { generateHtml, placeholder }
 
 export default class Gallery extends Component {
@@ -17,6 +18,17 @@ export default class Gallery extends Component {
     this.state = {
       critiques: [],
     };
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
   }
 
   async componentDidMount() {
@@ -35,26 +47,58 @@ export default class Gallery extends Component {
     if (!this.state.critiques[0]) return <div></div>
     return (
       <div id="gallery-container">
-        <div className="overlay">
-          <div className="overlay-inner">
-            <button className="close">× Close</button>
-            <img alt="filler" />
-            <h3>Title of the Piece</h3>
-            <p>Description of the piece</p>
-          </div>
-        </div>
         <section className="gallery">
+          <div className="item h4 v3" >
+            <img src={fillerPic} alt="filler" />
+            <div className="item__overlay">
+              <button onClick={this.handleOpenModal}>
+                All About ELECTRA
+              </button>
+              <ReactModal
+                isOpen={this.state.showModal}
+                contentLabel="Electra welcome statement"
+                onRequestClose={this.handleCloseModal}
+                style={{
+                  overlay: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(65, 159, 161, 0.85)'
+                  },
+                  content: {
+                    position: 'absolute',
+                    top: '20%',
+                    left: '20%',
+                    right: '20%',
+                    bottom: '15%',
+                    border: 'none',
+                    background: '#707070',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '20px',
+                    outline: 'none',
+                    padding: '20px',
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+
+                  }
+                }}
+              >
+                <div id="critique-modal-view" >
+                  <div id="critique-info-side">
+                    <h1 id="critique-title" >ELECTRA LA</h1>
+                    <p id="critique-description" >Welcome one and all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
+                    <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
+                  </div>
+                </div>
+              </ReactModal>
+            </div>
+
+          </div >
           {this.state.critiques.map(critique => (
             <Crit key={critique.id} critique={critique} />
           ))}
-          <div className="item h1 v1" >
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button>
-                Take a closer <span role="img">👀</span>
-              </button>
-            </div>
-          </div >
           <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
