@@ -22,7 +22,15 @@ export default class ProfilePage extends Component {
 
                     <div className='grid'>
                         <div className='img'>
+
                             <img className="photo" src={Pic} alt="profile pic" ></img>
+
+                            <div className="userInfo">
+                            <h4 className="info">Ayana</h4>
+                            <p className="info">UI/UX Designer</p>
+                            <p className="info">Los Angeles</p>
+                            </div>
+
                         </div>  
                         <div className="left" >
                             <ul className="nav">
@@ -35,11 +43,8 @@ export default class ProfilePage extends Component {
                             <div className="active"></div>
                             <div className="row">
                                 
-                                <h4 className="name"></h4>
                                 <br />
-                                <p className="info">UI/UX Designer</p>
-                                <br />
-                                <p className="info">Los Angeles</p>
+                                
                             </div>
                             <div className="stats row">
                                 <div className="stat col-xs-4" >
