@@ -8,7 +8,6 @@ export default class ProfilePage extends Component {
         this.state = {
             userInfo: {}
         }
-
     }
 
     render() {
@@ -24,10 +23,7 @@ export default class ProfilePage extends Component {
                     <div className='grid'>
                         <div className='img'>
                             <img className="photo" src={Pic} alt="profile pic" ></img>
-
-                        </div>
-
-                       
+                        </div>  
                         <div className="left" >
                             <ul className="nav">
                                 <li>About</li>
@@ -35,18 +31,11 @@ export default class ProfilePage extends Component {
                                 <li>Collections</li>
                             </ul>
 
-
-                            <span className="follow">Follow</span>
-
+                          <span className="follow">Follow</span>
                             <div className="active"></div>
-
                             <div className="row">
-
-                                <div className="">
-
-                                </div>
-
-                                <h4 className="name">{this.state.userInfo.firstName}</h4>
+                                
+                                <h4 className="name"></h4>
                                 <br />
                                 <p className="info">UI/UX Designer</p>
                                 <br />
@@ -58,7 +47,7 @@ export default class ProfilePage extends Component {
                                     <p className="desc-stat">Followers</p>
                                 </div>
                                 <div className="stat col-xs-4">
-                                    <p classNameName="number-stat">42</p>
+                                    <p className="number-stat">42</p>
                                     <p className="desc-stat">Following</p>
                                 </div>
                                 <div className="stat col-xs-4" >
@@ -66,10 +55,7 @@ export default class ProfilePage extends Component {
                                     <p className="desc-stat">Uploads</p>
                                 </div>
                             </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
