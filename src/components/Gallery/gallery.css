@@ -1,4 +1,4 @@
-#float-button {
+/* #float-button {
   background-color: #141414;
   width: 3rem;
   height: 3rem;
@@ -25,15 +25,16 @@
 #float-button img {
   width: 60%;
   place-self: center;
-}
+} */
 
-#float-button button {
-  border-radius: 50px;
-  border: 0;
+/* #float-button button {
+  border-radius: 40%;
+  width: 3rem;
+  height: 3rem;
   outline: none;
   background-color: #444444;
   padding-top: 0.3rem;
-}
+} */
 
 h1,
 h2,
