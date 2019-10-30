@@ -43,3 +43,39 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+#float-button img {
+  background-color: var(--electra-black);
+  border-radius: 25%;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 35px 10px 10px;
+  transition: all 0.2s ease-in 0s;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+#float-button img:hover {
+  background-color: var(--electra-cool);
+  transform: scale(1.1);
+  -webkit-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
+}
+
+/* When the device is larger than 1024 will increse size */
+@media (min-width: 1024px) {
+  #float-button img {
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+  }
+}

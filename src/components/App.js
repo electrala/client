@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import "../css/style.css";
+// import "./App.css";
+// import "../css/style.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Gallery from "./Gallery/Gallery";
 import Modal from "./Modal/Modal";
@@ -157,10 +157,7 @@ class App extends React.Component {
           <Signup createUser={this.signUp} />
         </Modal>
         <div id="float-button">
-          <button onClick={this.showCritModal}>
-            <img src={require('./small_arrow.png')} alt="plus sign for upload" />
-
-          </button>
+            <img src={require('./upload-icon-cloud-loop-orange.png')} onClick={this.showCritModal} alt="plus sign for upload" />
         </div>
       </Router>
     );

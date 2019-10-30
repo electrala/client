@@ -5,6 +5,7 @@
 @import "./signup.css";
 @import "./userProfile.css";
 @import "../components/Login/Login.css";
+@import "../components/App.css";
 
 :root {
   --electra-orange: #FF5600;
