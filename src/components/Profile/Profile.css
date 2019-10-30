@@ -137,19 +137,7 @@
         border-bottom: 2px solid #999;
       }
       
-      .follow {
-        position: absolute;
-        right: 8%;
-        top: 35px;
-        font-size: 11pt;
-        background-color: #42b1fa;
-        color: #fff;
-        padding: 8px 15px;
-        cursor: pointer;
-        transition: all .4s;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-      }
+    
       
       .follow:hover {
         box-shadow: 0 0 15px rgba(0,0,0,0.2), 0 0 15px rgba(0,0,0,0.2);

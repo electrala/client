@@ -37,8 +37,6 @@ export default class ProfilePage extends Component {
                                 <li>Gallery</li>
                                 <li>Collections</li>
                             </ul>
-
-                          <span className="follow">Follow</span>
                             <div className="active"></div>
                             <div className="row">
                                 
