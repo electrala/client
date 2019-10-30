@@ -25,16 +25,16 @@ class App extends React.Component {
   }
 
   /**
-     * This function shows the profile pic dislplayed on nav
-     * @param {object} event This is the event triggered after successfully logging in or signing up 
-     */
+   * This function shows the profile pic dislplayed on nav
+   * @param {object} event This is the event triggered after successfully logging in or signing up
+   */
 
   showProfilePic = event => {
     event.preventDefault();
     this.setState({
-      profilePic: true,
-    })
-  }
+      profilePic: true
+    });
+  };
 
   /**
    * The following 2 functions toggle the critique upload modal.
@@ -66,9 +66,9 @@ class App extends React.Component {
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false,
+      showLogin: false
     });
-  }
+  };
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the criques array. (This array isn't currently
@@ -102,10 +102,10 @@ class App extends React.Component {
       // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
-        profilePic: true,
-      })
-    } catch{
-      alert("error")
+        profilePic: true
+      });
+    } catch {
+      alert("error");
     }
 
   }
@@ -148,9 +148,11 @@ class App extends React.Component {
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn} />
-          <div className="line-container"></div>
-          <Signup createUser={this.signUp} />
+          <div class="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
         </Modal>
         <div id="float-button">
           <button onClick={this.showCritModal}>

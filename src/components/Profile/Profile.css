@@ -10,7 +10,6 @@
 
 
     html {
-       
         font-family: "Arial";
       }
       
@@ -151,7 +150,6 @@
       }
       
       .nav li {
-        
         margin: 0px 10px  10px;
         cursor: pointer;
         font-size: 13pt;
