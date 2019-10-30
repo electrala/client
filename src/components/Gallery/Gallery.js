@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { Component } from "react";
+import welcomePic from "./images/ELECTRA-Welcome.png";
 import fillerPic from "./images/32.jpg";
 import "./gallery.css";
 import axios from 'axios';
@@ -50,7 +51,7 @@ export default class Gallery extends Component {
       <div id="gallery-container">
         <section className="gallery">
           <div className="item h4 v3" >
-            <img src={fillerPic} alt="filler" />
+            <img src={welcomePic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
                 All About ELECTRA
