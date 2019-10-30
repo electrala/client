@@ -66,13 +66,15 @@ export default class Crit extends Component {
             }}
           >
             <div id="critique-modal-view" >
-              <h2 id="critique-title" >Title: {title}</h2>
-              <p id="critique-username">Created by: {username}</p>
-              <p id="critique-description" >Description: {description}</p>
-              {/* <p id="critique-genre" >{genre}</p> */}
-              <p id="critique-question" >I'd like to know: {questions}</p>
               <img id="critique-modal-img" src={s3locationurl} alt="critique-modal-view" />
-              <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
+              <div id="critique-info-side">
+                <h1 id="critique-title" >{title}</h1>
+                <p id="critique-username">Created by: {username}</p>
+                <p id="critique-description" >Description:<br /> {description}</p>
+                {/* <p id="critique-genre" >{genre}</p> */}
+                <p id="critique-question" >I'd like to know:<br /> {questions}</p>
+                <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
+              </div>
             </div>
           </ReactModal>
         </div>

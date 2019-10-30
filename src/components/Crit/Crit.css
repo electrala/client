@@ -1,31 +1,36 @@
 #critique-modal-view {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas:
-    "img img title user"
-    "img img descr descr"
-    "ques ques ques ques"
-    ". button button .";
   padding: 2rem;
   color: #FFF6E2;
 }
 
 #critique-modal-img {
-  grid-area: img;
   max-width: 80%;
   border-radius: 20px;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
 }
 
+#critique-info-side {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "user"
+    "descr"
+    "ques"
+    "button";
+}
+
 #critique-title {
   grid-area: title;
   margin-top: 1rem;
+  font-size: 2rem;
 }
 
 #critique-username {
   grid-area: user;
-  margin-top: 1rem;
 }
 
 #critique-description {
@@ -39,6 +44,7 @@
 
 #modal-close-button {
   grid-area: button;
-  position: absolute;
-  bottom: 1rem;
+  align-self: end;
+  max-width: 20%;
+  place-self: center;
 }
