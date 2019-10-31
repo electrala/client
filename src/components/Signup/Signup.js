@@ -39,7 +39,8 @@ export default class Signup extends Component {
     if (password !== confirmPassword) {
       alert("Passwords don't match");
     } else {
-      console.log('your mom!');
+      console.log(`your mom!:: CJ's code`);
+      alert(`Signed up successfully!`);
       event.preventDefault();
       this.props.createUser(this.state);
     }

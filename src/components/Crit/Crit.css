@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   padding: 2rem;
-  color: #FFF6E2;
+  color: var(--electra-white);
 }
 
 #critique-modal-img {
