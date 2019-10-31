@@ -4,14 +4,14 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "Ayana1",
-      lastName: "Ayana1",
-      userName: "Ayana1",
-      pronoun: "Ayana1",
-      location: "Ayana1",
-      email: "Ayana1@",
-      password: "Ayana1",
-      confirmPassword: "Ayana1"
+      firstName: "",
+      lastName: "",
+      userName: "",
+      pronoun: "",
+      location: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
     };
   }
 
