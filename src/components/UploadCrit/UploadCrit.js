@@ -152,18 +152,13 @@ export default class UploadCrit extends React.Component {
             value={this.state.questions}
             onChange={this.handleChange}
           ></textarea>
-          <input
-            type="file"
-            name="critique-image"
-            id="critique-image"
-            onChange={this.singleFileChangedHandler}
-          />
-          <button
-            className="submit"
-            type="submit"
-            onClick={this.singleFileUploadHandler}
-          >
-            Upload File
+                    <div className="file-upload-container">
+            <input type="file" name="critique-image" id="critique-image"
+              onChange={this.singleFileChangedHandler}/>
+            <button onClick={this.singleFileUploadHandler}>Upload File</button>
+          </div>
+          <button className="submit" type="submit">
+            Submit Ya Crit!
           </button>
         </form>
       </div>
