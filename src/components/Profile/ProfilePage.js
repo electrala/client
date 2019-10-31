@@ -20,7 +20,7 @@ export default class ProfilePage extends Component {
 
                     <div>
                         <div className='img'>
-                            <img className="profilePhoto" src={Pic} alt="profile pic"></img>
+                            <img className="profilePhoto" src={Pic} alt="profilepic"></img>
                         </div>   
                         <br/>
                         <div className="userInfo">
