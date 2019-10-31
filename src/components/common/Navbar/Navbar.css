@@ -32,7 +32,7 @@ header {
 }
 
 header nav ul {
-  background-color: #141414;
+  background-color: var(--electra-black);
   width: 100%;
   height: 4rem;
   list-style: none;
@@ -55,11 +55,11 @@ header nav link a {
 }
 
 header nav link a:hover {
-  color: #ff5600;
+  color: var(--electra-orange);
 }
 
 .signup-login {
-  background-color: #141414;
+  background-color: var(--electra-black);
   color: #fff;
   border: 0;
   outline: none;
@@ -71,11 +71,11 @@ header nav link a:hover {
 }
 
 .signup-login:hover {
-  color: #ff5600;
+  color: var(--electra-orange);
 }
 
 .login {
-  background-color: #141414;
+  background-color: var(--electra-black);
   color: #fff;
   outline: none;
   border: 10px;
@@ -88,5 +88,5 @@ header nav link a:hover {
 }
 
 .login:hover {
-  color: #ff5600;
+  color: var(--electra-orange);
 }

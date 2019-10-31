@@ -16,7 +16,7 @@
 }
 
 .signUp-form .header {
-  background-color: #141414;
+  background-color: var(--electra-black);
   position: absolute;
   font-size: 2rem;
   border-top-left-radius: 5px;
@@ -26,7 +26,7 @@
 }
 
 .signUp-form #signUp-title {
-  color: #fff6e2;
+  color: var(--electra-white);
 
 }
 
@@ -152,7 +152,7 @@
 }
 
 #signUpButton:hover {
-  background-color: #51b5a4;
+  background-color: var(--electra-cool);
   transform: scale(1.1);
 }
 
@@ -162,12 +162,12 @@
 }
 
 .signUp-form input[type=text]:hover {
-  background-color: #ff5600;
+  background-color: var(--electra-orange);
   transform: scale(1.1);
 }
 
 .signUp-form input[type=text]::placeholder {
-  color: black;
+  color: var(--electra-black);
 }
 
 .signUp-form input[type=text]:hover::placeholder {
