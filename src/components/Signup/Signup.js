@@ -45,7 +45,6 @@ export default class Signup extends Component {
       this.props.createUser(this.state);
     }
   };
-
   render() {
     let h1 = {
       marginTop: "3rem",
