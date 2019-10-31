@@ -9,6 +9,11 @@ export default class Login extends Component {
     };
   }
 
+  /**
+   * This updates the state when users are filling out the form.
+   * @param {object} event This is the event triggered by inputting information
+   *                       into the form.
+   */
   handleChange = event => {
     event.preventDefault();
     this.setState({
