@@ -69,7 +69,7 @@ class App extends React.Component {
   };
   /**
    * Uploads a critique to our critiques table on postgres.
-   * Pushes the new critiques to the criques array. (This array isn't currently
+   * Pushes the new critiques to the critiques array. (This array isn't currently
    * being used, but it might be useful for rendering critiques.)
    * @param {object} data This is the data from the critique upload form
    */
