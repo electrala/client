@@ -78,7 +78,7 @@ class App extends React.Component {
 
   uploadCrit = async data => {
     const new_crit = await axios.post(
-      "http://localhost:5000/critiques/new",
+      "https://electra-la-2019.herokuapp.com/critiques/new",
       data
     );
     const crits = this.state.critiques;
@@ -98,9 +98,9 @@ class App extends React.Component {
 
   signUp = async data => {
     try {
-       const new_user = await axios.post('http://localhost:5000/users/register', data);
-       const new_user_data = JSON.parse(new_user.config.data);
-       console.log(new_user_data);
+      const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true
@@ -119,7 +119,7 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/users/login",
+        "https://electra-la-2019.herokuapp.com/users/login",
         data
       );
       const token = result.data.token;

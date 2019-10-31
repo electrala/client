@@ -14,7 +14,7 @@ export default class UploadCrit extends React.Component {
       description: "",
       questions: "",
       selectedFile: null,
-      s3locationurl: ""
+      s3locationurl: null
     };
   }
 
@@ -152,10 +152,11 @@ export default class UploadCrit extends React.Component {
             value={this.state.questions}
             onChange={this.handleChange}
           ></textarea>
-                    <div className="file-upload-container">
+          <div className="file-upload-container">
             <input type="file" name="critique-image" id="critique-image"
-              onChange={this.singleFileChangedHandler}/>
+              onChange={this.singleFileChangedHandler} />
             <button onClick={this.singleFileUploadHandler}>Upload File</button>
+            <img src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
           </div>
           <button className="submit" type="submit">
             Submit Ya Crit!
