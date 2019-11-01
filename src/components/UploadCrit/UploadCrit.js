@@ -38,7 +38,7 @@ export default class UploadCrit extends React.Component {
         this.state.selectedFile.name
       );
       axios
-        .post("http://localhost:5000/aws/critique-img-upload", data, {
+        .post("https://electra-la-2019.herokuapp.com/aws/critique-img-upload", data, {
           headers: {
             accept: "application/json",
             "Accept-Language": "en-US,en;q=0.8",
