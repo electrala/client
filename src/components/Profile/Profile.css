@@ -1,7 +1,8 @@
 /* This is the nav bar photo*/
 #picture img{
     border-radius: 50%;
-    margin-right: 50%;
+    margin-right: 100px;
+    margin-left:-40px;
     margin-top: 17%;
     display: block;
     height: 50px;
