@@ -39,8 +39,9 @@ header nav ul {
   position: fixed;
   top: 0;
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: white;
 }
 
