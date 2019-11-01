@@ -87,8 +87,8 @@ class App extends React.Component {
       this.setState({
         critiques: crits
       });
-      this.closeCritModal();
       window.alert(`You're critique has been uploaded!`);
+      this.setState({ showCrit: false });
     } catch (error) {
       alert('Critique upload failed!');
     }
@@ -125,7 +125,7 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        "https://localhost:5000/users/login",
+        "https://electra-la-2019.herokuapp.com/users/login",
         data
       );
       const token = result.data.token;
