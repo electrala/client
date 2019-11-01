@@ -107,7 +107,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="password"
+              type="text"
               name="password"
               placeholder="Password"
               id="password"
@@ -115,7 +115,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="password"
+              type="text"
               name="confirmPassword"
               placeholder="Confirm Password"
               id="confirmPassword"
