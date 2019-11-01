@@ -1,6 +1,7 @@
 import React from "react";
 import "./UploadCrit.css";
 import axios from "axios";
+import LoadingDots from '../common/Loading/LoadingDots';
 
 export default class UploadCrit extends React.Component {
   // The default username is b, but this needs to be pulled from local storage
@@ -14,7 +15,8 @@ export default class UploadCrit extends React.Component {
       description: "",
       questions: "",
       selectedFile: null,
-      s3locationurl: null
+      s3locationurl: null,
+      isLoading: false
     };
   }
 
@@ -29,6 +31,7 @@ export default class UploadCrit extends React.Component {
     const data = new FormData();
     // If file selected
     if (this.state.selectedFile) {
+      this.setState({ isLoading: true });
       data.append(
         "critiqueImage",
         this.state.selectedFile,
@@ -48,26 +51,30 @@ export default class UploadCrit extends React.Component {
             if (response.data.error) {
               if ("LIMIT_FILE_SIZE" === response.data.error.code) {
                 // this.ocShowAlert("Max size: 2MB", "red");
-                console.error("file too big");
+                this.setState({ isLoading: false });
+                alert("file too big");
               } else {
+                this.setState({ isLoading: false });
                 console.log(response.data);
                 // If not the given file type
                 // this.ocShowAlert(response.data.error, "red");
-                console.error(response.data.error);
+                alert(response.data.error);
               }
             } else {
               // Success
               let fileName = response.data;
-              console.log("fileData", fileName);
+              // console.log("fileData", fileName);
               // this.ocShowAlert("File Uploaded", "#3089cf");
               console.log("File uploaded!");
               this.setState({
-                s3locationurl: fileName.location
+                s3locationurl: fileName.location,
+                isLoading: false
               });
             }
           }
         })
         .catch(error => {
+          this.setState({ isLoading: false });
           // If another error
           // this.ocShowAlert(error, "red");
           console.error(error);
@@ -75,7 +82,7 @@ export default class UploadCrit extends React.Component {
     } else {
       // if file not selected throw error
       // this.ocShowAlert("Please upload file", "red");
-      console.log("Please upload file!");
+      alert("Please upload file!");
     }
   };
 
@@ -153,10 +160,13 @@ export default class UploadCrit extends React.Component {
             onChange={this.handleChange}
           ></textarea>
           <div className="file-upload-container">
-            <input type="file" name="critique-image" id="critique-image"
+            <input type="file" accept="image/*" name="critique-image" id="critique-image"
               onChange={this.singleFileChangedHandler} />
             <button onClick={this.singleFileUploadHandler}>Upload File</button>
             <img src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
+            {
+              this.state.isLoading ? <LoadingDots /> : <div></div>
+            }
           </div>
           <button className="submit" type="submit">
             Submit Ya Crit!

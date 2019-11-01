@@ -110,6 +110,7 @@
 #upload-form button {
   background-color: #fff;
   width: 45%;
+  height: 100%;
   margin-top: 0.5rem;
   margin-left: 1rem;
   border-radius: 10px;
@@ -124,6 +125,11 @@
 
 #upload-form button:hover {
   background-color: var(--electra-cool);
+}
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
 }
 
 /* button.submit {
