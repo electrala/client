@@ -142,6 +142,7 @@ export default class UploadCrit extends React.Component {
             <option value="digital">Digital Art</option>
             <option value="performance">Performance</option>
             <option value="audio">Audio</option>
+            <option value="illustration">Illustration</option>
           </select>
           <label id="description-label">Description</label>
           <textarea
