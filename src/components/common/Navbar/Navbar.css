@@ -24,7 +24,7 @@
 
 #login {
   place-self: center end;
-  padding-right: 10rem;
+  padding-right: 0rem;
 }
 
 header {
@@ -40,7 +40,7 @@ header nav ul {
   top: 0;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   color: white;
 }
 
@@ -63,7 +63,6 @@ header nav link a:hover {
   color: #fff;
   border: 0;
   outline: none;
-
   font-family: "Lexend Deca", sans-serif;
   font-size: 1.2rem;
 
