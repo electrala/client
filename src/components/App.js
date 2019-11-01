@@ -71,21 +71,27 @@ class App extends React.Component {
   };
   /**
    * Uploads a critique to our critiques table on postgres.
-   * Pushes the new critiques to the criques array. (This array isn't currently
+   * Pushes the new critiques to the critiques array. (This array isn't currently
    * being used, but it might be useful for rendering critiques.)
    * @param {object} data This is the data from the critique upload form
    */
 
   uploadCrit = async data => {
-    const new_crit = await axios.post(
-      "http://localhost:5000/critiques/new",
-      data
-    );
-    const crits = this.state.critiques;
-    crits.push(new_crit);
-    this.setState({
-      critiques: crits
-    });
+    try {
+      const new_crit = await axios.post(
+        "https://electra-la-2019.herokuapp.com/critiques/new",
+        data
+      );
+      const crits = this.state.critiques;
+      crits.push(new_crit);
+      this.setState({
+        critiques: crits
+      });
+      this.closeCritModal();
+      window.alert(`You're critique has been uploaded!`);
+    } catch (error) {
+      alert('Critique upload failed!');
+    }
   };
 
   /**
@@ -98,9 +104,9 @@ class App extends React.Component {
 
   signUp = async data => {
     try {
-       const new_user = await axios.post('http://localhost:5000/users/register', data);
-       const new_user_data = JSON.parse(new_user.config.data);
-       console.log(new_user_data);
+      const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true
@@ -119,7 +125,7 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/users/login",
+        "https://localhost:5000/users/login",
         data
       );
       const token = result.data.token;
