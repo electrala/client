@@ -19,7 +19,7 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic: true,
+      profilePic: false,
       userInfo: {}
     };
   }
