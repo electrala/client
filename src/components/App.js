@@ -19,7 +19,7 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic: false,
+      profilePic: true,
       userInfo: {}
     };
   }
@@ -100,7 +100,7 @@ class App extends React.Component {
     try {
        const new_user = await axios.post('http://localhost:5000/users/register', data);
        const new_user_data = JSON.parse(new_user.config.data);
-       console.log(new_user_data);
+        console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
         profilePic: true
