@@ -133,7 +133,11 @@ class App extends React.Component {
       this.setToken(token);
       console.log(token);
       // Close the modal when you successfully login
+      this.setState({
+        profilePic: true
+      });
       this.closeLoginModal();
+
       window.alert(`You're all logged in and ready to go!`);
     } catch (err) {
       window.alert(`Couldn't login!!!`);

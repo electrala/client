@@ -34,8 +34,9 @@ export default class Navbar extends Component {
          
 
             <li id="logo"><Link to="/"><img id="logo-img" src={logo} alt="Electra Logo" /></Link> </li>
-            <li id="critiques"><Link to="/" >Critiques</Link></li>
-            <li id="gallery"> <Link to="/">Gallery</Link> </li>
+
+            {/* <li id="critiques"><Link to="/" >Critiques</Link></li>
+            <li id="gallery"> <Link to="/">Gallery</Link> </li> */}
             {/* If the user is not signed in, show "user sign up", if user is signed in ""*/}
 
             {this.props.profilePic ?
