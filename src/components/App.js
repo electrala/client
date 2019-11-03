@@ -87,8 +87,8 @@ class App extends React.Component {
       this.setState({
         critiques: crits
       });
-      this.closeCritModal();
       window.alert(`You're critique has been uploaded!`);
+      this.setState({ showCrit: false });
     } catch (error) {
       alert('Critique upload failed!');
     }
