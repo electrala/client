@@ -8,6 +8,10 @@ export default class ProfilePage extends Component {
             userInfo: {}
         }
     }
+
+  
+
+    
     render() {
         return (
             <div className="user">
@@ -16,13 +20,14 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <br />
-                <div className="container">
 
+                <div className="container">
                     <div>
                         <div className='img'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
                         </div>   
                         <br/>
+
                         <div className="userInfo">
                             <h4 className="info">Ayana</h4>
                             <br/>
@@ -38,10 +43,8 @@ export default class ProfilePage extends Component {
                                 <li>Collections</li>
                             </ul>
                             <div className="active"></div>
-                            <div className="row">
-                                
-                                <br />
-                                
+                            <div className="row">    
+                                <br />       
                             </div>
                             <div className="stats row">
                                 <div className="stat col-xs-4" >

@@ -5,7 +5,6 @@
 .line-container {
   align-content: center;
   width: 20px;
-
   border-right: solid;
   border-color: var(--electra-cool);
   margin-top: 7rem;
@@ -38,6 +37,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -47,6 +47,7 @@
     transform: rotate(360deg);
   }
 }
+
 
 #float-button img {
   background-color: var(--electra-black);

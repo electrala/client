@@ -16,10 +16,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showCrit: false,
+      showCrit: true,
       showLogin: false,
       critiques: [],
-      profilePic: true,
+      profilePic: false,
       userInfo: {}
     };
   }
@@ -168,20 +168,38 @@ class App extends React.Component {
           <Route path='/profile' component={ProfilePage} />
         </Switch>
 
-        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+
+{this.state.showCrit? 
+  <div id="float-button">
+<img
+  src={require("./custom-button.png")}
+  onClick={this.showCritModal}
+  alt="plus sign for upload"/>
+
+   </div>   
+
+    
+
+{ this.state.showMyComponent ? <MyComponent /> : null }
+
+{ this.state.showMyComponent && <MyComponent /> }
+
+
+    <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <div className="rows">
             <Login loginUser={this.logIn} />
             <div className="line-container"></div>
             <Signup createUser={this.signUp} />
           </div>
+           
+
+
+
         </Modal>
-        <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload"
-          />
-        </div>
+
+
+
+  
       </Router>
     );
   }
