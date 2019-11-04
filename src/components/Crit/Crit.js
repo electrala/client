@@ -6,34 +6,12 @@ export default class Crit extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false, 
-      showCrit: false,
-
+      showModal: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-
- /**
-   * The following 2 functions toggle the critique upload modal.
-   * @param {object} event This is the event triggered by clicking the plus sign button
-   */
-  showCritModal = event => {
-    event.preventDefault();
-    this.setState({
-      showCrit: true
-    });
-  };
-
-  closeCritModal = event => {
-    event.preventDefault();
-    this.setState({
-      showCrit: false
-    });
-  };
-
-
 
   randomNumber = limit => Math.floor(Math.random() * limit) + 1;
 
@@ -62,8 +40,6 @@ export default class Crit extends Component {
             Take a closer <span role="img">👀</span>
           </button> */}
           <button onClick={this.handleOpenModal}>Check me out!</button>
-          
-
           <ReactModal
             isOpen={this.state.showModal}
             contentLabel="Critique Modal View"
@@ -118,10 +94,7 @@ export default class Crit extends Component {
               </div>
             </div>
           </ReactModal>
-      
         </div>
-
-      
       </div>
     );
   }
