@@ -5,10 +5,19 @@ export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInfo: {}
+            userInfo: {
+                firstName: 'first name',
+                lastName: 'last name',
+                userName: 'user name',
+                pronouns: 'pronoun',
+                location: 'location',
+                email: 'email',
+                token: "userToken"
+            }
         }
     }
     render() {
+
         return (
             <div className="user">
                 <br />
@@ -17,19 +26,26 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <div className="container">
-
                     <div>
                         <div className='img'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
                         </div>   
                         <br/>
                         <div className="userInfo">
-                            <h4 className="info">Ayana</h4>
+                            <h4 className="info">{this.state.userInfo.firstName}</h4>
                             <br/>
-                            <p className="info">UI/UX Designer</p>
+                            <p className="info">{this.state.userInfo.lastName}</p>
                             <br/>
-                            <p className="info">Los Angeles</p>
-                            </div>
+                            <p className="info">{this.state.userInfo.userName}</p>
+                            <br/>
+                            <p className="info">{this.state.userInfo.pronouns}</p>
+                            <br />
+                            <p className="info">{this.state.userInfo.location}</p>
+                            <br />
+                            <p className="info">{this.state.userInfo.email}</p>
+                            <br />
+                            <p className="info">{this.state.userInfo.token}</p>
+                        </div>
 
                         <div className="left" >
                             <ul className="profileNav">
