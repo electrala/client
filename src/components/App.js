@@ -169,21 +169,7 @@ class App extends React.Component {
         </Switch>
 
 
-        {this.state.showCrit ?
-          <div id="float-button">
-            <img
-              src={require("./custom-button.png")}
-              onClick={this.showCritModal}
-              alt="plus sign for upload" />
-          </div>:
-          <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload" />
-        </div>
-         
-        }
+    
 
           <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
             <div className="rows">
@@ -192,6 +178,14 @@ class App extends React.Component {
               <Signup createUser={this.signUp} />
             </div>
           </Modal>
+
+          <div id="float-button">
+          <img
+            src={require("./custom-button.png")}
+            onClick={this.showCritModal}
+            alt="plus sign for upload"
+          />
+        </div>
       </Router>
 
     );
