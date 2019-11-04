@@ -11,7 +11,8 @@ export default class ProfilePage extends Component {
                 userName: 'user name',
                 pronouns: 'pronoun',
                 location: 'location',
-                email: 'email'
+                email: 'email',
+                // token: localStorage.getItem("jwt")
             }
         }
     }
@@ -41,6 +42,8 @@ export default class ProfilePage extends Component {
                             <p className="info">{this.state.userInfo.location}</p>
                             <br />
                             <p className="info">{this.state.userInfo.email}</p>
+                            <br />
+                            <p className="info">{this.state.userInfo.token}</p>
                         </div>
 
                         <div className="left" >
