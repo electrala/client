@@ -35,7 +35,7 @@ export default class Crit extends Component {
     return (
       <div className={`item h${this.randomNumber(4)} v${this.randomNumber(4)}`}>
         <img src={s3locationurl} alt="filler" />
-        <div className="item__overlay">
+        <div className="item__overlay critique_overlay">
           {/* <button>
             Take a closer <span role="img">👀</span>
           </button> */}
