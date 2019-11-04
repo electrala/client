@@ -132,6 +132,7 @@ class App extends React.Component {
       localStorage.setItem("jwt", token);
       this.setToken(token);
       console.log(token);
+      console.log(localStorage);
       // Close the modal when you successfully login
       this.setState({
         profilePic: true
@@ -153,7 +154,8 @@ class App extends React.Component {
     let tempToken = token;
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
-    console.log(axios.defaults.headers)
+    console.log(axios.defaults.headers.common["Authorization"].firstName)
+    
   };
 
 
