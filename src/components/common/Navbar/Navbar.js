@@ -19,7 +19,6 @@ export default class Navbar extends Component {
    * This handles clicking on the signup/login button, which toggles the signup/login modal.
    * @param {object} event This is the event triggered by clicking the button. 
    */
-  
   handleClick = event => {
     event.preventDefault();
     this.props.onSignup();
@@ -33,6 +32,7 @@ export default class Navbar extends Component {
         <nav>
           <ul>
          
+
             <li id="logo"><Link to="/"><img id="logo-img" src={logo} alt="Electra Logo" /></Link> </li>
 
             {/* <li id="critiques"><Link to="/" >Critiques</Link></li>

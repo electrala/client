@@ -66,6 +66,7 @@ header nav link a:hover {
   outline: none;
   font-family: "Lexend Deca", sans-serif;
   font-size: 1.2rem;
+
   transition: all 250ms;
 }
 
@@ -79,8 +80,10 @@ header nav link a:hover {
   outline: none;
   border: 10px;
   border-color: #fff;
+
   font-family: "Lexend Deca", sans-serif;
   font-size: 1.2rem;
+
   transition: all 250ms;
 }
 

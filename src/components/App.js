@@ -19,9 +19,7 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic: false,
-      userInfo: {},
-      showButton: true
+      profilePic:false,
     };
   }
 
@@ -170,7 +168,6 @@ class App extends React.Component {
           <Route path='/profile' component={ProfilePage} />
         </Switch>
 
-
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <div className="rows">
             <Login loginUser={this.logIn} />
@@ -179,6 +176,14 @@ class App extends React.Component {
           </div>
         </Modal>
 
+        {this.state.showCrit ? 'show' :
+          <div id="float-button">
+            <img
+              src={require("./custom-button.png")}
+              onClick={this.props.showCritModal}
+              alt="plus sign for upload" />
+          </div>
+        }
       </Router>
     );
   }

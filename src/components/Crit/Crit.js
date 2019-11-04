@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 import "./Crit.css";
-import './custom-button.png';
 
 export default class Crit extends Component {
   constructor() {
@@ -122,14 +121,7 @@ export default class Crit extends Component {
       
         </div>
 
-        {this.state.showCrit ? 'show' :
-          <div id="float-button">
-            <img
-              src={require("./custom-button.png")}
-              onClick={this.props.showCritModal}
-              alt="plus sign for upload" />
-          </div>
-        }
+      
       </div>
     );
   }
