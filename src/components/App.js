@@ -16,11 +16,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showCrit: true,
+      showCrit: false,
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: {}
+      userInfo: {},
+      showButton: true
     };
   }
 
@@ -114,7 +115,6 @@ class App extends React.Component {
     } catch {
       alert("error");
     }
-
   }
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -156,7 +156,9 @@ class App extends React.Component {
   };
 
   render() {
+
     return (
+
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
@@ -169,37 +171,14 @@ class App extends React.Component {
         </Switch>
 
 
-{this.state.showCrit? 
-  <div id="float-button">
-<img
-  src={require("./custom-button.png")}
-  onClick={this.showCritModal}
-  alt="plus sign for upload"/>
-
-   </div>   
-
-    
-
-{ this.state.showMyComponent ? <MyComponent /> : null }
-
-{ this.state.showMyComponent && <MyComponent /> }
-
-
-    <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <div className="rows">
             <Login loginUser={this.logIn} />
             <div className="line-container"></div>
             <Signup createUser={this.signUp} />
           </div>
-           
-
-
-
         </Modal>
 
-
-
-  
       </Router>
     );
   }
