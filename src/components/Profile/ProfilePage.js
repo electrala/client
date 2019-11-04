@@ -24,7 +24,6 @@ export default class ProfilePage extends Component {
                 <br />
                 <br />
                 <div className="container">
-
                     <div>
                         <div className='img'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
