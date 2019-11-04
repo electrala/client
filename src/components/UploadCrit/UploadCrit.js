@@ -2,6 +2,9 @@ import React from "react";
 import "./UploadCrit.css";
 import axios from "axios";
 import LoadingDots from '../common/Loading/LoadingDots';
+import electraLoadIcon from '../electraLoadIcon.gif';
+import electraLoadSuccess from '../electraLoadSuccess.png';
+import electraLoadError from '../electraLoadError.png';
 
 export default class UploadCrit extends React.Component {
   // The default username is b, but this needs to be pulled from local storage
@@ -38,7 +41,7 @@ export default class UploadCrit extends React.Component {
         this.state.selectedFile.name
       );
       axios
-        .post("http://localhost:5000/aws/critique-img-upload", data, {
+        .post("https://electra-la-2019.herokuapp.com/aws/critique-img-upload", data, {
           headers: {
             accept: "application/json",
             "Accept-Language": "en-US,en;q=0.8",
@@ -142,6 +145,7 @@ export default class UploadCrit extends React.Component {
             <option value="digital">Digital Art</option>
             <option value="performance">Performance</option>
             <option value="audio">Audio</option>
+            <option value="illustration">Illustration</option>
           </select>
           <label id="description-label">Description</label>
           <textarea
@@ -165,7 +169,7 @@ export default class UploadCrit extends React.Component {
             <button onClick={this.singleFileUploadHandler}>Upload File</button>
             <img src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
             {
-              this.state.isLoading ? <LoadingDots /> : <div></div>
+              this.state.isLoading ? <img src={electraLoadIcon} /> /*<LoadingDots />*/ : <div></div>
             }
           </div>
           <button className="submit" type="submit">
