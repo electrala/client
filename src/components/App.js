@@ -168,14 +168,18 @@ class App extends React.Component {
           <Route path='/profile' component={ProfilePage} />
         </Switch>
 
-        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <div className="rows">
-            <Login loginUser={this.logIn} />
-            <div className="line-container"></div>
-            <Signup createUser={this.signUp} />
-          </div>
-        </Modal>
-        <div id="float-button">
+
+    
+
+          <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+            <div className="rows">
+              <Login loginUser={this.logIn} />
+              <div className="line-container"></div>
+              <Signup createUser={this.signUp} />
+            </div>
+          </Modal>
+
+          <div id="float-button">
           <img
             src={require("./custom-button.png")}
             onClick={this.showCritModal}
@@ -183,6 +187,7 @@ class App extends React.Component {
           />
         </div>
       </Router>
+
     );
   }
 }
