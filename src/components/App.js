@@ -20,7 +20,7 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: {}
+      userInfo: []
     };
   }
 
@@ -69,6 +69,7 @@ class App extends React.Component {
       showLogin: false
     });
   };
+
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the critiques array. (This array isn't currently
@@ -116,6 +117,24 @@ class App extends React.Component {
     }
 
   }
+
+
+getById=async userInfo=>{
+  try{
+    const {users}= await axios.get(
+      "https://electra-la-2019.herokuapp.com/users/:userid"
+    
+      )
+      console.log(users);
+    this.setState({
+     userInfo:users,
+    })
+}catch (err){
+ 
+}
+}
+
+
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -128,17 +147,19 @@ class App extends React.Component {
         "https://electra-la-2019.herokuapp.com/users/login",
         data
       );
+
       const token = result.data.token;
       localStorage.setItem("jwt", token);
       this.setToken(token);
       console.log(token);
+      console.log("Res", result);
       console.log(localStorage);
       // Close the modal when you successfully login
       this.setState({
         profilePic: true
       });
+      this.getById()
       this.closeLoginModal();
-
       window.alert(`You're all logged in and ready to go!`);
     } catch (err) {
       window.alert(`Couldn't login!!!`);
