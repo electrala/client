@@ -90,7 +90,7 @@ export default class Gallery extends Component {
                 <div id="critique-modal-view" >
                   <div id="critique-info-side">
                     <h1 id="critique-title" >ELECTRA LA</h1>
-                    <p id="critique-description" >Welcome one and 
+                    <p id="critique-description" >Welcome one and
                     all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
                     <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
                   </div>
@@ -103,14 +103,14 @@ export default class Gallery extends Component {
           {this.state.critiques.map(critique => (
             <Crit key={critique.id} critique={critique} />
           ))
-          
+
           }
 
           <div className="item h1 v1" >
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -158,7 +158,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -206,7 +206,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -254,7 +254,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -302,7 +302,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -350,7 +350,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -398,7 +398,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}
@@ -446,7 +446,7 @@ export default class Gallery extends Component {
             <img src={fillerPic} alt="filler" />
             <div className="item__overlay">
               <button onClick={this.handleOpenModal}>
-                All About ELECTRA
+                Tips!
               </button>
               <ReactModal
                 isOpen={this.state.showModal}

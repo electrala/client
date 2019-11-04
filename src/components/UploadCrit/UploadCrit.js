@@ -166,8 +166,8 @@ export default class UploadCrit extends React.Component {
           <div className="file-upload-container">
             <input type="file" accept="image/*" name="critique-image" id="critique-image"
               onChange={this.singleFileChangedHandler} />
+            <img id="crit-upload-img" src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
             <button onClick={this.singleFileUploadHandler}>Upload File</button>
-            <img src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
             {
               this.state.isLoading ? <img src={electraLoadIcon} /> /*<LoadingDots />*/ : <div></div>
             }
