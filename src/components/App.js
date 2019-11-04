@@ -153,7 +153,9 @@ class App extends React.Component {
     let tempToken = token;
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
+    console.log(axios.defaults.headers)
   };
+
 
   render() {
     return (
@@ -167,9 +169,6 @@ class App extends React.Component {
           <Route exact path='/' component={Gallery} />
           <Route path='/profile' component={ProfilePage} />
         </Switch>
-
-
-    
 
           <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
             <div className="rows">
