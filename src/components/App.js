@@ -124,12 +124,15 @@ class App extends React.Component {
 
   }
 
+  /**
+   * Gets user by id when they click on the profile page icon on navbar. 
+   *    * @param {object} userInfo This is the data the login jwt token.
+   */
 
   getById = async userInfo => {
     try {
       const { users } = await axios.get(
         "https://electra-la-2019.herokuapp.com/users/:userid"
-
       )
       console.log(users);
       this.setState({
@@ -206,6 +209,7 @@ class App extends React.Component {
             <Signup createUser={this.signUp} />
           </div>
         </Modal>
+        
         {!this.state.hideButton &&
           <div id="float-button">
             <img

@@ -25,8 +25,9 @@ export default class ProfilePage extends Component {
         this.props.toggleUploadButton();
     }
 
-    render() {
+    
 
+    render() {
         return (
             <div className="user">
                 <br />
@@ -36,27 +37,26 @@ export default class ProfilePage extends Component {
                 <br />
                 <div className="container">
                     <div>
-                        <div className='img'>
+                    <div className="grid-container">
+                        <div className='img item1'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
-                        </div>
-                        <br />
-                        <div className="userInfo">
-                            <h4 className="info">{this.state.userInfo.firstName}</h4>
-                            <br />
-                            <p className="info">{this.state.userInfo.lastName}</p>
-                            <br />
+                        </div>   
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div className="userInfo item3">
+                            <h4 className="info">{this.state.userInfo.firstName} {this.state.userInfo.lastName}</h4>
+                            <br/>
                             <p className="info">{this.state.userInfo.userName}</p>
                             <br />
                             <p className="info">{this.state.userInfo.pronouns}</p>
                             <br />
                             <p className="info">{this.state.userInfo.location}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.email}</p>
-                            <br />
-                            <p className="info">{this.state.userInfo.token}</p>
+                            <p className="info">{this.state.userInfo.email}</p>      
                         </div>
 
-                        <div className="left" >
+                        <div className="left item2" >
                             <ul className="profileNav">
                                 <li>About</li>
                                 <li>Gallery</li>
@@ -68,7 +68,7 @@ export default class ProfilePage extends Component {
                                 <br />
 
                             </div>
-                            <div className="stats row">
+                            <div className="stats row item4">
                                 <div className="stat col-xs-4" >
                                     <p className="number-stat">3,619</p>
                                     <p className="desc-stat">Followers</p>
@@ -84,6 +84,7 @@ export default class ProfilePage extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         )
