@@ -118,21 +118,24 @@ class App extends React.Component {
 
   }
 
+  /**
+   * Gets user by id when they click on the profile page icon on navbar. 
+   *    * @param {object} userInfo This is the data the login jwt token.
+   */
 
-getById=async userInfo=>{
-  try{
-    const {users}= await axios.get(
-      "https://electra-la-2019.herokuapp.com/users/:userid"
-    
+  getById = async userInfo => {
+    try {
+      const { users } = await axios.get(
+        "https://electra-la-2019.herokuapp.com/users/:userid"
       )
       console.log(users);
-    this.setState({
-     userInfo:users,
-    })
-}catch (err){
- 
-}
-}
+      this.setState({
+        userInfo: users,
+      })
+    } catch (err) {
+
+    }
+  }
 
 
   /**
@@ -176,7 +179,7 @@ getById=async userInfo=>{
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
     console.log(axios.defaults.headers.common["Authorization"].firstName)
-    
+
   };
 
 
@@ -193,15 +196,15 @@ getById=async userInfo=>{
           <Route path='/profile' component={ProfilePage} />
         </Switch>
 
-          <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-            <div className="rows">
-              <Login loginUser={this.logIn} />
-              <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
-            </div>
-          </Modal>
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <div className="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
+        </Modal>
 
-          <div id="float-button">
+        <div id="float-button">
           <img
             src={require("./custom-button.png")}
             onClick={this.showCritModal}
