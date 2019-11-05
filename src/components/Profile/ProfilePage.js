@@ -17,6 +17,18 @@ export default class ProfilePage extends Component {
         }
     }
 
+
+    componentDidMount() {
+        this.props.toggleUploadButton();
+    }
+
+    componentWillUnmount() {
+        this.props.toggleUploadButton();
+    }
+
+    render() {
+
+
     render() {
         return (
             <div className="user">
@@ -37,8 +49,9 @@ export default class ProfilePage extends Component {
                         <div className="userInfo item3">
                             <h4 className="info">{this.state.userInfo.firstName} {this.state.userInfo.lastName}</h4>
                             <br/>
+
                             <p className="info">{this.state.userInfo.userName}</p>
-                            <br/>
+                            <br />
                             <p className="info">{this.state.userInfo.pronouns}</p>
                             <br />
                             <p className="info">{this.state.userInfo.location}</p>
@@ -54,9 +67,9 @@ export default class ProfilePage extends Component {
                             </ul>
                             <div className="active"></div>
                             <div className="row">
-                                
+
                                 <br />
-                                
+
                             </div>
                             <div className="stats row item4">
                                 <div className="stat col-xs-4" >

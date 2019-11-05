@@ -58,7 +58,7 @@
 
 #title,
 #genre {
-  width: 45%;
+  width: 46.5%;
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
@@ -93,7 +93,7 @@
   border: 0;
   outline: none;
   padding: 5px;
-
+  width: 95%;
   font-family: "Lexend Deca", sans-serif;
 }
 
@@ -110,8 +110,8 @@
 #upload-form button {
   background-color: #fff;
   width: 45%;
-  height: 100%;
-  margin-top: 0.5rem;
+  height: auto;
+  margin-top: 1rem;
   margin-left: 1rem;
   border-radius: 10px;
   border: 0;
@@ -128,8 +128,20 @@
 }
 
 .file-upload-container {
-  display: flex;
-  flex-direction: column;
+  width: 50%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 70px 70px;
+}
+
+.file-upload-container input[type=file] {
+  height: 50px;
+  margin: 1rem;
+}
+
+#crit-upload-img {
+  margin-top: 1rem;
 }
 
 /* button.submit {

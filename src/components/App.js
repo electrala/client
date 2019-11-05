@@ -20,12 +20,18 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: []
+      userInfo: [],
+      hideButton: false
     };
   }
 
+  toggleUploadButton = () => {
+    const { hideButton } = this.state
+    this.setState({ hideButton: !hideButton })
+  }
+
   /**
-   * This function shows the profile pic dislplayed on nav
+   * This function shows the profile pic displayed on nav
    * @param {object} event This is the event triggered after successfully logging in or signing up
    */
 
@@ -193,7 +199,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route path='/profile' component={ProfilePage} />
+          <Route exact path='/profile' render={(props) => <ProfilePage toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
@@ -204,13 +210,14 @@ class App extends React.Component {
           </div>
         </Modal>
 
-        <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload"
-          />
-        </div>
+        {!this.state.hideButton &&
+          <div id="float-button">
+            <img
+              src={require("./custom-button.png")}
+              onClick={this.showCritModal}
+              alt="plus sign for upload"
+            />
+          </div>}
       </Router>
 
     );
