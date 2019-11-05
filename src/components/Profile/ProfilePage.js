@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Pic from './bank_profile.png'
+import Pic from './bank_profile.png';
+
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -16,8 +17,8 @@ export default class ProfilePage extends Component {
             }
         }
     }
+
     render() {
-//hello 
         return (
             <div className="user">
                 <br />
