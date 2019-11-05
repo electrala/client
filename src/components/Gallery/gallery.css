@@ -116,8 +116,16 @@ p {
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.7);
   padding: 10px;
-  font-size: 15px;
+  font-size: 10px;
   vertical-align: middle;
+}
+
+.welcome_overlay button {
+  font-size: 15px;
+}
+
+.critique_overlay button {
+  font-size: 15px;
 }
 
 .item__overlay button span {

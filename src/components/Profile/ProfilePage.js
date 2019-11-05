@@ -12,11 +12,12 @@ export default class ProfilePage extends Component {
                 pronouns: 'pronoun',
                 location: 'location',
                 email: 'email',
-                // token: localStorage.getItem("jwt")
+                token: "userToken"
             }
         }
     }
     render() {
+
         return (
             <div className="user">
                 <br />
