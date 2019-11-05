@@ -10,7 +10,7 @@ import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
-
+import jwt_decode from 'jwt-decode';
 
 class App extends React.Component {
   constructor(props) {
@@ -145,6 +145,13 @@ class App extends React.Component {
     }
   };
 
+  // getUserById = async () => {
+  //       const token = localStorage.getItem("jwt");
+  //       const decoded = jwt_decode(token);
+  //       const infobro = await axios.get(`http://localhost:5000/user/${decoded.id}`);
+  //       console.log(infobro);
+  // }
+
   /**
    * Sets the Authorization header to the JWT. This header will be used for
    * validation on the back end.
@@ -155,6 +162,19 @@ class App extends React.Component {
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
   };
+
+  componentDidMount = async () => {
+    try {
+    const token = localStorage.getItem("jwt");
+    const decode = jwt_decode(token);
+    const userInformation = await axios.get(`http://localhost:5000/user/${decode.id}`);
+    console.log(userInformation);
+    } catch (err) {
+    console.error(err);
+    }
+  }
+
+
 
   render() {
     return (
