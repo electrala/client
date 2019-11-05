@@ -20,12 +20,18 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: []
+      userInfo: [],
+      hideButton: false
     };
   }
 
+  toggleUploadButton = () => {
+    const { hideButton } = this.state
+    this.setState({ hideButton: !hideButton })
+  }
+
   /**
-   * This function shows the profile pic dislplayed on nav
+   * This function shows the profile pic displayed on nav
    * @param {object} event This is the event triggered after successfully logging in or signing up
    */
 
@@ -119,20 +125,20 @@ class App extends React.Component {
   }
 
 
-getById=async userInfo=>{
-  try{
-    const {users}= await axios.get(
-      "https://electra-la-2019.herokuapp.com/users/:userid"
-    
+  getById = async userInfo => {
+    try {
+      const { users } = await axios.get(
+        "https://electra-la-2019.herokuapp.com/users/:userid"
+
       )
       console.log(users);
-    this.setState({
-     userInfo:users,
-    })
-}catch (err){
- 
-}
-}
+      this.setState({
+        userInfo: users,
+      })
+    } catch (err) {
+
+    }
+  }
 
 
   /**
@@ -176,7 +182,7 @@ getById=async userInfo=>{
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
     console.log(axios.defaults.headers.common["Authorization"].firstName)
-    
+
   };
 
 
@@ -190,24 +196,24 @@ getById=async userInfo=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route path='/profile' component={ProfilePage} />
+          <Route exact path='/profile' render={(props) => <ProfilePage toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
-          <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-            <div className="rows">
-              <Login loginUser={this.logIn} />
-              <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
-            </div>
-          </Modal>
-
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <div className="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
+        </Modal>
+        {!this.state.hideButton &&
           <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload"
-          />
-        </div>
+            <img
+              src={require("./custom-button.png")}
+              onClick={this.showCritModal}
+              alt="plus sign for upload"
+            />
+          </div>}
       </Router>
 
     );

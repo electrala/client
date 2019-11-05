@@ -16,6 +16,15 @@ export default class ProfilePage extends Component {
             }
         }
     }
+
+    componentDidMount() {
+        this.props.toggleUploadButton();
+    }
+
+    componentWillUnmount() {
+        this.props.toggleUploadButton();
+    }
+
     render() {
 
         return (
@@ -29,15 +38,15 @@ export default class ProfilePage extends Component {
                     <div>
                         <div className='img'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
-                        </div>   
-                        <br/>
+                        </div>
+                        <br />
                         <div className="userInfo">
                             <h4 className="info">{this.state.userInfo.firstName}</h4>
-                            <br/>
+                            <br />
                             <p className="info">{this.state.userInfo.lastName}</p>
-                            <br/>
+                            <br />
                             <p className="info">{this.state.userInfo.userName}</p>
-                            <br/>
+                            <br />
                             <p className="info">{this.state.userInfo.pronouns}</p>
                             <br />
                             <p className="info">{this.state.userInfo.location}</p>
@@ -55,9 +64,9 @@ export default class ProfilePage extends Component {
                             </ul>
                             <div className="active"></div>
                             <div className="row">
-                                
+
                                 <br />
-                                
+
                             </div>
                             <div className="stats row">
                                 <div className="stat col-xs-4" >
