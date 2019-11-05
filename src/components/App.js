@@ -20,7 +20,7 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: []
+      userInfo: null
     };
   }
 
@@ -145,12 +145,21 @@ class App extends React.Component {
     }
   };
 
-  // getUserById = async () => {
-  //       const token = localStorage.getItem("jwt");
-  //       const decoded = jwt_decode(token);
-  //       const infobro = await axios.get(`http://localhost:5000/user/${decoded.id}`);
-  //       console.log(infobro);
-  // }
+  getUserById = async () => {
+    try {
+        const token = localStorage.getItem("jwt");
+        if (token !== undefined || token !== null) {
+        const decoded = jwt_decode(token);
+        const { data } = await axios.get(`http://localhost:5000/users/user/${decoded.id}`);
+        delete data.password;
+        this.setState({userInfo:data});
+        } else {
+          window.alert(`You're not logged in!`)
+        }
+      } catch(err) {
+        console.error(err);
+      }
+  }
 
   /**
    * Sets the Authorization header to the JWT. This header will be used for
@@ -163,18 +172,9 @@ class App extends React.Component {
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
   };
 
-  componentDidMount = async () => {
-    try {
-    const token = localStorage.getItem("jwt");
-    const decode = jwt_decode(token);
-    const userInformation = await axios.get(`http://localhost:5000/user/${decode.id}`);
-    console.log(userInformation);
-    } catch (err) {
-    console.error(err);
-    }
+  componentDidMount() {
+    this.getUserById();
   }
-
-
 
   render() {
     return (
