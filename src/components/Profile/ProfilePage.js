@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Pic from './bank_profile.png';
-
+import Pic from './bank_profile.png'
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -18,7 +19,15 @@ export default class ProfilePage extends Component {
         }
     }
 
+    // getUserById = async () => {
+    //     const token = localStorage.getItem("jwt");
+    //     const decoded = jwt_decode(token);
+    //     const infobro = await axios.get(`http://localhost:5000/user/${decoded.id}`);
+    //     console.log(infobro);
+    // }
+
     render() {
+        // this.getUserById();
         return (
             <div className="user">
                 <br />
