@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
@@ -11,6 +11,7 @@ import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
 import jwt_decode from 'jwt-decode';
+import ReactModal from "react-modal";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,8 +22,19 @@ class App extends React.Component {
       critiques: [],
       profilePic: false,
       userInfo: {},
-      hideButton: false
+      hideButton: false,
+      showModal: false
     };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
   }
 
   toggleUploadButton = () => {
@@ -51,6 +63,7 @@ class App extends React.Component {
     this.setState({
       showCrit: true
     });
+    this.handleOpenModal();
   };
 
   closeCritModal = event => {
@@ -58,6 +71,7 @@ class App extends React.Component {
     this.setState({
       showCrit: false
     });
+    this.handleCloseModal();
   };
 
   /**
@@ -68,12 +82,14 @@ class App extends React.Component {
     this.setState({
       showLogin: true
     });
+    this.handleOpenModal();
   };
 
   closeLoginModal = event => {
     this.setState({
       showLogin: false
     });
+    this.handleCloseModal();
   };
   /**
    * Uploads a critique to our critiques table on postgres.
@@ -163,17 +179,17 @@ class App extends React.Component {
 
   getUserById = async () => {
     try {
-        const token = localStorage.getItem("jwt");
-        const decoded = jwt_decode(token);
-        const { data } = await axios.get(
-          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
-          // `http://localhost:5000/users/user/${decoded.id}`
-          );
-        delete data.password;
-        this.setState({userInfo:data});
-      } catch(err) {
-        console.error(err);
-      }
+      const token = localStorage.getItem("jwt");
+      const decoded = jwt_decode(token);
+      const { data } = await axios.get(
+        `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+        // `http://localhost:5000/users/user/${decoded.id}`
+      );
+      delete data.password;
+      this.setState({ userInfo: data });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   /**
@@ -190,7 +206,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getUserById();
     if (localStorage.getItem("jwt") !== null) {
-      this.setState({profilePic: true});
+      this.setState({ profilePic: true });
     }
   }
 
@@ -198,23 +214,63 @@ class App extends React.Component {
     return (
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
-        <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
-          <UploadCrit onUpload={this.uploadCrit} />
-        </Modal>
-
         <Switch>
           <Route exact path='/' component={Gallery} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Universal Modal"
+          onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
+          style={{
+            overlay: {
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(65, 159, 161, 0.85)"
+            },
+            content: {
+              position: "absolute",
+              top: "20%",
+              left: "20%",
+              right: "20%",
+              bottom: "15%",
+              border: "none",
+              background: "#707070",
+              overflow: "auto",
+              WebkitOverflowScrolling: "touch",
+              borderRadius: "20px",
+              outline: "none",
+              padding: "20px",
+              boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
+            }
+          }}
+        >
+          <div className="universal-modal">
+            {this.state.showLogin && <div className="rows">
+              <Login loginUser={this.logIn} />
+              <div className="line-container"></div>
+              <Signup createUser={this.signUp} />
+            </div>}
+            {this.state.showCrit && <UploadCrit onUpload={this.uploadCrit} />}
+          </div>
+        </ReactModal>
+        {/* <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
+          <UploadCrit onUpload={this.uploadCrit} />
+        </Modal> */}
 
-        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+
+
+        {/* <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
           <div className="rows">
             <Login loginUser={this.logIn} />
             <div className="line-container"></div>
             <Signup createUser={this.signUp} />
           </div>
-        </Modal>
-        
+        </Modal> */}
+
         {!this.state.hideButton &&
           <div id="float-button">
             <img

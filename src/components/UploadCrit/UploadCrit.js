@@ -117,8 +117,6 @@ export default class UploadCrit extends React.Component {
     });
   };
 
-
-
   render() {
     return (
       <div className="upload-form">
