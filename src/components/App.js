@@ -167,7 +167,8 @@ class App extends React.Component {
         const decoded = jwt_decode(token);
         const { data } = await axios.get(
           `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
-          // `http://localhost:5000/users/user/${decoded.id}`);
+          // `http://localhost:5000/users/user/${decoded.id}`
+          );
         delete data.password;
         this.setState({userInfo:data});
       } catch(err) {
