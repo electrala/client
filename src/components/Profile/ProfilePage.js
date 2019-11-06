@@ -6,28 +6,20 @@ import jwt_decode from 'jwt-decode';
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            userInfo: {
-                firstName: 'first name',
-                lastName: 'last name',
-                userName: 'user name',
-                pronouns: 'pronoun',
-                location: 'location',
-                email: 'email',
-                token: "userToken"
-            }
-        }
     }
 
-    // getUserById = async () => {
-    //     const token = localStorage.getItem("jwt");
-    //     const decoded = jwt_decode(token);
-    //     const infobro = await axios.get(`http://localhost:5000/user/${decoded.id}`);
-    //     console.log(infobro);
-    // }
+    componentDidMount() {
+        this.props.toggleUploadButton();
+    }
+
+    componentWillUnmount() {
+        this.props.toggleUploadButton();
+    }
+
+    
 
     render() {
-        // this.getUserById();
+        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
         return (
             <div className="user">
                 <br />
@@ -37,25 +29,26 @@ export default class ProfilePage extends Component {
                 <br />
                 <div className="container">
                     <div>
-                        <div className='img'>
+                    <div className="grid-container">
+                        <div className='img item1'>
                             <img className="profilePhoto" src={Pic} alt="profilepic"></img>
                         </div>   
                         <br/>
-                        <div className="userInfo">
-                            <h4 className="info">{this.state.userInfo.firstName}</h4>
+                        <br/>
+                        <br/>
+                        <div className="userInfo item3">
+                            <h4 className="info">name: {firstname} {lastname}</h4>
                             <br/>
-                            <p className="info">{this.state.userInfo.lastName}</p>
-                            <br/>
-                            <p className="info">{this.state.userInfo.userName}</p>
-                            <br/>
-                            <p className="info">{this.state.userInfo.pronouns}</p>
+                            <p className="info">username: {username}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.location}</p>
+                            <p className="info">pronoun: {pronoun}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.email}</p>
+                            <p className="info">location: {location}</p>
+                            <br />
+                            <p className="info">email: {email}</p>      
                         </div>
 
-                        <div className="left" >
+                        <div className="left item2" >
                             <ul className="profileNav">
                                 <li>About</li>
                                 <li>Gallery</li>
@@ -63,11 +56,11 @@ export default class ProfilePage extends Component {
                             </ul>
                             <div className="active"></div>
                             <div className="row">
-                                
+
                                 <br />
-                                
+
                             </div>
-                            <div className="stats row">
+                            <div className="stats row item4">
                                 <div className="stat col-xs-4" >
                                     <p className="number-stat">3,619</p>
                                     <p className="desc-stat">Followers</p>
@@ -83,6 +76,7 @@ export default class ProfilePage extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         )

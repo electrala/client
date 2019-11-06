@@ -20,12 +20,18 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: null
+      userInfo: {},
+      hideButton: false
     };
   }
 
+  toggleUploadButton = () => {
+    const { hideButton } = this.state
+    this.setState({ hideButton: !hideButton })
+  }
+
   /**
-   * This function shows the profile pic dislplayed on nav
+   * This function shows the profile pic displayed on nav
    * @param {object} event This is the event triggered after successfully logging in or signing up
    */
 
@@ -116,6 +122,27 @@ class App extends React.Component {
     }
 
   }
+
+  // /**
+  //  * Gets user by id when they click on the profile page icon on navbar. 
+  //  *    * @param {object} userInfo This is the data the login jwt token.
+  //  */
+
+  // getById = async userInfo => {
+  //   try {
+  //     const { users } = await axios.get(
+  //       "https://electra-la-2019.herokuapp.com/users/:userid"
+  //     )
+  //     console.log(users);
+  //     this.setState({
+  //       userInfo: users,
+  //     })
+  //   } catch (err) {
+
+  //   }
+  // }
+
+
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -125,8 +152,8 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        // "https://electra-la-2019.herokuapp.com/users/login"
-        "http://localhost:5000/users/login",
+        "https://electra-la-2019.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
         data
       );
       const token = result.data.token;
@@ -150,7 +177,7 @@ class App extends React.Component {
         const token = localStorage.getItem("jwt");
         if (token !== undefined || token !== null) {
         const decoded = jwt_decode(token);
-        const { data } = await axios.get(`http://localhost:5000/users/user/${decoded.id}`);
+        const { data } = await axios.get(`https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`);
         delete data.password;
         this.setState({userInfo:data});
         } else {
@@ -186,27 +213,25 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route path='/profile' component={ProfilePage} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
-
-    
-
-          <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-            <div className="rows">
-              <Login loginUser={this.logIn} />
-              <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
-            </div>
-          </Modal>
-
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <div className="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
+        </Modal>
+        
+        {!this.state.hideButton &&
           <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload"
-          />
-        </div>
+            <img
+              src={require("./custom-button.png")}
+              onClick={this.showCritModal}
+              alt="plus sign for upload"
+            />
+          </div>}
       </Router>
 
     );
