@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import Pic from './bank_profile.png'
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            userInfo: {
-                firstName: 'first name',
-                lastName: 'last name',
-                userName: 'user name',
-                pronouns: 'pronoun',
-                location: 'location',
-                email: 'email',
-                token: "userToken"
-            }
-        }
     }
 
     componentDidMount() {
@@ -28,6 +19,7 @@ export default class ProfilePage extends Component {
     
 
     render() {
+        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
         return (
             <div className="user">
                 <br />
@@ -45,15 +37,15 @@ export default class ProfilePage extends Component {
                         <br/>
                         <br/>
                         <div className="userInfo item3">
-                            <h4 className="info">{this.state.userInfo.firstName} {this.state.userInfo.lastName}</h4>
+                            <h4 className="info">name: {firstname} {lastname}</h4>
                             <br/>
-                            <p className="info">{this.state.userInfo.userName}</p>
+                            <p className="info">username: {username}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.pronouns}</p>
+                            <p className="info">pronoun: {pronoun}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.location}</p>
+                            <p className="info">location: {location}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.email}</p>      
+                            <p className="info">email: {email}</p>      
                         </div>
 
                         <div className="left item2" >
