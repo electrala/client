@@ -257,19 +257,6 @@ class App extends React.Component {
             {this.state.showCrit && <UploadCrit onUpload={this.uploadCrit} />}
           </div>
         </ReactModal>
-        {/* <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
-          <UploadCrit onUpload={this.uploadCrit} />
-        </Modal> */}
-
-
-
-        {/* <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <div className="rows">
-            <Login loginUser={this.logIn} />
-            <div className="line-container"></div>
-            <Signup createUser={this.signUp} />
-          </div>
-        </Modal> */}
 
         {!this.state.hideButton &&
           <div id="float-button">
