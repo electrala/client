@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
-import Pic from './bank_profile.png'
-import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+import { Redirect } from 'react-router-dom';
+import Pic from './bank_profile.png';
 
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            redirect: false
+        }
     }
 
+    setRedirect = () => {
+        this.setState({
+          redirect: true
+        })
+      }
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/' />
+        }
+      }
+      redirectLogout = () => {
+          this.props.logout();
+          this.setRedirect();
+      }
     componentDidMount() {
         this.props.toggleUploadButton();
     }
@@ -72,6 +88,10 @@ export default class ProfilePage extends Component {
                                 <div className="stat col-xs-4" >
                                     <p className="number-stat">38</p>
                                     <p className="desc-stat">Uploads</p>
+                                </div>
+                                <div>
+                                    {this.renderRedirect()}
+                                    <button onClick={this.redirectLogout}>logout</button>
                                 </div>
                             </div>
                         </div>
