@@ -62,10 +62,8 @@ export default class ProfilePage extends Component {
                                 <li>Collections</li>
                             </ul>
                             <div className="active"></div>
-                            <div className="row">
-                                
+                            <div className="row">   
                                 <br />
-                                
                             </div>
                             <div className="stats row">
                                 <div className="stat col-xs-4" >

@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
-import Login from './Login/Login';
+import Login from './Login/Login'; 
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
 import jwt_decode from 'jwt-decode';
@@ -19,22 +19,23 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic: false,
-      userInfo: null
+      profilePic:false,
+      userInfo:{}
+
     };
   }
 
-  /**
+/**
    * This function shows the profile pic dislplayed on nav
-   * @param {object} event This is the event triggered after successfully logging in or signing up
+   * @param {object} event This is the event triggered after successfully logging in or signing up 
    */
 
-  showProfilePic = event => {
-    event.preventDefault();
-    this.setState({
-      profilePic: true
-    });
-  };
+showProfilePic=event=>{
+  event.preventDefault(); 
+  this.setState({
+    profilePic:true,
+  })
+}
 
   /**
    * The following 2 functions toggle the critique upload modal.
@@ -60,15 +61,20 @@ class App extends React.Component {
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true
+      showLogin: true, 
     });
   };
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false
-    });
-  };
+      showLogin: false,
+    }); 
+  }
+
+  /**
+   * @param {object} event 
+   */
+
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the critiques array. (This array isn't currently
@@ -101,20 +107,24 @@ class App extends React.Component {
    * Added a try catch, when user signs in, modal closes, when error, alert
    * Once user is signed in, change to photo on navbar.
    */
-
   signUp = async data => {
-    try {
-      const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
+   
+    try{
+      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
+      // const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
       this.closeLoginModal()
       this.setState({
-        profilePic: true
-      });
-    } catch {
-      alert("error");
+        profilePic: true,
+      })
+    }catch{
+      alert("error")
     }
 
+   
+    // const userName = new_user.config.data.userName;
+    // const password = new_user.config.data.password;
+    // console.log(`Username: ${userName} | Password: ${password}`);
   }
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -179,33 +189,25 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
+        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic}/>
         <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
           <UploadCrit onUpload={this.uploadCrit} />
         </Modal>
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route path='/profile' component={ProfilePage} />
+        <Route path='/profile' component={ProfilePage} /> 
         </Switch>
 
-
-    
-
-          <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-            <div className="rows">
-              <Login loginUser={this.logIn} />
-              <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
-            </div>
-          </Modal>
-
-          <div id="float-button">
-          <img
-            src={require("./custom-button.png")}
-            onClick={this.showCritModal}
-            alt="plus sign for upload"
-          />
+        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
+          <Login loginUser={this.logIn}/>
+          {/* <div className="line-container"></div> */}
+          <Signup signUp={this.signUp}/>
+        </Modal>
+        <div id="float-button">
+          <button onClick={this.showCritModal}>
+            <img src={require('./plusSign.png')} alt="plus sign for upload" />
+          </button>
         </div>
       </Router>
 
