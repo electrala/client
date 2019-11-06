@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
@@ -123,24 +123,13 @@ class App extends React.Component {
 
   }
 
-  // /**
-  //  * Gets user by id when they click on the profile page icon on navbar. 
-  //  *    * @param {object} userInfo This is the data the login jwt token.
-  //  */
-
-  // getById = async userInfo => {
-  //   try {
-  //     const { users } = await axios.get(
-  //       "https://electra-la-2019.herokuapp.com/users/:userid"
-  //     )
-  //     console.log(users);
-  //     this.setState({
-  //       userInfo: users,
-  //     })
-  //   } catch (err) {
-
-  //   }
-  // }
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      userInfo: {},
+      profilePic: false
+    });
+  }
 
 
   /**
@@ -165,7 +154,7 @@ class App extends React.Component {
         profilePic: true
       });
       this.closeLoginModal();
-
+      this.getUserById();
       window.alert(`You're all logged in and ready to go!`);
     } catch (err) {
       window.alert(`Couldn't login!!!`);
@@ -175,14 +164,12 @@ class App extends React.Component {
   getUserById = async () => {
     try {
         const token = localStorage.getItem("jwt");
-        if (token !== undefined || token !== null) {
         const decoded = jwt_decode(token);
-        const { data } = await axios.get(`https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`);
+        const { data } = await axios.get(
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`);
         delete data.password;
         this.setState({userInfo:data});
-        } else {
-          window.alert(`You're not logged in!`)
-        }
       } catch(err) {
         console.error(err);
       }
@@ -201,6 +188,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getUserById();
+    if (localStorage.getItem("jwt") !== null) {
+      this.setState({profilePic: true});
+    }
   }
 
   render() {
@@ -213,7 +203,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
