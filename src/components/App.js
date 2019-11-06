@@ -19,15 +19,20 @@ class App extends React.Component {
       showCrit: false,
       showLogin: false,
       critiques: [],
-      profilePic:false,
-      userInfo:{}
-
+      profilePic: false,
+      userInfo: {},
+      hideButton: false
     };
   }
 
-/**
-   * This function shows the profile pic dislplayed on nav
-   * @param {object} event This is the event triggered after successfully logging in or signing up 
+  toggleUploadButton = () => {
+    const { hideButton } = this.state
+    this.setState({ hideButton: !hideButton })
+  }
+
+  /**
+   * This function shows the profile pic displayed on nav
+   * @param {object} event This is the event triggered after successfully logging in or signing up
    */
 
 showProfilePic=event=>{
@@ -126,6 +131,8 @@ showProfilePic=event=>{
     // const password = new_user.config.data.password;
     // console.log(`Username: ${userName} | Password: ${password}`);
   }
+
+
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -135,8 +142,8 @@ showProfilePic=event=>{
   logIn = async data => {
     try {
       const result = await axios.post(
-        // "https://electra-la-2019.herokuapp.com/users/login"
-        "http://localhost:5000/users/login",
+        "https://electra-la-2019.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
         data
       );
       const token = result.data.token;
@@ -160,7 +167,7 @@ showProfilePic=event=>{
         const token = localStorage.getItem("jwt");
         if (token !== undefined || token !== null) {
         const decoded = jwt_decode(token);
-        const { data } = await axios.get(`http://localhost:5000/users/user/${decoded.id}`);
+        const { data } = await axios.get(`https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`);
         delete data.password;
         this.setState({userInfo:data});
         } else {
@@ -196,19 +203,25 @@ showProfilePic=event=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-        <Route path='/profile' component={ProfilePage} /> 
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <Login loginUser={this.logIn}/>
-          {/* <div className="line-container"></div> */}
-          <Signup signUp={this.signUp}/>
+          <div className="rows">
+            <Login loginUser={this.logIn} />
+            <div className="line-container"></div>
+            <Signup createUser={this.signUp} />
+          </div>
         </Modal>
-        <div id="float-button">
-          <button onClick={this.showCritModal}>
-            <img src={require('./plusSign.png')} alt="plus sign for upload" />
-          </button>
-        </div>
+        
+        {!this.state.hideButton &&
+          <div id="float-button">
+            <img
+              src={require("./custom-button.png")}
+              onClick={this.showCritModal}
+              alt="plus sign for upload"
+            />
+          </div>}
       </Router>
 
     );

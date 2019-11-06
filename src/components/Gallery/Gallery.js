@@ -45,16 +45,6 @@ export default class Gallery extends Component {
     });
   }
 
-
-// filter(data){
-//     const sortedCrits=this.state.critiques.reverse()
-//  }
-
-// componentWillMount(data){
-
-//   console.log("FilterCits",this.state.filter);
-// }
-
   render() {
 
     if (!this.state.critiques.reverse()[0]) return <div></div>
@@ -108,7 +98,7 @@ export default class Gallery extends Component {
                 </div>
               </ReactModal>
             </div>
-          </div >
+          </div>
           
           {this.state.critiques.map(critique => (
             <Crit key={critique.id} critique={critique} />
