@@ -19,6 +19,7 @@ export default class Gallery extends Component {
     // set intial state
     this.state = {
       critiques: [],
+      showModal: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -46,7 +47,7 @@ export default class Gallery extends Component {
 
   }
   render() {
-    if (!this.state.critiques[0]) return <div></div>
+    if (!this.state.critiques[0]) return null
     return (
       <div id="gallery-container">
         <section className="gallery">
