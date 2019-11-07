@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
@@ -132,6 +132,14 @@ showProfilePic=event=>{
     // console.log(`Username: ${userName} | Password: ${password}`);
   }
 
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      userInfo: {},
+      profilePic: false
+    });
+  }
+
 
   /**
    * Checks to see if a user is in our users table and the passwords match.
@@ -155,7 +163,7 @@ showProfilePic=event=>{
         profilePic: true
       });
       this.closeLoginModal();
-
+      this.getUserById();
       window.alert(`You're all logged in and ready to go!`);
     } catch (err) {
       window.alert(`Couldn't login!!!`);
@@ -165,14 +173,13 @@ showProfilePic=event=>{
   getUserById = async () => {
     try {
         const token = localStorage.getItem("jwt");
-        if (token !== undefined || token !== null) {
         const decoded = jwt_decode(token);
-        const { data } = await axios.get(`https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`);
+        const { data } = await axios.get(
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`
+          );
         delete data.password;
         this.setState({userInfo:data});
-        } else {
-          window.alert(`You're not logged in!`)
-        }
       } catch(err) {
         console.error(err);
       }
@@ -191,6 +198,9 @@ showProfilePic=event=>{
 
   componentDidMount() {
     this.getUserById();
+    if (localStorage.getItem("jwt") !== null) {
+      this.setState({profilePic: true});
+    }
   }
 
   render() {
@@ -203,7 +213,7 @@ showProfilePic=event=>{
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>

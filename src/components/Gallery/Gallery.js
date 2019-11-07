@@ -99,7 +99,8 @@ export default class Gallery extends Component {
               </ReactModal>
             </div>
           </div>
-          
+
+
           {this.state.critiques.map(critique => (
             <Crit key={critique.id} critique={critique} />
           ))
@@ -138,7 +139,6 @@ export default class Gallery extends Component {
                     outline: 'none',
                     padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
-
                   }
                 }}
               >
