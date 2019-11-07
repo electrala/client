@@ -145,8 +145,8 @@ class App extends React.Component {
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
-        // "https://electra-la-2019.herokuapp.com/critiques/new",
-        "http://localhost:5000/critiques/new",
+        "https://electra-la-2019.herokuapp.com/critiques/new",
+        // "http://localhost:5000/critiques/new",
         data
       );
       const crits = this.state.critiques;
@@ -202,8 +202,8 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        // "https://electra-la-2019.herokuapp.com/users/login",
-        "http://localhost:5000/users/login",
+        "https://electra-la-2019.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
         data
       );
       const token = result.data.token;
@@ -233,8 +233,8 @@ class App extends React.Component {
         console.log(`token expired`);
         }
         const { data } = await axios.get(
-          // `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
-          `http://localhost:5000/users/user/${decoded.id}`
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`
           );
         delete data.password;
         this.setState({userInfo:data});
