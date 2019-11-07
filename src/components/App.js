@@ -130,7 +130,7 @@ class App extends React.Component {
   };
 
   closeLoginModal = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({
       showLogin: false
     });
@@ -219,6 +219,7 @@ class App extends React.Component {
       this.getUserById();
     
     } catch (err) {
+      console.log(err.message);
       this.loginFailAlert(); 
     }
   };
@@ -227,6 +228,10 @@ class App extends React.Component {
     try {
         const token = localStorage.getItem("jwt");
         const decoded = jwt_decode(token);
+        var current_time = new Date().getTime() / 1000;
+        if (current_time > decoded.exp) { 
+        console.log(`token expired`);
+        }
         const { data } = await axios.get(
           // `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
           `http://localhost:5000/users/user/${decoded.id}`
@@ -250,8 +255,14 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.getUserById();
-    if (localStorage.getItem("jwt") !== null) {
+    // Get the current time to compare with the expiration of the jwt token
+    const current_time = new Date().getTime() / 1000;
+    const decoded = jwt_decode(localStorage.getItem("jwt"));
+    if (localStorage.getItem("jwt") === null || current_time > decoded.exp) {
+      console.log(`token expired`);
+    } else {
+      // if token does exist and is not expired, run this
+      this.getUserById();
       this.setState({profilePic: true});
     }
   }
