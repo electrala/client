@@ -10,7 +10,7 @@ import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import jwt_decode from 'jwt-decode';
 const MySwal = withReactContent(Swal);
