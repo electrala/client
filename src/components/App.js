@@ -10,7 +10,10 @@ import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
+const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +27,20 @@ class App extends React.Component {
       hideButton: false
     };
   }
+
+  loginSuccessFunction = event => {
+    MySwal.fire({
+      title: 'Successful Login!',
+      icon: 'success', 
+      type: null, 
+      confirmButtonText: 'Close', 
+      text: 'You are all set to do amazing things', 
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false, 
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  };
 
   toggleUploadButton = () => {
     const { hideButton } = this.state
@@ -169,7 +186,7 @@ class App extends React.Component {
       });
       this.getById()
       this.closeLoginModal();
-      window.alert(`You're all logged in and ready to go!`);
+      this.loginSuccessFunction();
     } catch (err) {
       window.alert(`Couldn't login!!!`);
     }

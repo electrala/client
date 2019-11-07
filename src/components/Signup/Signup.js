@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
+
 
 export default class Signup extends Component {
   constructor(props) {
@@ -20,6 +26,36 @@ export default class Signup extends Component {
    * @param {object} event This is the event triggered by inputting information
    *                       into the form.
    */
+  passwordFailFunction = event => {
+    MySwal.fire({
+      title: 'And I oops!', 
+      icon: 'error',
+      type :  null,
+      confirmButtonText: "Close",
+      text: 'The passwords do not match',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false, 
+      confirmButtonColor: "var(--electra-cool)"
+     }
+    );
+  };
+
+  signUpSuccessFunction = event => {
+    MySwal.fire({
+      title: 'Yay! You are logged in!', 
+      icon: 'Success',
+      type :  null,
+      confirmButtonText: "Close",
+      text: 'You are officially signed up!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false, 
+      confirmButtonColor: "var(--electra-cool)"
+     }
+    );
+  };
+  
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -36,12 +72,12 @@ export default class Signup extends Component {
    */
   handleSubmit = event => {
     const { password, confirmPassword } = this.state;
+    event.preventDefault();
     if (password !== confirmPassword) {
-      alert("Passwords don't match");
+      this.passwordFailFunction();
     } else {
       console.log(`your mom!:: CJ's code`);
-      alert(`Signed up successfully!`);
-      event.preventDefault();
+      this.signUpSuccessFunction();
       this.props.createUser(this.state);
     }
   };
