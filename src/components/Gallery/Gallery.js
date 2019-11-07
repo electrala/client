@@ -7,6 +7,12 @@ import axios from 'axios';
 import Crit from '../Crit/Crit';
 import ReactModal from 'react-modal';
 import '../Crit/Crit.css';
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 // import { generateHtml, placeholder }
 
 export default class Gallery extends Component {
