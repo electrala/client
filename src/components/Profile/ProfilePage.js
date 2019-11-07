@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import Pic from './bank_profile.png'
+import { Redirect } from 'react-router-dom';
+import Pic from './bank_profile.png';
 
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInfo: {
-                firstName: 'first name',
-                lastName: 'last name',
-                userName: 'user name',
-                pronouns: 'pronoun',
-                location: 'location',
-                email: 'email',
-                token: "userToken"
-            }
+            redirect: false
         }
     }
 
+    setRedirect = () => {
+        this.setState({
+          redirect: true
+        })
+      }
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/' />
+        }
+      }
+      redirectLogout = () => {
+          this.props.logout();
+          this.setRedirect();
+      }
     componentDidMount() {
         this.props.toggleUploadButton();
     }
@@ -28,6 +35,7 @@ export default class ProfilePage extends Component {
     
 
     render() {
+        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
         return (
             <div className="user">
                 <br />
@@ -45,15 +53,15 @@ export default class ProfilePage extends Component {
                         <br/>
                         <br/>
                         <div className="userInfo item3">
-                            <h4 className="info">{this.state.userInfo.firstName} {this.state.userInfo.lastName}</h4>
+                            <h4 className="info">name: {firstname} {lastname}</h4>
                             <br/>
-                            <p className="info">{this.state.userInfo.userName}</p>
+                            <p className="info">username: {username}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.pronouns}</p>
+                            <p className="info">pronoun: {pronoun}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.location}</p>
+                            <p className="info">location: {location}</p>
                             <br />
-                            <p className="info">{this.state.userInfo.email}</p>      
+                            <p className="info">email: {email}</p>      
                         </div>
 
                         <div className="left item2" >
@@ -80,6 +88,10 @@ export default class ProfilePage extends Component {
                                 <div className="stat col-xs-4" >
                                     <p className="number-stat">38</p>
                                     <p className="desc-stat">Uploads</p>
+                                </div>
+                                <div>
+                                    {this.renderRedirect()}
+                                    <button onClick={this.redirectLogout}>logout</button>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
@@ -12,7 +12,7 @@ import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
+import jwt_decode from 'jwt-decode';
 const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
@@ -23,7 +23,7 @@ class App extends React.Component {
       showLogin: false,
       critiques: [],
       profilePic: false,
-      userInfo: [],
+      userInfo: {},
       hideButton: false
     };
   }
@@ -92,7 +92,6 @@ class App extends React.Component {
       showLogin: false
     });
   };
-
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the critiques array. (This array isn't currently
@@ -141,23 +140,12 @@ class App extends React.Component {
 
   }
 
-  /**
-   * Gets user by id when they click on the profile page icon on navbar. 
-   *    * @param {object} userInfo This is the data the login jwt token.
-   */
-
-  getById = async userInfo => {
-    try {
-      const { users } = await axios.get(
-        "https://electra-la-2019.herokuapp.com/users/:userid"
-      )
-      console.log(users);
-      this.setState({
-        userInfo: users,
-      })
-    } catch (err) {
-
-    }
+  logout = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      userInfo: {},
+      profilePic: false
+    });
   }
 
 
@@ -171,26 +159,40 @@ class App extends React.Component {
     try {
       const result = await axios.post(
         "https://electra-la-2019.herokuapp.com/users/login",
+        // "http://localhost:5000/users/login",
         data
       );
-
       const token = result.data.token;
       localStorage.setItem("jwt", token);
       this.setToken(token);
       console.log(token);
-      console.log("Res", result);
-      console.log(localStorage);
       // Close the modal when you successfully login
       this.setState({
         profilePic: true
       });
-      this.getById()
       this.closeLoginModal();
       this.loginSuccessFunction();
+      this.getUserById();
+    
     } catch (err) {
       window.alert(`Couldn't login!!!`);
     }
   };
+
+  getUserById = async () => {
+    try {
+        const token = localStorage.getItem("jwt");
+        const decoded = jwt_decode(token);
+        const { data } = await axios.get(
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`
+          );
+        delete data.password;
+        this.setState({userInfo:data});
+      } catch(err) {
+        console.error(err);
+      }
+  }
 
   /**
    * Sets the Authorization header to the JWT. This header will be used for
@@ -201,10 +203,14 @@ class App extends React.Component {
     let tempToken = token;
     if (tempToken !== null) tempToken = localStorage.getItem("jwt");
     axios.defaults.headers.common["Authorization"] = `Bearer ${tempToken}`;
-    console.log(axios.defaults.headers.common["Authorization"].firstName)
-
   };
 
+  componentDidMount() {
+    this.getUserById();
+    if (localStorage.getItem("jwt") !== null) {
+      this.setState({profilePic: true});
+    }
+  }
 
   render() {
     return (
@@ -216,7 +222,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
 
         <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>

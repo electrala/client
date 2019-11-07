@@ -169,7 +169,7 @@ export default class UploadCrit extends React.Component {
             <img id="crit-upload-img" src={this.state.s3locationurl ? this.state.s3locationurl : require("./placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
             <button onClick={this.singleFileUploadHandler}>Upload File</button>
             {
-              this.state.isLoading ? <img src={electraLoadIcon} /> /*<LoadingDots />*/ : <div></div>
+              this.state.isLoading ? <div style={{ boxShadow: "0px 4px 6px 3px rgba(0, 0, 0, 0.5)", border: "4px solid var(--electra-cool)", zIndex: "100", marginTop: "-250px", marginLeft: "-20px", background: "rgba(20, 20, 20, 0.7)", borderRadius: "50%", width: "300px", height: "300px", display: "grid" }}><img src={electraLoadIcon} style={{ maxHeight: "200px", placeSelf: "center" }} alt="Electra Load Icon" /></div> /*<LoadingDots />*/ : <div></div>
             }
           </div>
           <button className="submit" type="submit">
