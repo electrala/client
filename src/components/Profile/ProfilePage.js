@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Pic from './bank_profile.png';
-import header from './elect-banner.png';
+import header from './Electra_Banner.png';
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -32,6 +32,7 @@ export default class ProfilePage extends Component {
         this.props.toggleUploadButton();
     }
 
+
     //  scrollFunction() {
     //     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     //       document.getElementById("header").style.fontSize = "30px";
@@ -41,11 +42,13 @@ export default class ProfilePage extends Component {
     //   }
 
     render() {
-        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
+        const { firstname, lastname, pronoun, location } = this.props.userInfo;
         return (
-            <div className="user">
-                <img className='wrapper-img' src={header} alt="Electra Header" />
 
+            <div className="grid-container">
+
+            <div>
+                <img className='wrapper-img' src={header} alt="Electra Header" />
 
                 <div className="user-container">
                     <img className="profilePhoto" src={Pic} alt="profilepic"></img>
@@ -58,10 +61,6 @@ export default class ProfilePage extends Component {
                         Edit Profile
 </button>
                 </div>
-
-
-
-
 
                 <div className="left item2" >
                     <ul className="profileNav">
@@ -91,6 +90,7 @@ export default class ProfilePage extends Component {
                             <button onClick={this.redirectLogout}>logout</button>
                         </div>
                     </div>
+                </div>
                 </div>
 
             </div>

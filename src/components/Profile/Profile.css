@@ -11,18 +11,22 @@
     text-decoration: none;
 }
     
-
-     
- .wrapper-img{
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  
+.grid-container{
+  display: grid;
+  grid-template-areas: 'header header header header header'
+  'menu main main main right right'
+  'menu footer footer footer footer footer';
+ 
 }
 
+.wrapper-img{
+  height: 30%;
+  width:100%;
+
+  grid-area:header;
+}
 
       .profilePhoto{
-        
        /* margin-top:-10%; */
         width: 175px;
         height: 175px;      
@@ -35,20 +39,19 @@
       }
 
       .user-container{
-       
+       grid-area:menu;
         padding-top: 5%;
         padding-left:3%;
         background-color:#fff;
         margin-top:-10%; 
         position: absolute;
         margin-left: 5%;
-        width:25%;
-        max-height: 100%;
+        width:30%;
         border-radius: 10%;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         padding-bottom:5%;
-              
-               }
+              }
+
     
       @media (max-width:990px) {
         .active {
@@ -94,6 +97,8 @@
         font-size: 10pt;
         color: #bbb;
       }
+
+    
       
       .desc {
         text-align: center;
@@ -201,6 +206,5 @@
         text-align: center;
         color: white;
         font-family: "Lexend Deca", sans-serif;
-
-
       }
+
