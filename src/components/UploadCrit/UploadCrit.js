@@ -12,7 +12,7 @@ export default class UploadCrit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "b",
+      username: this.props.userInfo.username,
       title: "",
       genre: "",
       description: "",

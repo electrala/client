@@ -315,7 +315,7 @@ class App extends React.Component {
               <div className="line-container"></div>
               <Signup createUser={this.signUp} />
             </div> :
-              this.state.showCrit ? <UploadCrit onUpload={this.uploadCrit} /> : <div></div>}
+              this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
               <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
                 Close
