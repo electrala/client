@@ -82,7 +82,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -138,7 +137,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -186,7 +184,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -234,7 +231,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -282,7 +278,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -330,7 +325,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -378,7 +372,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -426,7 +419,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }
@@ -474,7 +466,6 @@ export default class Gallery extends Component {
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
                     boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
 
                   }

@@ -3,7 +3,6 @@ import './App.css';
 import '../css/style.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
-import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
@@ -243,7 +242,6 @@ class App extends React.Component {
               WebkitOverflowScrolling: "touch",
               borderRadius: "20px",
               outline: "none",
-              padding: "20px",
               boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
             }
           }}
