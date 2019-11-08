@@ -25,6 +25,7 @@ export default class Gallery extends Component {
     // set intial state
     this.state = {
       critiques: [],
+      showModal: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -52,7 +53,7 @@ export default class Gallery extends Component {
 
   }
   render() {
-    if (!this.state.critiques[0]) return <div></div>
+    if (!this.state.critiques[0]) return null
     return (
       <div id="gallery-container">
         <section className="gallery">
@@ -82,13 +83,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -138,13 +139,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -186,13 +187,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -234,13 +235,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -282,13 +283,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -330,13 +331,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -378,13 +379,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -426,13 +427,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -474,13 +475,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
