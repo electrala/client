@@ -130,7 +130,6 @@ class App extends React.Component {
   };
 
   closeLoginModal = event => {
-    event.preventDefault();
     this.setState({
       showLogin: false
     });
@@ -218,6 +217,7 @@ class App extends React.Component {
       this.getUserById();
     
     } catch (err) {
+      console.error(err);
       this.loginFailAlert(); 
     }
   };
