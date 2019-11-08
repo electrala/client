@@ -291,7 +291,7 @@ class App extends React.Component {
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal
           isOpen={this.state.showModal}
