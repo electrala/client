@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
+import '../components/Modal/Modal.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
@@ -298,22 +299,28 @@ class App extends React.Component {
               right: "20%",
               bottom: "15%",
               border: "none",
-              background: "#707070",
+              background: "var(--electra-white)",
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
               borderRadius: "20px",
               outline: "none",
+              padding: 0,
               boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
             }
           }}
         >
           <div className="universal-modal">
-            {this.state.showLogin && <div className="rows">
+            {this.state.showLogin ? <div className="rows">
               <Login loginUser={this.logIn} />
               <div className="line-container"></div>
               <Signup createUser={this.signUp} />
-            </div>}
-            {this.state.showCrit && <UploadCrit onUpload={this.uploadCrit} />}
+            </div> :
+              this.state.showCrit ? <UploadCrit onUpload={this.uploadCrit} /> : <div></div>}
+            <div className="modal-footer">
+              <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
+                Close
+            </button>
+            </div>
           </div>
         </ReactModal>
 

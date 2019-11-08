@@ -83,12 +83,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -138,12 +139,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -185,12 +187,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -232,12 +235,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -279,12 +283,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -326,12 +331,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -373,12 +379,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -420,12 +427,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -467,12 +475,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
