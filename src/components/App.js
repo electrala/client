@@ -40,6 +40,20 @@ class App extends React.Component {
     this.setState({ showModal: false });
   }
 
+  getLoggedInAlert = event => {
+    MySwal.fire({
+      title: 'Please Login!',
+      icon: 'info',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Get logged in to share you Spark with the community!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  }
+
   loginSuccessAlert = event => {
     MySwal.fire({
       title: 'Successful Login!',
@@ -277,7 +291,7 @@ class App extends React.Component {
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
         <Switch>
           <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal
           isOpen={this.state.showModal}
@@ -315,7 +329,7 @@ class App extends React.Component {
               <div className="line-container"></div>
               <Signup createUser={this.signUp} />
             </div> :
-              this.state.showCrit ? <UploadCrit onUpload={this.uploadCrit} /> : <div></div>}
+              this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
               <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
                 Close
@@ -328,7 +342,7 @@ class App extends React.Component {
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={this.showCritModal}
+              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}
