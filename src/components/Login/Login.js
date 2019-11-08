@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 export default class Login extends Component {
   constructor(props) {
@@ -9,6 +13,7 @@ export default class Login extends Component {
     };
   }
 
+ 
   /**
    * This updates the state when users are filling out the form.
    * @param {object} event This is the event triggered by inputting information

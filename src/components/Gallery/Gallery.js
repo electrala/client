@@ -7,6 +7,12 @@ import axios from 'axios';
 import Crit from '../Crit/Crit';
 import ReactModal from 'react-modal';
 import '../Crit/Crit.css';
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 // import { generateHtml, placeholder }
 
 export default class Gallery extends Component {
@@ -145,7 +151,7 @@ export default class Gallery extends Component {
                 <div id="critique-modal-view" >
                   <div id="critique-info-side">
                     <h1 id="critique-title" >ELECTRA LA</h1>
-                    <p id="critique-description" >Welcome one and all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
+                    <p id="critique-description">Welcome one and all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
                     <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
                   </div>
                 </div>

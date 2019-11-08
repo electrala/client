@@ -9,8 +9,11 @@ import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
+const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
   constructor(props) {
@@ -35,6 +38,62 @@ class App extends React.Component {
   handleCloseModal() {
     this.setState({ showModal: false });
   }
+
+  loginSuccessAlert = event => {
+    MySwal.fire({
+      title: 'Successful Login!',
+      icon: 'success',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'You are all set to do amazing things',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  };
+
+  loginFailAlert = event => {
+    MySwal.fire({
+      title: 'Login Failed',
+      icon: 'error',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  };
+
+  critiqueFailAlert = event => {
+    MySwal.fire({
+      title: 'Critique Failed to upload!',
+      icon: 'error',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  };
+
+  critiqueSuccessAlert = event => {
+    MySwal.fire({
+      title: 'Critique has successfully uploaded!',
+      icon: 'success',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  };
 
   toggleUploadButton = () => {
     const { hideButton } = this.state
@@ -108,10 +167,10 @@ class App extends React.Component {
       this.setState({
         critiques: crits
       });
-      window.alert(`You're critique has been uploaded!`);
+      this.critiqueSuccessAlert();
       this.setState({ showCrit: false });
     } catch (error) {
-      alert('Critique upload failed!');
+      this.critiqueFailAlert();
     }
   };
 
@@ -169,10 +228,12 @@ class App extends React.Component {
         profilePic: true
       });
       this.closeLoginModal();
+      this.loginSuccessAlert();
       this.getUserById();
-      window.alert(`You're all logged in and ready to go!`);
+
     } catch (err) {
-      window.alert(`Couldn't login!!!`);
+      console.error(err);
+      this.loginFailAlert();
     }
   };
 
