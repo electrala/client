@@ -40,6 +40,20 @@ class App extends React.Component {
     this.setState({ showModal: false });
   }
 
+  getLoggedInAlert = event => {
+    MySwal.fire({
+      title: 'Please Login!',
+      icon: 'info',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Get logged in to share you Spark with the community!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  }
+
   loginSuccessAlert = event => {
     MySwal.fire({
       title: 'Successful Login!',
@@ -328,7 +342,7 @@ class App extends React.Component {
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={this.showCritModal}
+              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}
