@@ -25,6 +25,7 @@ export default class Gallery extends Component {
     // set intial state
     this.state = {
       critiques: [],
+      showModal: false
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -52,7 +53,7 @@ export default class Gallery extends Component {
 
   }
   render() {
-    if (!this.state.critiques[0]) return <div></div>
+    if (!this.state.critiques[0]) return null
     return (
       <div id="gallery-container">
         <section className="gallery">
@@ -82,13 +83,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -138,13 +139,61 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
+
+                  }
+                }}
+              >
+                <div id="critique-modal-view" >
+                  <div id="critique-info-side">
+                    <h1 id="critique-title" >ELECTRA LA</h1>
+                    <p id="critique-description">Welcome one and all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
+                    <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
+                  </div>
+                </div>
+              </ReactModal>
+            </div>
+
+          </div >
+          <div className="item h1 v1" >
+            <img src={fillerPic} alt="filler" />
+            <div className="item__overlay">
+              <button onClick={this.handleOpenModal}>
+                Tips!
+              </button>
+              <ReactModal
+                isOpen={this.state.showModal}
+                contentLabel="Electra welcome statement"
+                onRequestClose={this.handleCloseModal}
+                style={{
+                  overlay: {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(65, 159, 161, 0.85)'
+                  },
+                  content: {
+                    position: 'absolute',
+                    top: '20%',
+                    left: '20%',
+                    right: '20%',
+                    bottom: '15%',
+                    border: 'none',
+                    background: 'var(--electra-grey)',
+                    overflow: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    borderRadius: '20px',
+                    outline: 'none',
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -186,13 +235,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -234,13 +283,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -282,13 +331,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -330,13 +379,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -378,13 +427,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}
@@ -426,61 +475,13 @@ export default class Gallery extends Component {
                     right: '20%',
                     bottom: '15%',
                     border: 'none',
-                    background: '#707070',
+                    background: 'var(--electra-grey)',
                     overflow: 'auto',
                     WebkitOverflowScrolling: 'touch',
                     borderRadius: '20px',
                     outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
-
-                  }
-                }}
-              >
-                <div id="critique-modal-view" >
-                  <div id="critique-info-side">
-                    <h1 id="critique-title" >ELECTRA LA</h1>
-                    <p id="critique-description" >Welcome one and all to Electra! Your favorite digital artist community critique spot! We want to see what you’re working on and give you some constructive feedback and help. Post your latest work of art and get advice, tips and tricks from artists around the globe. We started here in LA but we’re making a run for the world!</p>
-                    <button id="modal-close-button" onClick={this.handleCloseModal}>Close Modal</button>
-                  </div>
-                </div>
-              </ReactModal>
-            </div>
-
-          </div >
-          <div className="item h1 v1" >
-            <img src={fillerPic} alt="filler" />
-            <div className="item__overlay">
-              <button onClick={this.handleOpenModal}>
-                Tips!
-              </button>
-              <ReactModal
-                isOpen={this.state.showModal}
-                contentLabel="Electra welcome statement"
-                onRequestClose={this.handleCloseModal}
-                style={{
-                  overlay: {
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    backgroundColor: 'rgba(65, 159, 161, 0.85)'
-                  },
-                  content: {
-                    position: 'absolute',
-                    top: '20%',
-                    left: '20%',
-                    right: '20%',
-                    bottom: '15%',
-                    border: 'none',
-                    background: '#707070',
-                    overflow: 'auto',
-                    WebkitOverflowScrolling: 'touch',
-                    borderRadius: '20px',
-                    outline: 'none',
-                    padding: '20px',
-                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)'
+                    boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                    padding: '0',
 
                   }
                 }}

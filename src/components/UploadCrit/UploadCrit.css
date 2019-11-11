@@ -1,37 +1,3 @@
-/* .right-side {
-  padding: 1rem;
-  display: grid;
-  grid-template-rows: 1fr 1.5fr;
-}
-
-.right-side i {
-  color: #4db6a5;
-  transition: all 0.2s;
-}
-
-.right-side i:hover {
-  color: rgba(77, 182, 165, 0.678);
-}
-
-.right-side a {
-  place-self: center;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.right-side h3 {
-  place-self: start center;
-}
-
-.right-side span {
-  color: #4db6a5;
-  transition: all 0.2s;
-}
-
-.right-side span:hover {
-  color: rgba(77, 182, 165, 0.678);
-} */
-
 #upload-form {
   width: 100%;
   display: flex;

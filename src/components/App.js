@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import '../css/style.css';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import '../components/Modal/Modal.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Gallery from './Gallery/Gallery';
-import Modal from './Modal/Modal';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
@@ -13,6 +13,7 @@ import ProfilePage from './Profile/ProfilePage';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import jwt_decode from 'jwt-decode';
+import ReactModal from "react-modal";
 const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
@@ -24,20 +25,45 @@ class App extends React.Component {
       critiques: [],
       profilePic: false,
       userInfo: {},
-      hideButton: false
+      hideButton: false,
+      showModal: false
     };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
+
+  getLoggedInAlert = event => {
+    MySwal.fire({
+      title: 'Please Login!',
+      icon: 'info',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Get logged in to share you Spark with the community!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
   }
 
   loginSuccessAlert = event => {
     MySwal.fire({
       title: 'Successful Login!',
-      icon: 'success', 
-      type: null, 
-      confirmButtonText: 'Close', 
-      text: 'You are all set to do amazing things', 
+      icon: 'success',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'You are all set to do amazing things',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
     })
   };
@@ -45,13 +71,13 @@ class App extends React.Component {
   loginFailAlert = event => {
     MySwal.fire({
       title: 'Login Failed',
-      icon: 'error', 
-      type: null, 
-      confirmButtonText: 'Close', 
-      text: 'Try again!', 
+      icon: 'error',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
     })
   };
@@ -59,13 +85,13 @@ class App extends React.Component {
   critiqueFailAlert = event => {
     MySwal.fire({
       title: 'Critique Failed to upload!',
-      icon: 'error', 
-      type: null, 
-      confirmButtonText: 'Close', 
-      text: 'Try again!', 
+      icon: 'error',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
     })
   };
@@ -73,13 +99,13 @@ class App extends React.Component {
   critiqueSuccessAlert = event => {
     MySwal.fire({
       title: 'Critique has successfully uploaded!',
-      icon: 'success', 
-      type: null, 
-      confirmButtonText: 'Close', 
-      text: 'Try again!', 
+      icon: 'success',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Try again!',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
     })
   };
@@ -110,6 +136,7 @@ class App extends React.Component {
     this.setState({
       showCrit: true
     });
+    this.handleOpenModal();
   };
 
   closeCritModal = event => {
@@ -117,6 +144,7 @@ class App extends React.Component {
     this.setState({
       showCrit: false
     });
+    this.handleCloseModal();
   };
 
   /**
@@ -127,13 +155,18 @@ class App extends React.Component {
     this.setState({
       showLogin: true
     });
+    this.handleOpenModal();
   };
 
   closeLoginModal = event => {
+<<<<<<< HEAD
     // event.preventDefault();
+=======
+>>>>>>> b00eff3e3ad8d8e492a53099eb9fc0e2ff13504e
     this.setState({
       showLogin: false
     });
+    this.handleCloseModal();
   };
   /**
    * Uploads a critique to our critiques table on postgres.
@@ -217,10 +250,10 @@ class App extends React.Component {
       this.closeLoginModal();
       this.loginSuccessAlert();
       this.getUserById();
-    
+
     } catch (err) {
-      console.log(err.message);
-      this.loginFailAlert(); 
+      console.error(err);
+      this.loginFailAlert();
     }
   };
 
@@ -228,7 +261,7 @@ class App extends React.Component {
     try {
         const token = localStorage.getItem("jwt");
         const decoded = jwt_decode(token);
-        var current_time = new Date().getTime() / 1000;
+        const current_time = new Date().getTime() / 1000;
         if (current_time > decoded.exp) { 
         console.log(`token expired`);
         }
@@ -264,6 +297,9 @@ class App extends React.Component {
       // if token does exist and is not expired, run this
       this.getUserById();
       this.setState({profilePic: true});
+    // this.getUserById();
+    // if (localStorage.getItem("jwt") !== null) {
+    //   this.setState({ profilePic: true });
     }
   }
 
@@ -271,28 +307,60 @@ class App extends React.Component {
     return (
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
-        <Modal show={this.state.showCrit} onClose={this.closeCritModal}>
-          <UploadCrit onUpload={this.uploadCrit} />
-        </Modal>
-
         <Switch>
           <Route exact path='/' component={Gallery} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
-
-        <Modal show={this.state.showLogin} onClose={this.closeLoginModal}>
-          <div className="rows">
-            <Login loginUser={this.logIn} />
-            <div className="line-container"></div>
-            <Signup createUser={this.signUp} />
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Universal Modal"
+          onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
+          style={{
+            overlay: {
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(65, 159, 161, 0.85)"
+            },
+            content: {
+              position: "absolute",
+              top: "20%",
+              left: "20%",
+              right: "20%",
+              bottom: "15%",
+              border: "none",
+              background: "var(--electra-white)",
+              overflow: "auto",
+              WebkitOverflowScrolling: "touch",
+              borderRadius: "20px",
+              outline: "none",
+              padding: 0,
+              boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
+            }
+          }}
+        >
+          <div className="universal-modal">
+            {this.state.showLogin ? <div className="rows">
+              <Login loginUser={this.logIn} />
+              <div className="line-container"></div>
+              <Signup createUser={this.signUp} />
+            </div> :
+              this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
+            <div className="modal-footer">
+              <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
+                Close
+            </button>
+            </div>
           </div>
-        </Modal>
-        
+        </ReactModal>
+
         {!this.state.hideButton &&
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={this.showCritModal}
+              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}

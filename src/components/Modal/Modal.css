@@ -15,7 +15,7 @@
   bottom: 10px;
 }
 
-.modal .footer {
+.modal-footer {
   width: 100%;
   background-color: var(--electra-black);
   position: absolute;
@@ -24,7 +24,7 @@
   padding: 1rem;
 }
 
-.modal .footer button {
+.modal-footer button {
   background-color: #fff;
   border-radius: 5px;
   border: 0;
