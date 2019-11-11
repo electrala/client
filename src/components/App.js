@@ -175,6 +175,7 @@ class App extends React.Component {
     try {
       const new_crit = await axios.post(
         "https://electra-la-2019.herokuapp.com/critiques/new",
+        // "http://localhost:5000/critiques/new",
         data
       );
       const crits = this.state.critiques;
@@ -254,17 +255,21 @@ class App extends React.Component {
 
   getUserById = async () => {
     try {
-      const token = localStorage.getItem("jwt");
-      const decoded = jwt_decode(token);
-      const { data } = await axios.get(
-        `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
-        // `http://localhost:5000/users/user/${decoded.id}`
-      );
-      delete data.password;
-      this.setState({ userInfo: data });
-    } catch (err) {
-      console.error(err);
-    }
+        const token = localStorage.getItem("jwt");
+        const decoded = jwt_decode(token);
+        const current_time = new Date().getTime() / 1000;
+        if (current_time > decoded.exp) { 
+        console.log(`token expired`);
+        }
+        const { data } = await axios.get(
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`
+          );
+        delete data.password;
+        this.setState({userInfo:data});
+      } catch(err) {
+        console.error(err);
+      }
   }
 
   /**
@@ -279,9 +284,23 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.getUserById();
-    if (localStorage.getItem("jwt") !== null) {
-      this.setState({ profilePic: true });
+    // Get the current time to compare with the expiration of the jwt token
+    const current_time = new Date().getTime() / 1000;
+    // console.log("hello ", localStorage.getItem("jwt"));
+    const token = localStorage.getItem("jwt");
+    // if the token doesn't exist, skip the step
+    if (token === null) {
+      this.setState({profilePic: false});
+    } else {
+      // decrypt the jwt token
+      const decoded = jwt_decode(token);
+      // if token is expired, don't let user use ANYTHING
+      if (current_time > decoded.exp) {
+        this.setState({profilePic: false});
+      } else {
+        this.getUserById();
+        this.setState({profilePic: true});
+      }
     }
   }
 
