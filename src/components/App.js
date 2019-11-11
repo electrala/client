@@ -159,10 +159,6 @@ class App extends React.Component {
   };
 
   closeLoginModal = event => {
-<<<<<<< HEAD
-    // event.preventDefault();
-=======
->>>>>>> b00eff3e3ad8d8e492a53099eb9fc0e2ff13504e
     this.setState({
       showLogin: false
     });
@@ -290,16 +286,21 @@ class App extends React.Component {
   componentDidMount() {
     // Get the current time to compare with the expiration of the jwt token
     const current_time = new Date().getTime() / 1000;
-    const decoded = jwt_decode(localStorage.getItem("jwt"));
-    if (localStorage.getItem("jwt") === null || current_time > decoded.exp) {
-      console.log(`token expired`);
+    // console.log("hello ", localStorage.getItem("jwt"));
+    const token = localStorage.getItem("jwt");
+    // if the token doesn't exist, skip the step
+    if (token === null) {
+      this.setState({profilePic: false});
     } else {
-      // if token does exist and is not expired, run this
-      this.getUserById();
-      this.setState({profilePic: true});
-    // this.getUserById();
-    // if (localStorage.getItem("jwt") !== null) {
-    //   this.setState({ profilePic: true });
+      // decrypt the jwt token
+      const decoded = jwt_decode(token);
+      // if token is expired, don't let user use ANYTHING
+      if (current_time > decoded.exp) {
+        this.setState({profilePic: false});
+      } else {
+        this.getUserById();
+        this.setState({profilePic: true});
+      }
     }
   }
 
