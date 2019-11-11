@@ -209,7 +209,6 @@ class App extends React.Component {
     } catch {
       alert("error");
     }
-
   }
 
   logout = () => {
