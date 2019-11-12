@@ -11,7 +11,7 @@ export default class Navbar extends Component {
     super(props);
     this.state = {
       isAuthenticated: false,
-      userInfo: {}
+      userInfo: this.props.userInfo
     }
   }
 
@@ -31,7 +31,7 @@ export default class Navbar extends Component {
       <header>
         <nav>
           <ul>
-         
+
 
             <li id="logo"><Link to="/"><img id="logo-img" src={logo} alt="Electra Logo" /></Link> </li>
 
@@ -40,8 +40,8 @@ export default class Navbar extends Component {
             {/* If the user is not signed in, show "user sign up", if user is signed in ""*/}
 
             {this.props.profilePic ?
-              <li> <ProfilePic userData={this.props.userInfo} showPic={this.props.profilePic} /> </li> :
-              
+              <li> <ProfilePic userData={this.state.userInfo} showPic={this.props.profilePic} /> </li> :
+
               <li id="profile">
                 <button className="signup-login" onClick={this.handleClick}>Login | Sign Up</button>
               </li>}
