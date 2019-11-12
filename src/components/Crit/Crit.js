@@ -60,12 +60,12 @@ export default class Crit extends Component {
                 right: "20%",
                 bottom: "15%",
                 border: "none",
-                background: "#707070",
+                background: "var(--electra-grey)",
                 overflow: "auto",
                 WebkitOverflowScrolling: "touch",
                 borderRadius: "20px",
                 outline: "none",
-                padding: "20px",
+                padding: "0",
                 boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
               }
             }}

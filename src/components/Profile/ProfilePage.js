@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Pic from './bank_profile.png';
 import header from './Electra_Banner.png';
+import ProfilePicture from './ProfilePic'
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -51,7 +51,8 @@ export default class ProfilePage extends Component {
                 <img className='wrapper-img' src={header} alt="Electra Header" />
 
                 <div className="user-container">
-                    <img className="profilePhoto" src={Pic} alt="profilepic"></img>
+
+                    <ProfilePicture/>
 
                     <h4 className="userName"> {firstname} {lastname}</h4>
                     <p className="userPronoun"> {pronoun}</p>
