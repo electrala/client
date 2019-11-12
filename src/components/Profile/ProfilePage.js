@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import Pic from './bank_profile.png';
+// import jwt_decode from 'jwt-decode';
 
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -98,6 +99,13 @@ export default class ProfilePage extends Component {
     }
     componentDidMount() {
         this.props.toggleUploadButton();
+
+        // const token = localStorage.getItem("jwt");
+        // const decoded = jwt_decode(token);
+        // var current_time = new Date().getTime() / 1000;
+        // if (current_time > decoded.exp) { 
+        // console.log(`token expired`);
+        // }
     }
 
     componentWillUnmount() {
