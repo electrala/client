@@ -174,7 +174,12 @@ class App extends React.Component {
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
+<<<<<<< HEAD
         "http://localhost:5000/critiques/new",
+=======
+        "https://electra-la-2019.herokuapp.com/critiques/new",
+        // "http://localhost:5000/critiques/new",
+>>>>>>> cc868b523f588e14df268e9a0ef53886c12c4e33
         data
       );
       const crits = this.state.critiques;
@@ -202,10 +207,6 @@ class App extends React.Component {
       const new_user = await axios.post('http://localhost:5000/users/register', data);
       const new_user_data = JSON.parse(new_user.config.data);
       console.log(new_user_data);
-      this.closeLoginModal()
-      this.setState({
-        profilePic: true
-      });
     } catch {
       alert("error");
     }
@@ -241,9 +242,9 @@ class App extends React.Component {
       this.setState({
         profilePic: true
       });
+      this.getUserById();
       this.closeLoginModal();
       this.loginSuccessAlert();
-      this.getUserById();
 
     } catch (err) {
       console.error(err);
@@ -253,6 +254,7 @@ class App extends React.Component {
 
   getUserById = async () => {
     try {
+<<<<<<< HEAD
       const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
       const { data } = await axios.get(
@@ -264,6 +266,23 @@ class App extends React.Component {
     } catch (err) {
       console.error(err);
     }
+=======
+        const token = localStorage.getItem("jwt");
+        const decoded = jwt_decode(token);
+        const current_time = new Date().getTime() / 1000;
+        if (current_time > decoded.exp) { 
+        console.log(`token expired`);
+        }
+        const { data } = await axios.get(
+          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+          // `http://localhost:5000/users/user/${decoded.id}`
+          );
+        delete data.password;
+        this.setState({userInfo:data});
+      } catch(err) {
+        console.error(err);
+      }
+>>>>>>> cc868b523f588e14df268e9a0ef53886c12c4e33
   }
 
   /**
@@ -278,9 +297,23 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.getUserById();
-    if (localStorage.getItem("jwt") !== null) {
-      this.setState({ profilePic: true });
+    // Get the current time to compare with the expiration of the jwt token
+    const current_time = new Date().getTime() / 1000;
+    // console.log("hello ", localStorage.getItem("jwt"));
+    const token = localStorage.getItem("jwt");
+    // if the token doesn't exist, skip the step
+    if (token === null) {
+      this.setState({profilePic: false});
+    } else {
+      // decrypt the jwt token
+      const decoded = jwt_decode(token);
+      // if token is expired, don't let user use ANYTHING
+      if (current_time > decoded.exp) {
+        this.setState({profilePic: false});
+      } else {
+        this.getUserById();
+        this.setState({profilePic: true});
+      }
     }
   }
 

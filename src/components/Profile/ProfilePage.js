@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import Pic from './bank_profile.png';
+<<<<<<< HEAD
 import electraLoadIcon from '../electraLoadIcon.gif';
+=======
+// import jwt_decode from 'jwt-decode';
+
+>>>>>>> cc868b523f588e14df268e9a0ef53886c12c4e33
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -111,6 +116,13 @@ export default class ProfilePage extends Component {
     }
     componentDidMount() {
         this.props.toggleUploadButton();
+
+        // const token = localStorage.getItem("jwt");
+        // const decoded = jwt_decode(token);
+        // var current_time = new Date().getTime() / 1000;
+        // if (current_time > decoded.exp) { 
+        // console.log(`token expired`);
+        // }
     }
 
     componentWillUnmount() {
