@@ -203,10 +203,6 @@ class App extends React.Component {
       const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
       const new_user_data = JSON.parse(new_user.config.data);
       console.log(new_user_data);
-      this.closeLoginModal()
-      this.setState({
-        profilePic: true
-      });
     } catch {
       alert("error");
     }
@@ -243,9 +239,9 @@ class App extends React.Component {
       this.setState({
         profilePic: true
       });
+      this.getUserById();
       this.closeLoginModal();
       this.loginSuccessAlert();
-      this.getUserById();
 
     } catch (err) {
       console.error(err);

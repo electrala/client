@@ -19,6 +19,7 @@ export default class Signup extends Component {
       password: "",
       confirmPassword: ""
     };
+    this.baseState = this.state;
   }
 
   /**
@@ -43,11 +44,11 @@ export default class Signup extends Component {
 
   signUpSuccessFunction = event => {
     MySwal.fire({
-      title: 'Yay! You are logged in!', 
+      title: `You're all signed up!`, 
       icon: 'Success',
       type :  null,
       confirmButtonText: "Close",
-      text: 'You are officially signed up!',
+      text: 'Go ahead and login :)',
       closeOnConfirm: false,
       closeOnCancel: false,
       allowOutsideClick: false, 
@@ -77,8 +78,9 @@ export default class Signup extends Component {
       this.passwordFailFunction();
     } else {
       console.log(`your mom!:: CJ's code`);
-      this.signUpSuccessFunction();
       this.props.createUser(this.state);
+      this.signUpSuccessFunction();
+      this.setState(this.baseState);
     }
   };
   render() {
