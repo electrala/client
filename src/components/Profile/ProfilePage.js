@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import Pic from './bank_profile.png';
-<<<<<<< HEAD
 import electraLoadIcon from '../electraLoadIcon.gif';
-=======
-// import jwt_decode from 'jwt-decode';
-
->>>>>>> cc868b523f588e14df268e9a0ef53886c12c4e33
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
