@@ -87,9 +87,10 @@ export default class ProfilePage extends Component {
         try {
             const data = {
                 userImageS3Location: this.state.userImageS3Location,
-                firstname: "A-Deezy"
+                firstName: "A-Deezy"
             };
-            const updated_user = await axios.patch(`https://electra-la-2019.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
+            console.log(data);
+            const updated_user = await axios.patch(`http://localhost:5000/users/users/${this.props.userInfo.id}`, data);
             const updated_user_data = JSON.parse(updated_user.config.data);
             console.log(updated_user_data);
         } catch (error) {
