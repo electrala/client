@@ -174,7 +174,7 @@ class App extends React.Component {
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
-        "https://electra-la-2019.herokuapp.com/critiques/new",
+        "https://electra-la-development.herokuapp.com/critiques/new",
         // "http://localhost:5000/critiques/new",
         data
       );
@@ -200,13 +200,12 @@ class App extends React.Component {
 
   signUp = async data => {
     try {
-      const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
+      const new_user = await axios.post('https://electra-la-development.herokuapp.com/users/register', data);
       const new_user_data = JSON.parse(new_user.config.data);
       console.log(new_user_data);
     } catch {
       alert("error");
     }
-
   }
 
   logout = () => {
@@ -227,7 +226,7 @@ class App extends React.Component {
   logIn = async data => {
     try {
       const result = await axios.post(
-        "https://electra-la-2019.herokuapp.com/users/login",
+        "https://electra-la-development.herokuapp.com/users/login",
         // "http://localhost:5000/users/login",
         data
       );
@@ -251,21 +250,21 @@ class App extends React.Component {
 
   getUserById = async () => {
     try {
-        const token = localStorage.getItem("jwt");
-        const decoded = jwt_decode(token);
-        const current_time = new Date().getTime() / 1000;
-        if (current_time > decoded.exp) { 
+      const token = localStorage.getItem("jwt");
+      const decoded = jwt_decode(token);
+      const current_time = new Date().getTime() / 1000;
+      if (current_time > decoded.exp) {
         console.log(`token expired`);
-        }
-        const { data } = await axios.get(
-          `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
-          // `http://localhost:5000/users/user/${decoded.id}`
-          );
-        delete data.password;
-        this.setState({userInfo:data});
-      } catch(err) {
-        console.error(err);
       }
+      const { data } = await axios.get(
+        `https://electra-la-development.herokuapp.com/users/user/${decoded.id}`
+        // `http://localhost:5000/users/user/${decoded.id}`
+      );
+      delete data.password;
+      this.setState({ userInfo: data });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   /**
@@ -286,16 +285,16 @@ class App extends React.Component {
     const token = localStorage.getItem("jwt");
     // if the token doesn't exist, skip the step
     if (token === null) {
-      this.setState({profilePic: false});
+      this.setState({ profilePic: false });
     } else {
       // decrypt the jwt token
       const decoded = jwt_decode(token);
       // if token is expired, don't let user use ANYTHING
       if (current_time > decoded.exp) {
-        this.setState({profilePic: false});
+        this.setState({ profilePic: false });
       } else {
         this.getUserById();
-        this.setState({profilePic: true});
+        this.setState({ profilePic: true });
       }
     }
   }
@@ -303,7 +302,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
+        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
           <Route exact path='/' component={Gallery} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
@@ -328,6 +327,7 @@ class App extends React.Component {
               right: "20%",
               bottom: "15%",
               border: "none",
+              height: "31rem",
               background: "var(--electra-white)",
               overflow: "auto",
               WebkitOverflowScrolling: "touch",

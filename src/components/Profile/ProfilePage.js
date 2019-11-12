@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import Pic from './bank_profile.png';
-// import jwt_decode from 'jwt-decode';
-
+import electraLoadIcon from '../electraLoadIcon.gif';
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profilePic: Pic,
+            // profilePic: this.props.userInfo.userImageS3Location,
             redirect: false,
             selectedFile: null,
             userImageS3Location: null,
@@ -34,7 +33,7 @@ export default class ProfilePage extends Component {
                 this.state.selectedFile.name
             );
             axios
-                .post("https://electra-la-2019.herokuapp.com/aws/critique-img-upload", data, {
+                .post("https://electra-la-development.herokuapp.com/aws/critique-img-upload", data, {
                     headers: {
                         accept: "application/json",
                         "Accept-Language": "en-US,en;q=0.8",
@@ -63,7 +62,8 @@ export default class ProfilePage extends Component {
                             // this.ocShowAlert("File Uploaded", "#3089cf");
                             console.log("File uploaded!");
                             this.setState({
-                                s3locationurl: fileName.location,
+                                profilePic: fileName.location,
+                                userImageS3Location: fileName.location,
                                 isLoading: false
                             });
                         }
@@ -82,6 +82,18 @@ export default class ProfilePage extends Component {
         }
     };
 
+    updateUserToIncludeProfilePic = async () => {
+        try {
+            const data = {
+                userImageS3Location: this.state.userImageS3Location
+            };
+            await axios.patch(`https://electra-la-development.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
+            // const updated_user_data = JSON.parse(updated_user.config.data);
+            alert(`You've saved your new pic!`)
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     setRedirect = () => {
         this.setState({
@@ -113,7 +125,7 @@ export default class ProfilePage extends Component {
     }
 
     render() {
-        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
+        const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
             <div className="user">
                 <br />
@@ -125,7 +137,7 @@ export default class ProfilePage extends Component {
                     <div>
                         <div className="grid-container">
                             <div className='img item1'>
-                                <img className="profilePhoto" src={this.state.profilePic} alt="profilepic"></img>
+                                <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
                             </div>
                             <br />
                             <br />
@@ -175,6 +187,16 @@ export default class ProfilePage extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="file-upload-container">
+                    <input type="file" accept="image/*" name="critique-image" id="critique-image"
+                        onChange={this.singleFileChangedHandler} />
+                    <img id="crit-upload-img" src={this.state.userImageS3Location ? this.state.userImageS3Location : require("../UploadCrit/placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
+                    <button onClick={this.singleFileUploadHandler}>Upload File</button>
+                    {
+                        this.state.isLoading ? <div style={{ boxShadow: "0px 4px 6px 3px rgba(0, 0, 0, 0.5)", border: "4px solid var(--electra-cool)", zIndex: "100", marginTop: "-250px", marginLeft: "-20px", background: "rgba(20, 20, 20, 0.7)", borderRadius: "50%", width: "300px", height: "300px", display: "grid" }}><img src={electraLoadIcon} style={{ maxHeight: "200px", placeSelf: "center" }} alt="Electra Load Icon" /></div> /*<LoadingDots />*/ : <div></div>
+                    }
+                    {this.state.userImageS3Location !== null && <button onClick={this.updateUserToIncludeProfilePic}>Save Profile Pic</button>}
                 </div>
             </div>
         )
