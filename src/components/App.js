@@ -313,6 +313,7 @@ class App extends React.Component {
               right: "20%",
               bottom: "15%",
               border: "none",
+              height: "31rem",
               background: "var(--electra-white)",
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
