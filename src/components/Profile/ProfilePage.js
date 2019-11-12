@@ -7,7 +7,7 @@ export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profilePic: Pic,
+            // profilePic: this.props.userInfo.userImageS3Location,
             redirect: false,
             selectedFile: null,
             userImageS3Location: null,
@@ -66,7 +66,6 @@ export default class ProfilePage extends Component {
                                 userImageS3Location: fileName.location,
                                 isLoading: false
                             });
-                            // Call updateUserToIncludeProfilePic here?
                         }
                     }
                 })
@@ -86,13 +85,11 @@ export default class ProfilePage extends Component {
     updateUserToIncludeProfilePic = async () => {
         try {
             const data = {
-                userImageS3Location: this.state.userImageS3Location,
-                firstName: "A-Deezy"
+                userImageS3Location: this.state.userImageS3Location
             };
-            console.log(data);
-            const updated_user = await axios.patch(`http://localhost:5000/users/users/${this.props.userInfo.id}`, data);
-            const updated_user_data = JSON.parse(updated_user.config.data);
-            console.log(updated_user_data);
+            await axios.patch(`http://localhost:5000/users/users/${this.props.userInfo.id}`, data);
+            // const updated_user_data = JSON.parse(updated_user.config.data);
+            alert(`You've saved your new pic!`)
         } catch (error) {
             console.error(error);
         }
@@ -121,7 +118,7 @@ export default class ProfilePage extends Component {
     }
 
     render() {
-        const { firstname, lastname, username, pronoun, location, email } = this.props.userInfo;
+        const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
             <div className="user">
                 <br />
@@ -133,7 +130,7 @@ export default class ProfilePage extends Component {
                     <div>
                         <div className="grid-container">
                             <div className='img item1'>
-                                <img className="profilePhoto" src={this.state.profilePic} alt="profilepic"></img>
+                                <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
                             </div>
                             <br />
                             <br />

@@ -287,7 +287,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
+        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
           <Route exact path='/' component={Gallery} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
