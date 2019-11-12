@@ -33,7 +33,7 @@ export default class ProfilePage extends Component {
                 this.state.selectedFile.name
             );
             axios
-                .post("https://electra-la-2019.herokuapp.com/aws/critique-img-upload", data, {
+                .post("https://electra-la-development.herokuapp.com/aws/critique-img-upload", data, {
                     headers: {
                         accept: "application/json",
                         "Accept-Language": "en-US,en;q=0.8",
@@ -87,7 +87,7 @@ export default class ProfilePage extends Component {
             const data = {
                 userImageS3Location: this.state.userImageS3Location
             };
-            await axios.patch(`https://electra-la-2019.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
+            await axios.patch(`https://electra-la-development.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
             // const updated_user_data = JSON.parse(updated_user.config.data);
             alert(`You've saved your new pic!`)
         } catch (error) {
