@@ -184,7 +184,8 @@ class App extends React.Component {
         critiques: crits
       });
       this.critiqueSuccessAlert();
-      this.setState({ showCrit: false });
+      this.setState({ showCrit: false, showModal: false });
+
     } catch (error) {
       this.critiqueFailAlert();
     }
