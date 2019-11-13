@@ -40,6 +40,20 @@ class App extends React.Component {
     this.setState({ showModal: false });
   }
 
+  getLoggedInAlert = event => {
+    MySwal.fire({
+      title: 'Please Login!',
+      icon: 'info',
+      type: null,
+      confirmButtonText: 'Close',
+      text: 'Get logged in to share you Spark with the community!',
+      closeOnConfirm: false,
+      closeOnCancel: false,
+      allowOutsideClick: false,
+      confirmButtonColor: "var(--electra-cool)"
+    })
+  }
+
   loginSuccessAlert = event => {
     MySwal.fire({
       title: 'Successful Login!',
@@ -160,7 +174,8 @@ showProfilePic=event=>{
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
-        "https://electra-la-2019.herokuapp.com/critiques/new",
+        "https://electra-la-development.herokuapp.com/critiques/new",
+        // "http://localhost:5000/critiques/new",
         data
       );
       const crits = this.state.critiques;
@@ -183,23 +198,13 @@ showProfilePic=event=>{
    * Once user is signed in, change to photo on navbar.
    */
   signUp = async data => {
-   
-    try{
-      //  const new_user = await axios.post('http://localhost:5000/users/register', data);
-      // const new_user_data = JSON.parse(new_user.config.data);
-      // console.log(new_user_data);
-      this.closeLoginModal()
-      this.setState({
-        profilePic: true,
-      })
-    }catch{
-      alert("error")
+    try {
+      const new_user = await axios.post('https://electra-la-development.herokuapp.com/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
+    } catch {
+      alert("error");
     }
-
-   
-    // const userName = new_user.config.data.userName;
-    // const password = new_user.config.data.password;
-    // console.log(`Username: ${userName} | Password: ${password}`);
   }
 
   logout = () => {
@@ -220,7 +225,7 @@ showProfilePic=event=>{
   logIn = async data => {
     try {
       const result = await axios.post(
-        "https://electra-la-2019.herokuapp.com/users/login",
+        "https://electra-la-development.herokuapp.com/users/login",
         // "http://localhost:5000/users/login",
         data
       );
@@ -232,9 +237,9 @@ showProfilePic=event=>{
       this.setState({
         profilePic: true
       });
+      this.getUserById();
       this.closeLoginModal();
       this.loginSuccessAlert();
-      this.getUserById();
 
     } catch (err) {
       console.error(err);
@@ -246,8 +251,12 @@ showProfilePic=event=>{
     try {
       const token = localStorage.getItem("jwt");
       const decoded = jwt_decode(token);
+      const current_time = new Date().getTime() / 1000;
+      if (current_time > decoded.exp) {
+        console.log(`token expired`);
+      }
       const { data } = await axios.get(
-        `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+        `https://electra-la-development.herokuapp.com/users/user/${decoded.id}`
         // `http://localhost:5000/users/user/${decoded.id}`
       );
       delete data.password;
@@ -269,16 +278,30 @@ showProfilePic=event=>{
   };
 
   componentDidMount() {
-    this.getUserById();
-    if (localStorage.getItem("jwt") !== null) {
-      this.setState({ profilePic: true });
+    // Get the current time to compare with the expiration of the jwt token
+    const current_time = new Date().getTime() / 1000;
+    // console.log("hello ", localStorage.getItem("jwt"));
+    const token = localStorage.getItem("jwt");
+    // if the token doesn't exist, skip the step
+    if (token === null) {
+      this.setState({ profilePic: false });
+    } else {
+      // decrypt the jwt token
+      const decoded = jwt_decode(token);
+      // if token is expired, don't let user use ANYTHING
+      if (current_time > decoded.exp) {
+        this.setState({ profilePic: false });
+      } else {
+        this.getUserById();
+        this.setState({ profilePic: true });
+      }
     }
   }
 
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} />
+        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
           <Route exact path='/' component={Gallery} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
@@ -303,6 +326,7 @@ showProfilePic=event=>{
               right: "20%",
               bottom: "15%",
               border: "none",
+              height: "31rem",
               background: "var(--electra-white)",
               overflow: "auto",
               WebkitOverflowScrolling: "touch",
@@ -319,7 +343,7 @@ showProfilePic=event=>{
               <div className="line-container"></div>
               <Signup createUser={this.signUp} />
             </div> :
-              this.state.showCrit ? <UploadCrit onUpload={this.uploadCrit} /> : <div></div>}
+              this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
               <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
                 Close
@@ -332,7 +356,7 @@ showProfilePic=event=>{
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={this.showCritModal}
+              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}

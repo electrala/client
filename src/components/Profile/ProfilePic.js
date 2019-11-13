@@ -17,7 +17,7 @@ export default class ProfilePc extends Component{
         return(
         <div id="picture">
             <Link to='/profile'>
-                <img id='picture' src={Pic} alt='pic'>
+                <img id='profileImg' src={Pic} alt='pic'>
                 </img>
             </Link>
         </div>
