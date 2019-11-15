@@ -14,6 +14,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-151580479-1');
+ReactGA.pageview('/homepage');
 const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
