@@ -29,34 +29,34 @@ export default class Signup extends Component {
    */
   passwordFailFunction = event => {
     MySwal.fire({
-      title: 'And I oops!', 
+      title: 'And I oops!',
       icon: 'error',
-      type :  null,
+      type: null,
       confirmButtonText: "Close",
       text: 'The passwords do not match',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
-     }
+    }
     );
   };
 
   signUpSuccessFunction = event => {
     MySwal.fire({
-      title: `You're all signed up!`, 
+      title: `You're all signed up!`,
       icon: 'Success',
-      type :  null,
+      type: null,
       confirmButtonText: "Close",
       text: 'Go ahead and login :)',
       closeOnConfirm: false,
       closeOnCancel: false,
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
       confirmButtonColor: "var(--electra-cool)"
-     }
+    }
     );
   };
-  
+
   handleChange = event => {
     event.preventDefault();
     this.setState({
@@ -145,7 +145,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder="Password"
               id="password"
@@ -153,7 +153,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="password"
               name="confirmPassword"
               placeholder="Confirm Password"
               id="confirmPassword"
