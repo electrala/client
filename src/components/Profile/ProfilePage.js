@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
-import Pic from './bank_profile.png';
 import electraLoadIcon from '../electraLoadIcon.gif';
+import Pic from "./Electra_Banner.png"
+import './Profile.css'
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -126,45 +127,38 @@ export default class ProfilePage extends Component {
     render() {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
-            <div className="user">
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <div className="container">
+            <div>
+
+                <img className="header item1" src={Pic} alt="banner"></img>
+
+
+                <div className="grid-container">
                     <div>
-                        <div className="grid-container">
-                            <div className='img item1'>
-                                <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
-                            </div>
-                            <br />
-                            <br />
-                            <br />
-                            <div className="userInfo item3">
-                                <h4 className="info">name: {firstname} {lastname}</h4>
-                                <br />
-                                <p className="info">username: {username}</p>
-                                <br />
-                                <p className="info">pronoun: {pronoun}</p>
-                                <br />
-                                <p className="info">location: {location}</p>
-                                <br />
-                                <p className="info">email: {email}</p>
+                        <div className="user-container">
+
+                            <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+
+
+                            <div className="userInfo">
+                                <h4 className="userName"> {firstname} {lastname}</h4>
+                                <p className="userPronoun"> {pronoun}</p>
+                                <p className="userLocation">{location}</p>
+
+                                <button className="editButton">
+                                    Edit Profile
+</button>
+
                             </div>
 
-                            <div className="left item2" >
+
+                            {/*                           
                                 <ul className="profileNav">
                                     <li>About</li>
                                     <li>Gallery</li>
                                     <li>Collections</li>
-                                </ul>
-                                <div className="active"></div>
-                                <div className="row">
+                                </ul> */}
 
-                                    <br />
-
-                                </div>
+                            {/*                                 
                                 <div className="stats row item4">
                                     <div className="stat col-xs-4" >
                                         <p className="number-stat">3,619</p>
@@ -177,15 +171,16 @@ export default class ProfilePage extends Component {
                                     <div className="stat col-xs-4" >
                                         <p className="number-stat">38</p>
                                         <p className="desc-stat">Uploads</p>
-                                    </div>
-                                    <div>
-                                        {this.renderRedirect()}
-                                        <button onClick={this.redirectLogout}>logout</button>
-                                    </div>
-                                </div>
+                                    </div> */}
+
+                            <div>
+                                {this.renderRedirect()}
+                                <button onClick={this.redirectLogout}>logout</button>
                             </div>
+                            {/* </div> */}
                         </div>
                     </div>
+
                 </div>
                 <div className="file-upload-container">
                     <input type="file" accept="image/*" name="critique-image" id="critique-image"
