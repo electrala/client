@@ -2,6 +2,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
+/**
+ * Lets the user know they failed to log in correctly.
+ */
 const loginFailAlert = event => {
     MySwal.fire({
       title: 'Login Failed',

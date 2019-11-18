@@ -2,6 +2,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
+/**
+ * Prompts the user to log in, so they can upload a spark.
+ */
 const getLoggedInAlert = event => {
     MySwal.fire({
       title: 'Please Login!',

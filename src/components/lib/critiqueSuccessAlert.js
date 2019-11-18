@@ -2,6 +2,9 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
+/**
+ * Lets the user know their spark successfully uploaded.
+ */
 const critiqueSuccessAlert = event => {
     MySwal.fire({
       title: 'Critique has successfully uploaded!',
