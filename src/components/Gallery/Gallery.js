@@ -40,18 +40,24 @@ export default class Gallery extends Component {
     this.setState({ showModal: false });
   }
 
-  async componentDidMount() {
-    console.log('App Mounted');
+  async grabCritsFromDB() {
+    console.log('Gallery Mounted');
     // 1. request the data from our server
     const { data } = await axios.get(
-      'https://electra-la-2019.herokuapp.com/critiques/all'
+      'https://electra-la-development.herokuapp.com/critiques/all'
     );
     // 2. hold that data in state so that it will be passed down to our Snips
     this.setState({
       critiques: data,
     });
-
   }
+
+  componentDidMount() {
+    this.grabCritsFromDB();
+  }
+
+
+
   render() {
     if (!this.state.critiques[0]) return null
     return (
