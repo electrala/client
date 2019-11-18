@@ -1,22 +1,34 @@
-import React from 'react';
-import './App.css';
-import '../css/style.css';
-import '../components/Modal/Modal.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// Components
 import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
-import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
+
+// Styles
+import './App.css';
+import '../css/style.css';
+import '../components/Modal/Modal.css';
+
+// Libraries
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
 import ReactGA from 'react-ga';
+
+// Functions
+import getLoggedInAlert from './lib/getLoggedInAlert';
+
+// Analytics
 ReactGA.initialize('UA-151580479-1');
 ReactGA.pageview('/homepage');
+
+// Sweet Alerts
 const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
@@ -41,20 +53,6 @@ class App extends React.Component {
 
   handleCloseModal() {
     this.setState({ showModal: false });
-  }
-
-  getLoggedInAlert = event => {
-    MySwal.fire({
-      title: 'Please Login!',
-      icon: 'info',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Get logged in to share you Spark with the community!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
   }
 
   loginSuccessAlert = event => {
@@ -361,7 +359,7 @@ class App extends React.Component {
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
+              onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}
