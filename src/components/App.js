@@ -1,23 +1,34 @@
-import React from 'react';
-import './App.css';
-import '../css/style.css';
-import '../components/Modal/Modal.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// Components
 import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
-import axios from 'axios';
 import ProfilePage from './Profile/ProfilePage';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
+// Styles
+import './App.css';
+import '../css/style.css';
+import '../components/Modal/Modal.css';
+
+// Libraries
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
 import ReactGA from 'react-ga';
+
+// Functions
+import getLoggedInAlert from './lib/getLoggedInAlert';
+import loginSuccessAlert from './lib/loginSuccessAlert';
+import loginFailAlert from './lib/loginFailAlert';
+import critiqueFailAlert from './lib/critiqueFailAlert';
+import critiqueSuccessAlert from './lib/critiqueSuccessAlert';
+
+// Analytics
 ReactGA.initialize('UA-151580479-1');
 ReactGA.pageview('/homepage');
-const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
   constructor(props) {
@@ -42,76 +53,6 @@ class App extends React.Component {
   handleCloseModal() {
     this.setState({ showModal: false });
   }
-
-  getLoggedInAlert = event => {
-    MySwal.fire({
-      title: 'Please Login!',
-      icon: 'info',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Get logged in to share you Spark with the community!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  }
-
-  loginSuccessAlert = event => {
-    MySwal.fire({
-      title: 'Successful Login!',
-      icon: 'success',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'You are all set to do amazing things',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  loginFailAlert = event => {
-    MySwal.fire({
-      title: 'Login Failed',
-      icon: 'error',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  critiqueFailAlert = event => {
-    MySwal.fire({
-      title: 'Critique Failed to upload!',
-      icon: 'error',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  critiqueSuccessAlert = event => {
-    MySwal.fire({
-      title: 'Critique has successfully uploaded!',
-      icon: 'success',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
 
   toggleUploadButton = () => {
     const { hideButton } = this.state
@@ -186,11 +127,11 @@ class App extends React.Component {
       this.setState({
         critiques: crits
       });
-      this.critiqueSuccessAlert();
+      critiqueSuccessAlert();
       this.setState({ showCrit: false, showModal: false });
 
     } catch (error) {
-      this.critiqueFailAlert();
+      critiqueFailAlert();
     }
   };
 
@@ -219,8 +160,7 @@ class App extends React.Component {
       profilePic: false
     });
   }
-
-
+  
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -244,11 +184,11 @@ class App extends React.Component {
       });
       this.getUserById();
       this.closeLoginModal();
-      this.loginSuccessAlert();
+      loginSuccessAlert();
 
     } catch (err) {
       console.error(err);
-      this.loginFailAlert();
+      loginFailAlert();
     }
   };
 
@@ -361,7 +301,7 @@ class App extends React.Component {
           <div id="float-button">
             <img
               src={require("./custom-button.png")}
-              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
+              onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
           </div>}
