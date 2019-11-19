@@ -129,25 +129,27 @@ export default class ProfilePage extends Component {
         return (
             <div>
 
+
                 <img className="header item1" src={Pic} alt="banner"></img>
 
-
-                <div className="grid-container">
+                <div className="wrapper">
                     <div>
+                    
                         <div className="user-container">
 
                             <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
 
-<div className="track" >
-                            <div className="userInfo">
-                                <h4 className="userName"> {firstname} {lastname}</h4>
-                                <p className="userPronoun"> {pronoun}</p>
-                                <p className="userLocation">{location}</p>
+                            <div className="track" >
+                                <div className="userInfo flex-container">
 
-                                <button className="editButton">
-                                    Edit Profile
+                                    <h4 className="userName"> {firstname} {lastname}</h4>
+                                    <p className="userPronoun"> {pronoun}</p>
+                                    <p className="userLocation">{location}</p>
+
+                                    <button className="editButton">
+                                        Edit Profile
 </button>
-</div>
+                                </div>
 
                             </div>
 

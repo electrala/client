@@ -19,6 +19,29 @@
  
 }
 
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+
+.flex-container > p {
+  text-align: center;
+  line-height: 10px;
+}
+
+.flex-container > h4{
+  text-align: center;
+  line-height: 10px;
+}
+
+
+header{
+   overflow:hidden;
+}
+
 .header{
   height: 100%;
   max-width: 100%;
@@ -44,9 +67,11 @@
 
       .user-container{
        grid-area:menu;
-        padding-top: 5%;
+       padding-top: 5%;
         padding-left:13%;
         background-color:#fff;
+       width: 25%;
+       height: 60%;
         margin-top:-10%; 
         position: absolute;
         margin-left: 5%;
@@ -175,7 +200,7 @@
       }
 
       .userInfo{
-background-color: blue;
+
 margin-top: 40%;
 margin-left: -33%;
 position: absolute;
