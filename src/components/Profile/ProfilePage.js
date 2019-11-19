@@ -138,7 +138,7 @@ export default class ProfilePage extends Component {
 
                             <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
 
-
+<div className="track" >
                             <div className="userInfo">
                                 <h4 className="userName"> {firstname} {lastname}</h4>
                                 <p className="userPronoun"> {pronoun}</p>
@@ -147,6 +147,7 @@ export default class ProfilePage extends Component {
                                 <button className="editButton">
                                     Edit Profile
 </button>
+</div>
 
                             </div>
 

@@ -32,7 +32,7 @@
         width: 200px;
         height: 200px;    
     
-        position: absolute;
+   position: absolute;
         margin-left: -40%;
         margin-right: -40%;
         margin-top:-15%;
@@ -71,6 +71,7 @@
         color: #777;
       }
       
+    
       .info {
         margin-top: -5px;
         margin-bottom: 5px;
@@ -78,15 +79,10 @@
         font-size: 11pt;
         color: #aaa;
         position: static;
+      }
 
-      }
-      .userInfo{
-        width: 40%;
-        margin-top: 80%;
-        margin-left:30%;
-        margin-bottom: 40%;
-      }
       
+
       .stats {
         margin-top: 25px;
         text-align: center;
@@ -109,8 +105,6 @@
         color: #bbb;
       }
 
-    
-      
       .desc {
         text-align: center;
         margin-top: 25px;
@@ -180,22 +174,28 @@
         }
       }
 
-     
+      .userInfo{
+background-color: blue;
+margin-top: 40%;
+margin-left: -33%;
+position: absolute;
+max-width: 40%;
 
+      }
       .userName {
         font-size: 20px; 
         color: black;
-        margin-top: -30%;
-        padding: 10%;
-        margin-left: 10%;
+        margin-top: 40%;
+        margin-left: -33%;
 
       }
 
       .userPronoun{
         color: grey ;
-      margin-top:-8%;
-      margin-left:25%
-
+      margin-top:10%;
+      margin-left:25%;
+      position: relative;
+      margin-right: 25% ;
       }
 
       .userLocation{
