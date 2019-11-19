@@ -98,7 +98,6 @@ export default class UploadCrit extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // insert async singlefileuploadhandler here?
     this.props.onUpload(this.state);
   };
 
