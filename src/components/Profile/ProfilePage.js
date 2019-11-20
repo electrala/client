@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import electraLoadIcon from '../electraLoadIcon.gif';
 import Pic from "./Electra_Banner.png"
-import './Profile.css'
+import './Profile1.css'
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -128,75 +128,42 @@ export default class ProfilePage extends Component {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
             <div>
-
-
-                <img className="header item1" src={Pic} alt="banner"></img>
-
-                <div className="wrapper">
-                    <div>
+                
+                    <img className="header" src={Pic} alt="banner"></img>
                     
-                        <div className="user-container">
+                    
+                    <div className="card">
+                        <img className="profilePic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+                        <h4 className="userName"> {firstname} {lastname}</h4>
+                        <p className="userPronoun"> {pronoun}</p>
+                        <p className="userLocation">{location}</p>
+                        <button className="editButton"> Edit Profile</button>
 
-                            <img className="profilePhoto" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
-
-                            <div className="track" >
-                                <div className="userInfo flex-container">
-
-                                    <h4 className="userName"> {firstname} {lastname}</h4>
-                                    <p className="userPronoun"> {pronoun}</p>
-                                    <p className="userLocation">{location}</p>
-
-                                    <button className="editButton">
-                                        Edit Profile
-</button>
-                                </div>
-
-                            </div>
-
-
-                            {/*                           
-                                <ul className="profileNav">
-                                    <li>About</li>
-                                    <li>Gallery</li>
-                                    <li>Collections</li>
-                                </ul> */}
-
-                            {/*                                 
-                                <div className="stats row item4">
-                                    <div className="stat col-xs-4" >
-                                        <p className="number-stat">3,619</p>
-                                        <p className="desc-stat">Followers</p>
-                                    </div>
-                                    <div className="stat col-xs-4">
-                                        <p className="number-stat">42</p>
-                                        <p className="desc-stat">Following</p>
-                                    </div>
-                                    <div className="stat col-xs-4" >
-                                        <p className="number-stat">38</p>
-                                        <p className="desc-stat">Uploads</p>
-                                    </div> */}
-
-                            <div>
-                                {this.renderRedirect()}
-                                <button onClick={this.redirectLogout}>logout</button>
-                            </div>
-                            {/* </div> */}
-                        </div>
                     </div>
 
-                </div>
-                <div className="file-upload-container">
-                    <input type="file" accept="image/*" name="critique-image" id="critique-image"
-                        onChange={this.singleFileChangedHandler} />
-                    <img id="crit-upload-img" src={this.state.userImageS3Location ? this.state.userImageS3Location : require("../UploadCrit/placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
-                    <button onClick={this.singleFileUploadHandler}>Upload File</button>
-                    {
-                        this.state.isLoading ? <div style={{ boxShadow: "0px 4px 6px 3px rgba(0, 0, 0, 0.5)", border: "4px solid var(--electra-cool)", zIndex: "100", marginTop: "-250px", marginLeft: "-20px", background: "rgba(20, 20, 20, 0.7)", borderRadius: "50%", width: "300px", height: "300px", display: "grid" }}><img src={electraLoadIcon} style={{ maxHeight: "200px", placeSelf: "center" }} alt="Electra Load Icon" /></div> /*<LoadingDots />*/ : <div></div>
-                    }
-                    {this.state.userImageS3Location !== null && <button onClick={this.updateUserToIncludeProfilePic}>Save Profile Pic</button>}
-                </div>
-
+                    <div>
+                        {this.renderRedirect()}
+                        <button onClick={this.redirectLogout}>logout</button>
+                    </div>
+                   
+             
             </div>
+
+
+            // <div className="file-upload-container">
+            //     <input type="file" accept="image/*" name="critique-image" id="critique-image"
+            //         onChange={this.singleFileChangedHandler} />
+            //     <img id="crit-upload-img" src={this.state.userImageS3Location ? this.state.userImageS3Location : require("../UploadCrit/placeHolder.jpg")} alt="placeholder" style={{ maxWidth: '100px' }} />
+            //     <button onClick={this.singleFileUploadHandler}>Upload File</button>
+            //     {
+            //         this.state.isLoading ? <div style={{ boxShadow: "0px 4px 6px 3px rgba(0, 0, 0, 0.5)", border: "4px solid var(--electra-cool)", zIndex: "100", marginTop: "-250px", marginLeft: "-20px", background: "rgba(20, 20, 20, 0.7)", borderRadius: "50%", width: "300px", height: "300px", display: "grid" }}><img src={electraLoadIcon} style={{ maxHeight: "200px", placeSelf: "center" }} alt="Electra Load Icon" /></div> /*<LoadingDots />*/ : <div></div>
+            //     }
+            //     {this.state.userImageS3Location !== null && <button onClick={this.updateUserToIncludeProfilePic}>Save Profile Pic</button>}
+            // </div>
+
+
+
+
 
         )
     }
