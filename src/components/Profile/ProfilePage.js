@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import electraLoadIcon from '../electraLoadIcon.gif';
 import Pic from "./Electra_Banner.png"
+import upload from "./upload.png"
 import './Profile1.css'
 export default class ProfilePage extends Component {
     constructor(props) {
@@ -127,10 +128,12 @@ export default class ProfilePage extends Component {
     render() {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
-            <div className="profile-container">
+            <div className="">
                 
                     <img className="header" src={Pic} alt="banner"></img>
-                    
+                    <img src={upload}></img>
+
+
                     <div className="card">
                         <img className="profilePic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
                        <div className="users">
