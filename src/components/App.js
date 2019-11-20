@@ -256,7 +256,7 @@ class App extends React.Component {
         {!this.state.hideButton &&
           <div id="float-button">
             <img
-              src={require("./custom-button.png")}
+              src={require("../img/custom-button.png")}
               onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
