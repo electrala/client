@@ -233,35 +233,11 @@ class App extends React.Component {
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal
+          className="um-component"
+          overlayClassName="um-overlay"
           isOpen={this.state.showModal}
           contentLabel="Universal Modal"
           onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
-          style={{
-            overlay: {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(65, 159, 161, 0.85)"
-            },
-            content: {
-              position: "absolute",
-              top: "20%",
-              left: "20%",
-              right: "20%",
-              bottom: "15%",
-              border: "none",
-              height: "31rem",
-              background: "var(--electra-white)",
-              overflow: "auto",
-              WebkitOverflowScrolling: "touch",
-              borderRadius: "20px",
-              outline: "none",
-              padding: 0,
-              boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
-            }
-          }}
         >
           <div className="universal-modal">
             {this.state.showLogin ? <div className="rows">
@@ -277,7 +253,6 @@ class App extends React.Component {
             </div>
           </div>
         </ReactModal>
-
         {!this.state.hideButton &&
           <div id="float-button">
             <img
@@ -285,9 +260,9 @@ class App extends React.Component {
               onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
-          </div>}
+          </div>
+        }
       </Router>
-
     );
   }
 }

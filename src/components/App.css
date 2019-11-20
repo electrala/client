@@ -79,3 +79,29 @@
     min-height: 4.5rem;
   }
 }
+
+/* The following styles are for the react modal */
+.um-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(65, 159, 161, 0.85);
+}
+.um-component {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 15%;
+  border: none;
+  height: 31rem;
+  background: var(--electra-white);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  outline: none;
+  padding: 0;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
+}
