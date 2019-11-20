@@ -1,58 +1,39 @@
 #critique-modal-view {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  padding: 2rem;
+  grid-template-rows: 1fr;
+  padding: 2em;
   color: var(--electra-white);
 }
 
-#critique-modal-img {
-  max-width: 80%;
+.img-side {
+  height: 650px;
+  display: grid;
+  grid-template-rows: 6fr 1fr 1fr;
+}
+
+.title-author {
+  padding-top: 2em;
+  font-size: 20px;
+}
+
+.crit-img {
+  max-width: 100%;
   border-radius: 20px;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
 }
 
-#critique-info-side {
-  background-color: #fff;
-  color: #000;
-  border: none;
-  border-radius: 20px;
-  -webkit-box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
-  -moz-box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
-  box-shadow: inset 2px 2px 22px -8px rgba(0, 0, 0, 0.58);
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "title"
-    "user"
-    "descr"
-    "ques"
-    "button";
-}
-
-#critique-title {
-  grid-area: title;
-  margin-top: 1rem;
-  font-size: 2rem;
-}
-
-#critique-username {
-  grid-area: user;
-}
-
-#critique-description {
-  grid-area: descr;
-}
-
-#critique-question {
-  grid-area: ques;
-  margin-top: 2rem;
+.comment-side {
+  max-width: 90%;
+  padding-left: 30px;
 }
 
 #modal-close-button {
-  grid-area: button;
-  align-self: end;
-  max-width: 20%;
-  place-self: center;
+  background: var(--electra-grey);
+  border: none;
+  padding: 1em;
+  font-size: 2em;
+  float: right;
+  text-decoration: none;
 }
