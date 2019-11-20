@@ -127,17 +127,18 @@ export default class ProfilePage extends Component {
     render() {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
-            <div>
+            <div className="profile-container">
                 
                     <img className="header" src={Pic} alt="banner"></img>
                     
-                    
                     <div className="card">
                         <img className="profilePic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+                       <div className="users">
                         <h4 className="userName"> {firstname} {lastname}</h4>
                         <p className="userPronoun"> {pronoun}</p>
-                        <p className="userLocation">{location}</p>
+                        <p className="userLocation">Location {location}</p>
                         <button className="editButton"> Edit Profile</button>
+                        </div>
 
                     </div>
 
