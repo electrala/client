@@ -160,7 +160,7 @@ class App extends React.Component {
       profilePic: false
     });
   }
-  
+
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -248,7 +248,7 @@ class App extends React.Component {
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
-          <Route exact path='/' component={Gallery} />
+          <Route exact path='/' render={(props) => <Gallery userInfo={this.state.userInfo} />} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal

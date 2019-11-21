@@ -29,7 +29,6 @@ export default class Crit extends Component {
       username,
       title,
       description,
-      questions,
       genre,
       s3locationurl
     } = this.props.critique;
@@ -82,7 +81,7 @@ export default class Crit extends Component {
                 <p className="genre">{genre}</p>
               </div>
               <div className="comment-side">
-                <CommentSection critiqueInfo={this.props.critique} />
+                <CommentSection critiqueInfo={this.props.critique} userInfo={this.props.userInfo} />
               </div>
             </div>
           </ReactModal>

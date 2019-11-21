@@ -10,6 +10,8 @@ export class CommentSection extends Component {
     }
   };
 
+  // submitCommentToDB(){ take info from child and push to cloud, then refresh the state with new comments}
+
   componentDidMount() {
     // make axios call for all comments related to this.props.critInfo.id
   }
@@ -25,7 +27,7 @@ export class CommentSection extends Component {
         <Comment />
         <Comment />
         {/* Pass in critique info and userinfo to be funneled to the back end for comment table */}
-        <CreateComment />
+        <CreateComment userInfo={this.props.userInfo} />
       </div>
     )
   }
