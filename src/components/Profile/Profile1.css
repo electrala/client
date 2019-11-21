@@ -1,20 +1,19 @@
 .card{
     text-align: center;
-  
     background-color:#fff;  
     display: flex;
     flex-direction: column;
     position: relative;
     margin-left:25px;
     margin-top:-10%;
-   margin: 10;
+    margin: 10;
     margin-left:30px;
     min-width: 25%;
-border-radius: 4%;
+     border-radius: 4%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding-bottom:15%;
-width: 20%;
-height: 20%;
+    width: 20%;
+    height: 550px;
 }
 
 #picture img{
@@ -56,18 +55,18 @@ button:hover, a:hover {
     background-color:var(--electra-cool);
     font-size:16px;
     padding: 10px 20px;
-   width:30%;
+    width:50%;
     text-align: center;
     color: white;
     font-family: "Lexend Deca", sans-serif;
-    margin-left: 150px;
-
+    margin-left: 100px;
+    margin-right: 50px;
   }
 
   .profilePic{ 
-       width: 200px;
-      height: 200px;    
-      margin-left:28%;
+    width: 150px;
+    height: 150px;    
+    margin-left:20%;
     margin-top: 10%;
     position: relative;
     border-radius: 100px;
@@ -76,14 +75,27 @@ button:hover, a:hover {
   }
 
   @media screen and (min-width: 480px) {
-    .header {max-width: 100%}
+    .header {max-width: 100px}
 
   }
+
+  @media screen and (min-width:1920px){
+      .header{max-width:100px}
+  }
+
   @media only screen and (min-width: 768px) {
     .header {max-width: 100%;
-   
     }
+  }
 
+  @media(min-width:1919){
+      .profilePic{margin-left: 20px ;}
+  }
+
+  @media (min-width: 1920px){
+      .profilePic{height:200px; 
+        width: 200px;
+    }
   }
   
   .header{
@@ -97,4 +109,6 @@ button:hover, a:hover {
       height: 100%;
   }
 
+
   
+ 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
-import electraLoadIcon from '../electraLoadIcon.gif';
 import Pic from "./Electra_Banner.png"
 import upload from "./upload.png"
 import './Profile1.css'
+import electraLoadIcon from '../../img/electraLoadIcon.gif';
+import locationPic from './loco.png'
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -131,9 +132,7 @@ export default class ProfilePage extends Component {
             <div className="">
                 
                     <img className="header" src={Pic} alt="banner"></img>
-                    <img src={upload}></img>
-
-
+                    
                     <div className="card">
                         <img className="profilePic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
                        <div className="users">
@@ -149,8 +148,6 @@ export default class ProfilePage extends Component {
                         {this.renderRedirect()}
                         <button onClick={this.redirectLogout}>logout</button>
                     </div>
-                   
-             
             </div>
 
 
@@ -164,10 +161,6 @@ export default class ProfilePage extends Component {
             //     }
             //     {this.state.userImageS3Location !== null && <button onClick={this.updateUserToIncludeProfilePic}>Save Profile Pic</button>}
             // </div>
-
-
-
-
 
         )
     }

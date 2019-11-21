@@ -26,6 +26,7 @@ import loginSuccessAlert from './lib/loginSuccessAlert';
 import loginFailAlert from './lib/loginFailAlert';
 import critiqueFailAlert from './lib/critiqueFailAlert';
 import critiqueSuccessAlert from './lib/critiqueSuccessAlert';
+import signUp from './lib/signUp';
 
 // Analytics
 ReactGA.initialize('UA-151580479-1');
@@ -64,13 +65,12 @@ class App extends React.Component {
    * This function shows the profile pic displayed on nav
    * @param {object} event This is the event triggered after successfully logging in or signing up
    */
-
-showProfilePic=event=>{
-  event.preventDefault(); 
-  this.setState({
-    profilePic:true,
-  })
-}
+  showProfilePic = event => {
+    event.preventDefault();
+    this.setState({
+      profilePic: true
+    });
+  };
 
   /**
    * The following 2 functions toggle the critique upload modal.
@@ -109,13 +109,13 @@ showProfilePic=event=>{
     });
     this.handleCloseModal();
   };
+
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the critiques array. (This array isn't currently
    * being used, but it might be useful for rendering critiques.)
    * @param {object} data This is the data from the critique upload form
    */
-
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
@@ -166,7 +166,6 @@ showProfilePic=event=>{
    * If both are true, then the JWT is stored in local storage.
    * @param {object} data This is the data from the log in form
    */
-
   logIn = async data => {
     try {
       const result = await axios.post(
@@ -252,41 +251,17 @@ showProfilePic=event=>{
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal
+          className="um-component"
+          overlayClassName="um-overlay"
           isOpen={this.state.showModal}
           contentLabel="Universal Modal"
           onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
-          style={{
-            overlay: {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(65, 159, 161, 0.85)"
-            },
-            content: {
-              position: "absolute",
-              top: "20%",
-              left: "20%",
-              right: "20%",
-              bottom: "15%",
-              border: "none",
-              height: "31rem",
-              background: "var(--electra-white)",
-              overflow: "auto",
-              WebkitOverflowScrolling: "touch",
-              borderRadius: "20px",
-              outline: "none",
-              padding: 0,
-              boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
-            }
-          }}
         >
           <div className="universal-modal">
             {this.state.showLogin ? <div className="rows">
               <Login loginUser={this.logIn} />
               <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
+              <Signup createUser={signUp} />
             </div> :
               this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
@@ -296,17 +271,16 @@ showProfilePic=event=>{
             </div>
           </div>
         </ReactModal>
-
         {!this.state.hideButton &&
           <div id="float-button">
             <img
-              src={require("./custom-button.png")}
+              src={require("../img/custom-button.png")}
               onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
-          </div>}
+          </div>
+        }
       </Router>
-
     );
   }
 }

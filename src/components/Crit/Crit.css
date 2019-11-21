@@ -54,5 +54,17 @@
   grid-area: button;
   align-self: end;
   max-width: 20%;
+  width: 100px;
+  height: 25px;
   place-self: center;
+  font-family: "Lexend Deca", sans-serif;
+  transition: all 0.2s;
+  background-color: var(--electra-cool);
+  border-radius: 5px;
+  border: 0;
+}
+
+#modal-close-button:hover {
+  background-color: var(--electra-cool);
+  transform: scale(1.1);
 }
