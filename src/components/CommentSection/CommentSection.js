@@ -22,7 +22,7 @@ export class CommentSection extends Component {
       );
       const parsedComment = JSON.parse(new_comment.config.data);
       this.setState({
-        comments: [...this.state.comments, parsedComment]
+        comments: [parsedComment, ...this.state.comments]
       })
     } catch (error) {
       console.log(error.message);
@@ -36,9 +36,9 @@ export class CommentSection extends Component {
     const { data } = await axios.get(
       `http://localhost:5000/comments/${crit_id}`
     );
-    // console.log(data);
+    const flipdata = data.reverse();
     this.setState({
-      comments: data
+      comments: flipdata
     })
   }
 
