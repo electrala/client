@@ -27,6 +27,7 @@
 .comment-side {
   max-width: 98%;
   padding-left: 30px;
+  min-height: 90%;
 }
 
 #modal-close-button {

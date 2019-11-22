@@ -55,10 +55,10 @@ export default class Crit extends Component {
               },
               content: {
                 position: "absolute",
-                top: "15%",
+                top: "10%",
                 left: "20%",
                 right: "20%",
-                bottom: "10%",
+                bottom: "5%",
                 border: "none",
                 background: "var(--electra-grey)",
                 overflow: "auto",
