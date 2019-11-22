@@ -2,9 +2,9 @@ import React from "react";
 import "./UploadCrit.css";
 import axios from "axios";
 import LoadingDots from '../common/Loading/LoadingDots';
-import electraLoadIcon from '../electraLoadIcon.gif';
-import electraLoadSuccess from '../electraLoadSuccess.png';
-import electraLoadError from '../electraLoadError.png';
+import electraLoadIcon from '../../img/electraLoadIcon.gif';
+import electraLoadSuccess from '../../img/electraLoadSuccess.png';
+import electraLoadError from '../../img/electraLoadError.png';
 
 export default class UploadCrit extends React.Component {
   // The default username is b, but this needs to be pulled from local storage
