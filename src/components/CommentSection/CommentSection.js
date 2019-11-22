@@ -20,10 +20,9 @@ export class CommentSection extends Component {
         "http://localhost:5000/comments/new",
         data
       );
-      const temp_comments = this.state.comments;
-      temp_comments.push(new_comment);
+      const parsedComment = JSON.parse(new_comment.config.data);
       this.setState({
-        comments: temp_comments
+        comments: [...this.state.comments, parsedComment]
       })
     } catch (error) {
       console.log(error.message);
@@ -37,6 +36,7 @@ export class CommentSection extends Component {
     const { data } = await axios.get(
       `http://localhost:5000/comments/${crit_id}`
     );
+    // console.log(data);
     this.setState({
       comments: data
     })
@@ -55,9 +55,12 @@ export class CommentSection extends Component {
           {this.props.critiqueInfo.questions}
         </div>
         {/* map over Comment component for each comment in this.state.comments array */}
-        <Comment />
-        <Comment />
-        <Comment />
+        {this.state.comments.length > 0 ? this.state.comments.map(comment => (
+          <Comment key={comment.id} comment={comment} />
+        ))
+          :
+          <div className="dummy-data">Write the first comment!</div>
+        }
         {/* Pass in critique info and userinfo to be funneled to the back end for comment table */}
         <CreateComment submitComment={this.submitCommentToDB} userInfo={this.props.userInfo} critiqueInfo={this.props.critiqueInfo} />
       </div>

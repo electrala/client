@@ -44,7 +44,7 @@ export default class Gallery extends Component {
     console.log('Gallery Mounted');
     // 1. request the data from our server
     const { data } = await axios.get(
-      'https://electra-la-2019.herokuapp.com/critiques/all'
+      'https://electra-la-development.herokuapp.com/critiques/all'
     );
     // 2. hold that data in state so that it will be passed down to our Snips
     this.setState({

@@ -39,6 +39,9 @@ export class CreateComment extends Component {
     event.preventDefault();
     // this.setState({ postTime: Date.now() })
     this.props.submitComment(this.state);
+    this.setState({
+      comment: ''
+    })
   };
 
   componentDidMount() {
