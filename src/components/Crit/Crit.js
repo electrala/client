@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
 import "./Crit.css";
+import CommentSection from "../CommentSection/CommentSection";
 
 export default class Crit extends Component {
   constructor() {
@@ -13,7 +14,7 @@ export default class Crit extends Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  randomNumber = limit => Math.floor(Math.random() * limit) + 1;
+  randomNumber = limit => Math.floor(Math.random() * limit) + 2;
 
   handleOpenModal() {
     this.setState({ showModal: true });
@@ -28,7 +29,6 @@ export default class Crit extends Component {
       username,
       title,
       description,
-      questions,
       genre,
       s3locationurl
     } = this.props.critique;
@@ -55,10 +55,10 @@ export default class Crit extends Component {
               },
               content: {
                 position: "absolute",
-                top: "20%",
+                top: "10%",
                 left: "20%",
                 right: "20%",
-                bottom: "15%",
+                bottom: "5%",
                 border: "none",
                 background: "var(--electra-grey)",
                 overflow: "auto",
@@ -70,27 +70,18 @@ export default class Crit extends Component {
               }
             }}
           >
+            {/* <button id="modal-close-button" onClick={this.handleCloseModal}>
+              X
+                </button> */}
             <div id="critique-modal-view">
-              <img
-                id="critique-modal-img"
-                src={s3locationurl}
-                alt="critique-modal-view"
-              />
-              <div id="critique-info-side">
-                <h1 id="critique-title">{title}</h1>
-                <p id="critique-username">Created by: {username}</p>
-                <p id="critique-description">
-                  Description:
-                  <br /> {description}
-                </p>
-                {/* <p id="critique-genre" >{genre}</p> */}
-                <p id="critique-question">
-                  I'd like to know:
-                  <br /> {questions}
-                </p>
-                <button id="modal-close-button" onClick={this.handleCloseModal}>
-                  Close Modal
-                </button>
+              <div className="img-side">
+                <img className="crit-img" src={s3locationurl} alt="" />
+                <p className="title-author">{title} by: {username}</p>
+                <p className="description">{description}</p>
+                <p className="genre">{genre}</p>
+              </div>
+              <div className="comment-side">
+                <CommentSection critiqueInfo={this.props.critique} userInfo={this.props.userInfo} />
               </div>
             </div>
           </ReactModal>

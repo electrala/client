@@ -114,7 +114,7 @@ export default class Gallery extends Component {
           </div >
 
           {this.state.critiques.map(critique => (
-            <Crit key={critique.id} critique={critique} />
+            <Crit key={critique.id} critique={critique} userInfo={this.props.userInfo} />
           ))
 
           }

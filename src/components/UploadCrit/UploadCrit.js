@@ -41,7 +41,7 @@ export default class UploadCrit extends React.Component {
         this.state.selectedFile.name
       );
       axios
-        .post("https://electra-la-development.herokuapp.com/aws/critique-img-upload", data, {
+        .post("https://electra-la-2019.herokuapp.com/aws/critique-img-upload", data, {
           headers: {
             accept: "application/json",
             "Accept-Language": "en-US,en;q=0.8",
@@ -98,7 +98,6 @@ export default class UploadCrit extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // insert async singlefileuploadhandler here?
     this.props.onUpload(this.state);
   };
 

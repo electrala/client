@@ -122,10 +122,11 @@ class App extends React.Component {
         // "http://localhost:5000/critiques/new",
         data
       );
-      const crits = this.state.critiques;
-      crits.push(new_crit);
+      const parsedCrit = JSON.parse(new_crit.config.data);
+      // const crits = this.state.critiques;
+      // crits.push(new_crit);
       this.setState({
-        critiques: crits
+        critiques: [...this.state.critiques, parsedCrit]
       });
       critiqueSuccessAlert();
       this.setState({ showCrit: false, showModal: false });
@@ -142,7 +143,7 @@ class App extends React.Component {
       profilePic: false
     });
   }
-  
+
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
@@ -229,7 +230,7 @@ class App extends React.Component {
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
-          <Route exact path='/' component={Gallery} />
+          <Route exact path='/' render={(props) => <Gallery userInfo={this.state.userInfo} />} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
         </Switch>
         <ReactModal
