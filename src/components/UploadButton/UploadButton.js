@@ -8,7 +8,7 @@ export default class UploadButton extends React.Component{
   
         <div id="float-button">
             <img
-              src={require("./custom-button.png")}
+              src={require("../../img/custom-button.png")}
               onClick={this.showCritModal}
               alt="plus sign for upload"
             />
