@@ -16,8 +16,8 @@ export class CommentSection extends Component {
     console.log(data);
     try {
       const new_comment = await axios.post(
-        // "https://electra-la-development.herokuapp.com/comments/new",
-        "http://localhost:5000/comments/new",
+        "https://electra-la-development.herokuapp.com/comments/new",
+        // "http://localhost:5000/comments/new",
         data
       );
       const parsedComment = JSON.parse(new_comment.config.data);
@@ -34,7 +34,8 @@ export class CommentSection extends Component {
     console.log('CommentSection mounted');
     const crit_id = this.props.critiqueInfo.id
     const { data } = await axios.get(
-      `http://localhost:5000/comments/${crit_id}`
+      `https://electra-la-development.herokuapp.com/comments/${crit_id}`
+      // `http://localhost:5000/comments/${crit_id}`
     );
     const flipdata = data.reverse();
     this.setState({
