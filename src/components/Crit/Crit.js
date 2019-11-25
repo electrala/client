@@ -67,7 +67,7 @@ export default class Crit extends Component {
                 outline: "none",
                 padding: "0",
                 boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
-              }
+              },
             }}
           >
             {/* <button id="modal-close-button" onClick={this.handleCloseModal}>
