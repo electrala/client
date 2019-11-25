@@ -3,7 +3,9 @@ import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
-import Login from './Login/Login';
+import Login from './Login/Login'; 
+import axios from 'axios';
+
 import ProfilePage from './Profile/ProfilePage';
 
 // Styles
@@ -14,7 +16,6 @@ import '../components/Modal/Modal.css';
 // Libraries
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
 import ReactGA from 'react-ga';
@@ -97,11 +98,11 @@ class App extends React.Component {
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true
+      showLogin: true, 
     });
     this.handleOpenModal();
   };
-
+  
   closeLoginModal = event => {
     this.setState({
       showLogin: false
@@ -135,6 +136,23 @@ class App extends React.Component {
       critiqueFailAlert();
     }
   };
+
+  /**
+   * Adds a user to our users table on postgres.
+   * Logs a user in.
+   * @param {object} data This is the data from the sign up form
+   * Added a try catch, when user signs in, modal closes, when error, alert
+   * Once user is signed in, change to photo on navbar.
+   */
+  signUp = async data => {
+    try {
+      const new_user = await axios.post('https://electra-la-development.herokuapp.com/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      console.log(new_user_data);
+    } catch {
+      alert("error");
+    }
+  }
 
   logout = () => {
     localStorage.removeItem("jwt");
