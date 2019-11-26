@@ -39,7 +39,7 @@ export default class Navbar extends Component {
             {/* If the user is not signed in, show "user sign up", if user is signed in ""*/}
 
             {this.props.profilePic ?
-              <li> <ProfilePic userInfo={this.props.userInfo} showPic={this.props.profilePic} /> </li> :
+              <li className="user-pic"> <ProfilePic userInfo={this.props.userInfo} showPic={this.props.profilePic} /> </li> :
 
               <li id="profile">
                 <button className="signup-login" onClick={this.handleClick}>Login | Sign Up</button>

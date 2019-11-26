@@ -17,7 +17,7 @@ export default class ProfilePc extends Component {
         return (
             <div id="picture">
                 <Link to='/profile'>
-                    <img id='profileImg' src={this.props.userInfo.userimages3location} style={{ border: "2px solid var(--electra-cool)" }} alt='pic'>
+                    <img id='profileImg' src={this.props.userInfo.userimages3location} style={{ border: "2px solid var(--electra-cool)", maxHeight: "40px", borderRadius: "50%" }} alt='pic'>
                     </img>
                 </Link>
             </div>
