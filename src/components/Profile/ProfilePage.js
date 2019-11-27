@@ -151,19 +151,21 @@ export default class ProfilePage extends Component {
                     <div className="user-contribution">
                         <div className="user-bio">
                             <p className="username">{username}</p>
-                            <br />
                             <p className="bio">This is where user bio would go eventually.</p>
+                            <p className="user-email">{email}</p>
                         </div>
 
-                        <div className='small-cards'>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
-                            <div className="item"></div>
+                        <div className='spark-container'>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
+                            <div className="spark-card"></div>
                         </div>
                     </div>
                 </div>

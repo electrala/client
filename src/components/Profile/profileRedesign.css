@@ -13,7 +13,7 @@
 }
 
 .profile-card {
-  margin-top: -15%;
+  margin-top: -115%;
   margin-right: -10%;
   border-radius: 20px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -74,4 +74,44 @@
   max-width: 100px;
   place-self: center;
   border: none;
+}
+
+.user-contribution {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-rows: 2fr 6fr;
+  padding-right: 5rem;
+}
+
+.user-bio {
+  padding: 1.5rem;
+}
+
+.username {
+  font-size: 3rem;
+}
+
+.bio {
+  font-size: 1.5rem;
+}
+
+.user-email {
+  font-size: 1.5rem;
+  color: grey;
+}
+
+.spark-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: 250px;
+  grid-gap: 2rem;
+  place-content: center;
+}
+
+.spark-card {
+  place-self: center;
+  background-color: lightgrey;
+  border-radius: 20px;
+  min-width: 250px;
+  min-height: 250px;
 }
