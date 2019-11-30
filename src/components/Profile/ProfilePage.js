@@ -14,7 +14,8 @@ export default class ProfilePage extends Component {
             redirect: false,
             selectedFile: null,
             userImageS3Location: null,
-            isLoading: false
+            isLoading: false,
+            usersCritiques: []
         }
     }
 
@@ -112,9 +113,25 @@ export default class ProfilePage extends Component {
         this.props.logout();
         this.setRedirect();
     }
+
+    async getUsersCritiques() {
+        try {
+            console.log('getUsersCritiques fired in Profile.js');
+            const { data } = await axios.get(
+                `https://electra-la-development.herokuapp.com/critiques/user/${this.props.userInfo.username}`
+            );
+            console.log(data);
+            this.setState({
+                usersCritiques: data
+            })
+        } catch (err) {
+            console.log(err);
+        };
+    }
+
     componentDidMount() {
         this.props.toggleUploadButton();
-
+        this.getUsersCritiques();
         // const token = localStorage.getItem("jwt");
         // const decoded = jwt_decode(token);
         // var current_time = new Date().getTime() / 1000;
@@ -139,7 +156,7 @@ export default class ProfilePage extends Component {
                         <div className="user-info">
                             <p className="real-name"> {firstname} {lastname}</p>
                             <p className="user-pronoun"> {pronoun}</p>
-                            <p className="user-location"><img src={locationPic} style={{ maxHeight: "20px" }} alt="" srcset="" /> {location}</p>
+                            <p className="user-location"><img src={locationPic} style={{ maxHeight: "20px" }} alt="" srcSet="" /> {location}</p>
                             <div className="user-buttons">
                                 <button className="edit-button"> Edit Profile</button>
                                 {this.renderRedirect()}
@@ -151,22 +168,31 @@ export default class ProfilePage extends Component {
                     <div className="user-contribution">
                         <div className="user-bio">
                             <p className="username">{username}</p>
-                            <p className="bio">This is where user bio would go eventually.</p>
+                            {/* <p className="bio">This is where user bio would go eventually.</p> */}
                             <p className="user-email">{email}</p>
+                            <p className="spark-count">Spark count: {this.state.usersCritiques.length}</p>
                         </div>
 
-                        <div className='spark-container'>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                            <div className="spark-card"></div>
-                        </div>
+                        {this.state.usersCritiques === [] ?
+                            <div className='spark-container'>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                                <div className="spark-card"></div>
+                            </div>
+                            :
+                            <div className="spark-container">
+                                {this.state.usersCritiques.map(critique => (
+                                    <div className="spark-card">
+                                        <img src={critique.s3locationurl} style={{ height: "250px", width: "250px", borderRadius: "20px" }} alt="critPic" />
+                                    </div>
+                                ))}
+                            </div>
+                        }
                     </div>
                 </div>
 
