@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Pic from './bank_profile.png'
 import { Link } from 'react-router-dom';
 import './Profile.css';
-import './ProfilePic.css'
+
 
 export default class ProfilePc extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ export default class ProfilePc extends Component {
         return (
             <div id="picture">
                 <Link to='/profile'>
-                    <img id='profileImg' src={this.props.userInfo.userimages3location} style={{ border: "2px solid var(--electra-cool)" }} alt='pic'>
+                    <img id='profileImg' src={this.props.userInfo.userimages3location} style={{ border: "2px solid var(--electra-cool)", maxHeight: "40px", borderRadius: "50%" }} alt='pic'>
                     </img>
                 </Link>
             </div>

@@ -57,8 +57,6 @@ export default class Gallery extends Component {
     this.grabCritsFromDB();
   }
 
-
-
   render() {
     if (!this.state.critiques[0]) return null
     return (
@@ -110,13 +108,12 @@ export default class Gallery extends Component {
                 </div>
               </ReactModal>
             </div>
+          </div>
 
-          </div >
 
           {this.state.critiques.map(critique => (
             <Crit key={critique.id} critique={critique} userInfo={this.props.userInfo} />
           ))
-
           }
 
           <div className="item h1 v1" >

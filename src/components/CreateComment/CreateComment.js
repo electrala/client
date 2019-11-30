@@ -66,7 +66,7 @@ export class CreateComment extends Component {
             value={this.state.comment}
             onChange={this.handleChange}
             style={{ paddingTop: "40px", backgroundColor: "var(--electra-black)", border: "none", resize: "none", color: "var(--electra-white)", outline: "none", fontSize: "16px" }} ></textarea>
-          <input id="comment-submit" type="submit" style={{ marginLeft: "200px", border: "none", borderRadius: "10px", fontSize: "16px", color: "var(--electra-white)", backgroundColor: "var(--electra-cool)", padding: "10px" }} />
+          <input id="comment-submit" type="submit" style={{ position: "relative", left: "8rem", border: "none", borderRadius: "10px", fontSize: "16px", color: "var(--electra-white)", backgroundColor: "var(--electra-cool)", padding: "10px" }} />
         </form>
       </div>
     )

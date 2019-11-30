@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CommentSection.css';
 import Comment from "../Comment/Comment";
 import CreateComment from "../CreateComment/CreateComment";
 import axios from 'axios';
@@ -51,19 +52,23 @@ export class CommentSection extends Component {
 
   render() {
     return (
-      <div className="CommentSection" style={{ display: "grid", gridTemplateRows: "1fr 1fr 1fr 1fr 1fr" }}>
-        <div className="question-asked" style={{ padding: "10px", fontSize: "2rem" }}>
+      <div className="CommentSection" >
+        <div className="question-asked">
           {this.props.critiqueInfo.questions}
         </div>
-        {/* map over Comment component for each comment in this.state.comments array */}
-        {this.state.comments.length > 0 ? this.state.comments.map(comment => (
-          <Comment key={comment.id} comment={comment} />
-        ))
-          :
-          <div className="dummy-data">Write the first comment!</div>
-        }
+        <div className="comments-container">
+          {/* map over Comment component for each comment in this.state.comments array */}
+          {this.state.comments.length > 0 ? this.state.comments.map(comment => (
+            <Comment key={comment.id} comment={comment} />
+          ))
+            :
+            <div className="dummy-data">Write the first comment!</div>
+          }
+        </div>
         {/* Pass in critique info and userinfo to be funneled to the back end for comment table */}
-        <CreateComment submitComment={this.submitCommentToDB} userInfo={this.props.userInfo} critiqueInfo={this.props.critiqueInfo} />
+        <div className="createComment-container">
+          <CreateComment submitComment={this.submitCommentToDB} userInfo={this.props.userInfo} critiqueInfo={this.props.critiqueInfo} />
+        </div>
       </div>
     )
   }
