@@ -147,6 +147,7 @@
   font-size: 2rem;
   padding: 4rem 4rem 0px 4rem;
   place-self: center;
+  text-align: center;
 }
 
 #user-img-upload-container {

@@ -108,6 +108,7 @@ export default class ProfilePage extends Component {
             };
             await axios.patch(`https://electra-la-development.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
             // const updated_user_data = JSON.parse(updated_user.config.data);
+            this.props.refreshUser();
             alert(`You've saved your new pic!`)
         } catch (error) {
             console.error(error);
