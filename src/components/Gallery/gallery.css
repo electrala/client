@@ -196,9 +196,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-
-
-  backgroundColor: rgba(65, 159, 161, 0.85);
+  background-color: rgba(65, 159, 161, 0.85);
 }
 
 .welcome-modal {

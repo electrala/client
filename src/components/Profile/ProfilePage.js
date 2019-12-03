@@ -15,7 +15,8 @@ export default class ProfilePage extends Component {
             selectedFile: null,
             userImageS3Location: null,
             isLoading: false,
-            usersCritiques: []
+            usersCritiques: [],
+            loggedInUser: {}
         }
     }
 
@@ -114,11 +115,21 @@ export default class ProfilePage extends Component {
         this.setRedirect();
     }
 
+    getUserInfo = () => {
+        console.log(this.props.userInfo);
+        this.setState({
+            loggedInUser: this.props.userInfo
+        },
+            () => {
+                this.getUsersCritiques();
+            });
+    };
+
     async getUsersCritiques() {
         try {
             console.log('getUsersCritiques fired in Profile.js');
             const { data } = await axios.get(
-                `https://electra-la-development.herokuapp.com/critiques/user/${this.props.userInfo.username}`
+                `https://electra-la-development.herokuapp.com/critiques/user/${this.state.loggedInUser.username}`
             );
             console.log(data);
             this.setState({
@@ -131,11 +142,12 @@ export default class ProfilePage extends Component {
 
     componentDidMount() {
         this.props.toggleUploadButton();
-        this.getUsersCritiques();
+        this.getUserInfo();
+        // this.getUsersCritiques();
         // const token = localStorage.getItem("jwt");
         // const decoded = jwt_decode(token);
         // var current_time = new Date().getTime() / 1000;
-        // if (current_time > decoded.exp) { 
+        // if (current_time > decoded.exp) {
         // console.log(`token expired`);
         // }
     }
@@ -147,23 +159,22 @@ export default class ProfilePage extends Component {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
             <div className="page-container">
-
                 <img className="profile-header" src={bannerPic} alt="banner"></img>
-
                 <div className="profile-container">
-                    <div className="profile-card">
-                        <img className="profile-pic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
-                        <div className="user-info">
-                            <p className="real-name"> {firstname} {lastname}</p>
-                            <p className="user-pronoun"> {pronoun}</p>
-                            <p className="user-location"><img src={locationPic} style={{ maxHeight: "20px" }} alt="" srcSet="" /> {location}</p>
-                            <div className="user-buttons">
-                                <button className="edit-button"> Edit Profile</button>
-                                {this.renderRedirect()}
-                                <button className="logout-button" onClick={this.redirectLogout}>logout</button>
+                    <div className="card-side">
+                        <div className="profile-card">
+                            <img className="profile-pic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+                            <div className="user-info">
+                                <p className="real-name"> {firstname} {lastname}</p>
+                                <p className="user-pronoun"> {pronoun}</p>
+                                <p className="user-location"><img src={locationPic} style={{ maxHeight: "20px" }} alt="" srcSet="" /> {location}</p>
+                                <div className="user-buttons">
+                                    <button className="edit-button"> Edit Profile</button>
+                                    {this.renderRedirect()}
+                                    <button className="logout-button" onClick={this.redirectLogout}>logout</button>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                     <div className="user-contribution">
                         <div className="user-bio">
