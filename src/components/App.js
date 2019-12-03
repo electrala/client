@@ -3,7 +3,7 @@ import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
-import Login from './Login/Login'; 
+import Login from './Login/Login';
 import axios from 'axios';
 
 import ProfilePage from './Profile/ProfilePage';
@@ -98,11 +98,11 @@ class App extends React.Component {
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true, 
+      showLogin: true,
     });
     this.handleOpenModal();
   };
-  
+
   closeLoginModal = event => {
     this.setState({
       showLogin: false
@@ -249,7 +249,7 @@ class App extends React.Component {
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
           <Route exact path='/' render={(props) => <Gallery userInfo={this.state.userInfo} />} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} refreshUser={this.getUserById} />} />
         </Switch>
         <ReactModal
           className="um-component"

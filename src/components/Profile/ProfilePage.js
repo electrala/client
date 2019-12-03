@@ -6,6 +6,8 @@ import upload from "./upload.png";
 import './profileRedesign.css';
 import electraLoadIcon from '../../img/electraLoadIcon.gif';
 import locationPic from './location.png';
+import ReactModal from 'react-modal';
+
 export default class ProfilePage extends Component {
     constructor(props) {
         super(props);
@@ -16,8 +18,20 @@ export default class ProfilePage extends Component {
             userImageS3Location: null,
             isLoading: false,
             usersCritiques: [],
-            loggedInUser: {}
-        }
+            loggedInUser: {},
+            showModal: false
+        };
+
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
+    handleOpenModal() {
+        this.setState({ showModal: true });
+    }
+
+    handleCloseModal() {
+        this.setState({ showModal: false });
     }
 
     singleFileChangedHandler = event => {
@@ -92,8 +106,9 @@ export default class ProfilePage extends Component {
             const data = {
                 userImageS3Location: this.state.userImageS3Location
             };
-            await axios.patch(`https://electra-la-2019.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
+            await axios.patch(`https://electra-la-development.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
             // const updated_user_data = JSON.parse(updated_user.config.data);
+            this.props.refreshUser();
             alert(`You've saved your new pic!`)
         } catch (error) {
             console.error(error);
@@ -159,17 +174,70 @@ export default class ProfilePage extends Component {
         const { firstname, lastname, username, pronoun, location, email, userimages3location } = this.props.userInfo;
         return (
             <div className="page-container">
+                <ReactModal
+                    isOpen={this.state.showModal}
+                    contentLabel="Upload New User Image"
+                    onRequestClose={this.handleCloseModal}
+                    style={{
+                        overlay: {
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: 'rgba(65, 159, 161, 0.85)'
+                        },
+                        content: {
+                            position: 'absolute',
+                            top: '20%',
+                            left: '20%',
+                            right: '20%',
+                            bottom: '15%',
+                            border: 'none',
+                            background: 'var(--electra-grey)',
+                            overflow: 'auto',
+                            WebkitOverflowScrolling: 'touch',
+                            borderRadius: '20px',
+                            outline: 'none',
+                            boxShadow: '0px 4px 7px 0px rgba(0, 0, 0, 0.34)',
+                            padding: '0',
+
+                        }
+                    }}
+                >
+                    <div id="edit-user-container">
+                        <div id="edit-user-blurb">
+                            <p>Change yo shiz!!! Use the form below to update your user profile image.</p>
+                        </div>
+                        <div id="user-img-upload-container">
+                            <div id="upload-form">
+                                <input type="file" accept="image/*" name="user-profile-image" id="user-profile-image" onChange={this.singleFileChangedHandler} />
+                                <button onClick={this.singleFileUploadHandler}>Upload File</button>
+                                {
+                                    this.state.isLoading ? <div style={{ boxShadow: "0px 4px 6px 3px rgba(0, 0, 0, 0.5)", border: "4px solid var(--electra-cool)", zIndex: "100", marginTop: "-250px", marginLeft: "-20px", background: "rgba(20, 20, 20, 0.7)", borderRadius: "50%", width: "300px", height: "300px", display: "grid" }}><img src={electraLoadIcon} style={{ maxHeight: "200px", placeSelf: "center" }} alt="Electra Load Icon" /></div> /*<LoadingDots />*/ : <div></div>
+                                }
+                                {this.state.userImageS3Location !== null && <button onClick={this.updateUserToIncludeProfilePic}>Save Profile Pic</button>}
+                            </div>
+                            <div id="selected-image-preview" style={{ height: "350px", width: "350px", borderRadius: "50%", border: "4px solid var(--electra-cool)" }}>
+                                <img id="user-upload-img" src={this.state.userImageS3Location ? this.state.userImageS3Location : require("../UploadCrit/placeHolder.jpg")} alt="placeholder" style={{ height: "100%", width: "100%", objectFit: "cover", borderRadius: "50%" }} />
+                            </div>
+                        </div>
+                    </div>
+                </ReactModal>
                 <img className="profile-header" src={bannerPic} alt="banner"></img>
                 <div className="profile-container">
                     <div className="card-side">
                         <div className="profile-card">
-                            <img className="profile-pic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+                            <div className="profile-pic-container">
+                                <img className="profile-pic" src={this.state.userImageS3Location ? this.state.userImageS3Location : userimages3location} alt="profilepic"></img>
+                            </div>
                             <div className="user-info">
                                 <p className="real-name"> {firstname} {lastname}</p>
                                 <p className="user-pronoun"> {pronoun}</p>
                                 <p className="user-location"><img src={locationPic} style={{ maxHeight: "20px" }} alt="" srcSet="" /> {location}</p>
                                 <div className="user-buttons">
-                                    <button className="edit-button"> Edit Profile</button>
+                                    <button className="edit-button"
+                                        onClick={this.handleOpenModal}> Edit Profile</button>
                                     {this.renderRedirect()}
                                     <button className="logout-button" onClick={this.redirectLogout}>logout</button>
                                 </div>
