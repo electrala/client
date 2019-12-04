@@ -10,6 +10,7 @@
 
 .comments-container {
   max-height: 30rem;
+  max-width: 60rem;
   overflow: auto;
   border: 2px solid var(--electra-cool);
   border-radius: 12px;

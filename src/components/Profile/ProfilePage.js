@@ -19,7 +19,9 @@ export default class ProfilePage extends Component {
             isLoading: false,
             usersCritiques: [],
             loggedInUser: {},
-            showModal: false
+            showModal: false,
+            editModal: false,
+            critiqueModal: false
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -109,7 +111,8 @@ export default class ProfilePage extends Component {
             await axios.patch(`https://electra-la-development.herokuapp.com/users/users/${this.props.userInfo.id}`, data);
             // const updated_user_data = JSON.parse(updated_user.config.data);
             this.props.refreshUser();
-            alert(`You've saved your new pic!`)
+            alert(`You've saved your new pic!`);
+            this.handleCloseModal();
         } catch (error) {
             console.error(error);
         }
@@ -176,7 +179,7 @@ export default class ProfilePage extends Component {
             <div className="page-container">
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Upload New User Image"
+                    contentLabel="Profile Page Universal Modal"
                     onRequestClose={this.handleCloseModal}
                     style={{
                         overlay: {
@@ -210,7 +213,7 @@ export default class ProfilePage extends Component {
                             <p>Change yo shiz!!! Use the form below to update your user profile image.</p>
                         </div>
                         <div id="user-img-upload-container">
-                            <div id="upload-form">
+                            <div id="user-img-upload-form">
                                 <input type="file" accept="image/*" name="user-profile-image" id="user-profile-image" onChange={this.singleFileChangedHandler} />
                                 <button onClick={this.singleFileUploadHandler}>Upload File</button>
                                 {

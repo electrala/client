@@ -56,7 +56,7 @@ export class CreateComment extends Component {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 10fr", padding: "10px", backgroundColor: "var(--electra-black)", border: "2px solid var(--electra-cool)", borderRadius: "20px" }}>
         <div className="userinfo" style={{ padding: "15px" }}>
           <img src={this.props.userInfo.userimages3location} style={{ padding: "5px", maxWidth: "60px", borderRadius: "50%", border: "1px solid var(--electra-cool)" }} alt="user" />
-          <p className="username" style={{ marginBottom: "0px" }}>{this.props.userInfo.username}</p>
+          {/* <p className="username" style={{ marginBottom: "0px", fontSize: "1rem" }}>{this.props.userInfo.username}</p> */}
         </div>
         <form id="comment-upload" onSubmit={this.handleSubmit}>
           <textarea
@@ -66,7 +66,7 @@ export class CreateComment extends Component {
             value={this.state.comment}
             onChange={this.handleChange}
             style={{ paddingTop: "40px", backgroundColor: "var(--electra-black)", border: "none", resize: "none", color: "var(--electra-white)", outline: "none", fontSize: "16px" }} ></textarea>
-          <input id="comment-submit" type="submit" style={{ position: "relative", left: "8rem", border: "none", borderRadius: "10px", fontSize: "16px", color: "var(--electra-white)", backgroundColor: "var(--electra-cool)", padding: "10px" }} />
+          <input id="comment-submit" type="submit" style={{ marginLeft: "6rem", border: "none", borderRadius: "10px", fontSize: "16px", color: "var(--electra-white)", backgroundColor: "var(--electra-cool)", padding: "10px" }} />
         </form>
       </div>
     )
