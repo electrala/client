@@ -1,23 +1,36 @@
-import React from 'react';
-import './App.css';
-import '../css/style.css';
-import '../components/Modal/Modal.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// Components
 import Gallery from './Gallery/Gallery';
 import Navbar from './common/Navbar/Navbar';
 import UploadCrit from './UploadCrit/UploadCrit';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import axios from 'axios';
+
 import ProfilePage from './Profile/ProfilePage';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
+// Styles
+import './App.css';
+import '../css/style.css';
+import '../components/Modal/Modal.css';
+
+// Libraries
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import ReactModal from "react-modal";
 import ReactGA from 'react-ga';
+
+// Functions
+import getLoggedInAlert from './lib/getLoggedInAlert';
+import loginSuccessAlert from './lib/loginSuccessAlert';
+import loginFailAlert from './lib/loginFailAlert';
+import critiqueFailAlert from './lib/critiqueFailAlert';
+import critiqueSuccessAlert from './lib/critiqueSuccessAlert';
+import signUp from './lib/signUp';
+
+// Analytics
 ReactGA.initialize('UA-151580479-1');
 ReactGA.pageview('/homepage');
-const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
   constructor(props) {
@@ -43,76 +56,6 @@ class App extends React.Component {
     this.setState({ showModal: false });
   }
 
-  getLoggedInAlert = event => {
-    MySwal.fire({
-      title: 'Please Login!',
-      icon: 'info',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Get logged in to share you Spark with the community!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  }
-
-  loginSuccessAlert = event => {
-    MySwal.fire({
-      title: 'Successful Login!',
-      icon: 'success',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'You are all set to do amazing things',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  loginFailAlert = event => {
-    MySwal.fire({
-      title: 'Login Failed',
-      icon: 'error',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  critiqueFailAlert = event => {
-    MySwal.fire({
-      title: 'Critique Failed to upload!',
-      icon: 'error',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
-  critiqueSuccessAlert = event => {
-    MySwal.fire({
-      title: 'Critique has successfully uploaded!',
-      icon: 'success',
-      type: null,
-      confirmButtonText: 'Close',
-      text: 'Try again!',
-      closeOnConfirm: false,
-      closeOnCancel: false,
-      allowOutsideClick: false,
-      confirmButtonColor: "var(--electra-cool)"
-    })
-  };
-
   toggleUploadButton = () => {
     const { hideButton } = this.state
     this.setState({ hideButton: !hideButton })
@@ -122,7 +65,6 @@ class App extends React.Component {
    * This function shows the profile pic displayed on nav
    * @param {object} event This is the event triggered after successfully logging in or signing up
    */
-
   showProfilePic = event => {
     event.preventDefault();
     this.setState({
@@ -156,7 +98,7 @@ class App extends React.Component {
    */
   showLoginModal = event => {
     this.setState({
-      showLogin: true
+      showLogin: true,
     });
     this.handleOpenModal();
   };
@@ -167,30 +109,31 @@ class App extends React.Component {
     });
     this.handleCloseModal();
   };
+
   /**
    * Uploads a critique to our critiques table on postgres.
    * Pushes the new critiques to the critiques array. (This array isn't currently
    * being used, but it might be useful for rendering critiques.)
    * @param {object} data This is the data from the critique upload form
    */
-
   uploadCrit = async data => {
     try {
       const new_crit = await axios.post(
-        "https://electra-la-2019.herokuapp.com/critiques/new",
+        "https://electra-la-development.herokuapp.com/critiques/new",
         // "http://localhost:5000/critiques/new",
         data
       );
-      const crits = this.state.critiques;
-      crits.push(new_crit);
+      const parsedCrit = JSON.parse(new_crit.config.data);
+      // const crits = this.state.critiques;
+      // crits.push(new_crit);
       this.setState({
-        critiques: crits
+        critiques: [...this.state.critiques, parsedCrit]
       });
-      this.critiqueSuccessAlert();
+      critiqueSuccessAlert();
       this.setState({ showCrit: false, showModal: false });
 
     } catch (error) {
-      this.critiqueFailAlert();
+      critiqueFailAlert();
     }
   };
 
@@ -201,10 +144,9 @@ class App extends React.Component {
    * Added a try catch, when user signs in, modal closes, when error, alert
    * Once user is signed in, change to photo on navbar.
    */
-
   signUp = async data => {
     try {
-      const new_user = await axios.post('https://electra-la-2019.herokuapp.com/users/register', data);
+      const new_user = await axios.post('https://electra-la-development.herokuapp.com/users/register', data);
       const new_user_data = JSON.parse(new_user.config.data);
       console.log(new_user_data);
     } catch {
@@ -220,17 +162,15 @@ class App extends React.Component {
     });
   }
 
-
   /**
    * Checks to see if a user is in our users table and the passwords match.
    * If both are true, then the JWT is stored in local storage.
    * @param {object} data This is the data from the log in form
    */
-
   logIn = async data => {
     try {
       const result = await axios.post(
-        "https://electra-la-2019.herokuapp.com/users/login",
+        "https://electra-la-development.herokuapp.com/users/login",
         // "http://localhost:5000/users/login",
         data
       );
@@ -244,11 +184,11 @@ class App extends React.Component {
       });
       this.getUserById();
       this.closeLoginModal();
-      this.loginSuccessAlert();
+      loginSuccessAlert();
 
     } catch (err) {
       console.error(err);
-      this.loginFailAlert();
+      loginFailAlert();
     }
   };
 
@@ -261,7 +201,7 @@ class App extends React.Component {
         console.log(`token expired`);
       }
       const { data } = await axios.get(
-        `https://electra-la-2019.herokuapp.com/users/user/${decoded.id}`
+        `https://electra-la-development.herokuapp.com/users/user/${decoded.id}`
         // `http://localhost:5000/users/user/${decoded.id}`
       );
       delete data.password;
@@ -308,45 +248,21 @@ class App extends React.Component {
       <Router>
         <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
-          <Route exact path='/' component={Gallery} />
-          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} />} />
+          <Route exact path='/' render={(props) => <Gallery userInfo={this.state.userInfo} />} />
+          <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} refreshUser={this.getUserById} />} />
         </Switch>
         <ReactModal
+          className="um-component"
+          overlayClassName="um-overlay"
           isOpen={this.state.showModal}
           contentLabel="Universal Modal"
           onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
-          style={{
-            overlay: {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(65, 159, 161, 0.85)"
-            },
-            content: {
-              position: "absolute",
-              top: "20%",
-              left: "20%",
-              right: "20%",
-              bottom: "15%",
-              border: "none",
-              height: "31rem",
-              background: "var(--electra-white)",
-              overflow: "auto",
-              WebkitOverflowScrolling: "touch",
-              borderRadius: "20px",
-              outline: "none",
-              padding: 0,
-              boxShadow: "0px 4px 7px 0px rgba(0, 0, 0, 0.34)"
-            }
-          }}
         >
           <div className="universal-modal">
             {this.state.showLogin ? <div className="rows">
               <Login loginUser={this.logIn} />
               <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
+              <Signup createUser={signUp} />
             </div> :
               this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
@@ -356,17 +272,16 @@ class App extends React.Component {
             </div>
           </div>
         </ReactModal>
-
         {!this.state.hideButton &&
           <div id="float-button">
             <img
-              src={require("./custom-button.png")}
-              onClick={!this.state.profilePic ? this.getLoggedInAlert : this.showCritModal}
+              src={require("../img/custom-button.png")}
+              onClick={!this.state.profilePic ? getLoggedInAlert : this.showCritModal}
               alt="plus sign for upload"
             />
-          </div>}
+          </div>
+        }
       </Router>
-
     );
   }
 }

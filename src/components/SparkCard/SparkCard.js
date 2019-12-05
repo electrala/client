@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import ReactModal from "react-modal";
-import "./Crit.css";
 import CommentSection from "../CommentSection/CommentSection";
+import './SparkCard.css';
 
-export default class Crit extends Component {
+export class SparkCard extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,8 +13,6 @@ export default class Crit extends Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-
-  randomNumber = limit => Math.floor(Math.random() * limit) + 2;
 
   handleOpenModal() {
     this.setState({ showModal: true });
@@ -33,12 +31,9 @@ export default class Crit extends Component {
       s3locationurl
     } = this.props.critique;
     return (
-      <div className={`item h${this.randomNumber(4)} v${this.randomNumber(4)}`}>
+      <div className="spark-card-wrapper item">
         <img src={s3locationurl} alt="filler" />
         <div className="item__overlay critique_overlay">
-          {/* <button>
-            Take a closer <span role="img">👀</span>
-          </button> */}
           <button onClick={this.handleOpenModal}>Check me out!</button>
           <ReactModal
             isOpen={this.state.showModal}
@@ -87,6 +82,8 @@ export default class Crit extends Component {
           </ReactModal>
         </div>
       </div>
-    );
+    )
   }
 }
+
+export default SparkCard

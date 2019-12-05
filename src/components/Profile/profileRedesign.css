@@ -1,0 +1,161 @@
+/* .page-container {
+  width: 100%;
+} */
+
+.profile-header {
+  background-size: cover;
+  width: 100%;
+  min-height: 300px;
+}
+
+.profile-container {
+  display: grid;
+  grid-template-columns: 2fr 4.5fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+.card-side {
+  width: 100%;
+}
+
+.profile-card {
+  /* position: absolute;
+  top: 20%;
+  left: 10%; */
+  padding: 2rem;
+  margin-top: -15%;
+  margin-left: 25%;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #fff;
+  place-self: center;
+  max-height: 600px;
+  max-width: 350px;
+  min-width: 350px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.profile-pic-container {
+  place-self: center;
+  width: 200px;
+  height: 200px;
+  border: 4px solid var(--electra-cool);
+  border-radius: 50%;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.real-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.user-pronoun {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.user-buttons {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  grid-gap: 10px;
+  padding: 1rem;
+}
+
+.edit-button {
+  background-color: var(--electra-cool);
+  border: none;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  color: white;
+  /* padding: 5px; */
+  width: 250px;
+}
+
+.logout-button {
+  background-color: rgb(230, 156, 156);
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 10px;
+  max-width: 100px;
+  place-self: center;
+  border: none;
+}
+
+.user-contribution {
+  min-width: 800px;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+
+.user-bio {
+  padding: 4rem 2rem 0px 4rem;
+}
+
+.username {
+  font-size: 3rem;
+}
+
+.bio {
+  font-size: 1.5rem;
+}
+
+.user-email {
+  font-size: 1.5rem;
+  color: grey;
+}
+
+.spark-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: 250px;
+  grid-gap: 2rem;
+  /* place-content: center; */
+  padding: 2rem 4rem 0px 4rem;
+}
+
+.spark-card {
+  place-self: center;
+  background-color: lightgrey;
+  border-radius: 20px;
+  min-width: 250px;
+  min-height: 250px;
+}
+
+#edit-user-container {
+  height: 100%;
+  width: 100%;
+  background-color: var(--electra-white);
+  display: grid;
+}
+
+#edit-user-blurb {
+  font-size: 2rem;
+  padding: 4rem 4rem 0px 4rem;
+  place-self: center;
+  text-align: center;
+}
+
+#user-img-upload-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: center;
+}
+
+#user-img-upload-form {
+  padding: 4rem;
+}
