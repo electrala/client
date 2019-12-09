@@ -246,7 +246,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar onSignup={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
+        <Navbar showLoginModal={this.showLoginModal} profilePic={this.state.profilePic} userInfo={this.state.userInfo} />
         <Switch>
           <Route exact path='/' render={(props) => <Gallery userInfo={this.state.userInfo} />} />
           <Route exact path='/profile' render={(props) => <ProfilePage userInfo={this.state.userInfo} logout={this.logout} toggleUploadButton={this.toggleUploadButton} refreshUser={this.getUserById} />} />
@@ -262,7 +262,7 @@ class App extends React.Component {
             {this.state.showLogin ? <div className="rows">
               <Login loginUser={this.logIn} />
               <div className="line-container"></div>
-              <Signup createUser={signUp} />
+              <Signup createUser={this.signUp} />
             </div> :
               this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
