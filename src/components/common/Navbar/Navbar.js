@@ -20,7 +20,7 @@ export default class Navbar extends Component {
    */
   handleClick = event => {
     event.preventDefault();
-    this.props.onSignup();
+    this.props.showLoginModal();
   }
 
   render() {
@@ -43,7 +43,8 @@ export default class Navbar extends Component {
 
               <li id="profile">
                 <button className="signup-login" onClick={this.handleClick}>Login | Sign Up</button>
-              </li>}
+              </li>
+            }
 
           </ul>
 
