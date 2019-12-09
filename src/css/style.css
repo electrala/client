@@ -2,9 +2,9 @@
 @import "./reset.css";
 @import "./navigation.css";
 @import "./gallery.css";
-@import "./signup.css";
 @import "./userProfile.css";
 @import "../components/Login/Login.css";
+@import "../components/Signup/signup.css";
 @import "../components/App.css";
 
 :root {

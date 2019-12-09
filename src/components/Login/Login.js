@@ -13,7 +13,7 @@ export default class Login extends Component {
     };
   }
 
- 
+
   /**
    * This updates the state when users are filling out the form.
    * @param {object} event This is the event triggered by inputting information
@@ -50,9 +50,10 @@ export default class Login extends Component {
               type="text"
               name="userName"
               id="userName"
-              placeholder="User Name"
+              placeholder="Username"
               value={this.state.userName}
               onChange={this.handleChange}
+              required
             />
             <input
               type="password"
@@ -61,8 +62,9 @@ export default class Login extends Component {
               placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange}
+              required
             />
-            <button id="loginButton" type="submit">Login</button>
+            <button id="loginButton" type="submit">Let's Go!</button>
           </div>
         </form>
       </div>

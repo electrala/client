@@ -1,65 +1,46 @@
 .login-form {
-  width: 50%;
-  margin-bottom: 10px;
-}
-
-.login-form .input-container {
-  font-size: 2rem;
   width: 100%;
-  display: flex;
-  margin-left: 0rem;
-  justify-content: center;
-  align-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  /* flex-flow: wrap; */
+  margin-bottom: 10px;
 }
 
 .login-form .header {
   width: 100%;
   background-color: var(--electra-black);
   font-size: 2rem;
-  position: absolute;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   top: 0;
   padding: 1rem;
+  text-align: center;
 }
 
 #login-title {
-  color: var(--electra-white);
-  margin-left: 8.5rem;
+  color: #fff;
 }
 
-.login-form #loginButton {
-
-  background-color: #fff;
-  width: 100px;
-  border-radius: 5px;
-  border: 0;
-  outline: none;
-  padding: 0.5rem;
-  transition: all 0.2s;
-  margin-top: 0rem;
-  position: absolute;
-  top: 23.5rem;
-  font-family: "Lexend Deca", sans-serif;
+.login-form .input-container {
+  margin: 0 auto;
+  font-size: 2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
 }
 
-#loginButton:hover {
-  background-color: var(--electra-cool);
-  transform: scale(1.1);
+.login-form input {
+  width: 70%;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #userName {
-  width: 70%;
-  padding: 5px;
-  margin-left: 1rem;
-  margin-top: 10rem;
-  color: black;
+  margin-top: 6rem;
   transition: all 0.2s;
-  border: 0px;
-  border-radius: 5px;
 }
 
 #userName::placeholder {
@@ -77,13 +58,8 @@
 }
 
 #password {
-  width: 70%;
-  padding: 5px;
-  border: 0px;
   transition: all 0.2s;
-  border-radius: 5px;
   margin-top: 1rem;
-  margin-left: 1rem;
 }
 
 #password:hover {
@@ -97,4 +73,23 @@
 
 #password:hover::placeholder {
   color: #fff;
+}
+
+.login-form #loginButton {
+  background-color: #fff;
+  height: 20%;
+  width: 50%;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--electra-cool);
+  outline: none;
+  padding: 1rem;
+  transition: all 0.2s;
+  margin-top: 3rem;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+#loginButton:hover {
+  background-color: var(--electra-cool);
+  transform: scale(1.1);
 }

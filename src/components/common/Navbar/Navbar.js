@@ -20,7 +20,7 @@ export default class Navbar extends Component {
    */
   handleClick = event => {
     event.preventDefault();
-    this.props.showLoginModal();
+    this.props.showLoginModal(event);
   }
 
   render() {
@@ -32,7 +32,11 @@ export default class Navbar extends Component {
           <ul>
 
 
-            <li id="logo"><Link to="/"><img id="logo-img" src={logo} alt="Electra Logo" /></Link> </li>
+            <li id="logo">
+              <Link to="/">
+                <img id="logo-img" src={logo} alt="Electra Logo" />
+              </Link>
+            </li>
 
             {/* <li id="critiques"><Link to="/" >Critiques</Link></li>
             <li id="gallery"> <Link to="/">Gallery</Link> </li> */}
@@ -40,10 +44,15 @@ export default class Navbar extends Component {
 
             {this.props.profilePic ?
               <li className="user-pic"> <ProfilePic userInfo={this.props.userInfo} showPic={this.props.profilePic} /> </li> :
-
-              <li id="profile">
-                <button className="signup-login" onClick={this.handleClick}>Login | Sign Up</button>
-              </li>
+              <div id="login-signup-container">
+                <li>
+                  <button id="login" className="signup" onClick={this.handleClick}>LogIn</button>
+                </li>
+                |
+                <li>
+                  <button id="signup" className="login" onClick={this.handleClick}>SignUp</button>
+                </li>
+              </div>
             }
 
           </ul>

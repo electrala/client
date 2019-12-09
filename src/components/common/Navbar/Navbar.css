@@ -7,30 +7,6 @@
   padding-left: 2.5rem;
 }
 
-#critiques {
-  place-self: center end;
-  padding-right: 2rem;
-}
-
-#gallery {
-  place-self: center start;
-  padding-left: 10rem;
-}
-
-#profile {
-  place-self: center end;
-  padding-right: 2.5rem;
-}
-
-#login {
-  place-self: center end;
-  padding-right: 0rem;
-}
-
-header {
-  max-width: 80%;
-}
-
 header nav ul {
   background-color: var(--electra-black);
   width: 100%;
@@ -45,48 +21,23 @@ header nav ul {
   color: white;
 }
 
-header nav link {
-  display: inline-block;
+#login-signup-container {
+  place-self: center end;
+  padding-right: 2.5rem;
 }
 
-header nav link a {
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #fff;
-}
-
-header nav link a:hover {
-  color: var(--electra-orange);
-}
-
-.signup-login {
+.signup,
+.login {
   background-color: var(--electra-black);
   color: #fff;
   border: 0;
   outline: none;
   font-family: "Lexend Deca", sans-serif;
   font-size: 1.2rem;
-
   transition: all 250ms;
 }
 
-.signup-login:hover {
-  color: var(--electra-orange);
-}
-
-.login {
-  background-color: var(--electra-black);
-  color: #fff;
-  outline: none;
-  border: 10px;
-  border-color: #fff;
-
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 1.2rem;
-
-  transition: all 250ms;
-}
-
+.signup:hover,
 .login:hover {
   color: var(--electra-orange);
 }
