@@ -89,6 +89,7 @@
   bottom: 0;
   background-color: rgba(65, 159, 161, 0.85);
 }
+
 .um-component {
   position: absolute;
   top: 20%;
@@ -104,4 +105,8 @@
   outline: none;
   padding: 0;
   box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.34);
+}
+
+.modal-footer button {
+  float: right;
 }

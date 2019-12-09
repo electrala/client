@@ -38,6 +38,7 @@ class App extends React.Component {
     this.state = {
       showCrit: false,
       showLogin: false,
+      showSignup: false,
       critiques: [],
       profilePic: false,
       userInfo: {},
@@ -97,15 +98,25 @@ class App extends React.Component {
    * @param {object} event This is the event triggered by clicking the signup/login button
    */
   showLoginModal = event => {
-    this.setState({
-      showLogin: true,
-    });
+    console.log(event.target.id);
+    event.target.id === "login" ?
+      this.setState({
+        showLogin: true,
+        showSignup: false,
+      })
+      :
+      this.setState({
+        showSignup: true,
+        showLogin: false,
+      })
+      ;
     this.handleOpenModal();
   };
 
   closeLoginModal = event => {
     this.setState({
-      showLogin: false
+      showLogin: false,
+      showSignup: false,
     });
     this.handleCloseModal();
   };
@@ -259,14 +270,15 @@ class App extends React.Component {
           onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
         >
           <div className="universal-modal">
-            {this.state.showLogin ? <div className="rows">
+            {this.state.showLogin ?
               <Login loginUser={this.logIn} />
-              <div className="line-container"></div>
-              <Signup createUser={this.signUp} />
-            </div> :
-              this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
+              :
+              this.state.showSignup ?
+                <Signup createUser={this.signUp} />
+                :
+                this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
-              <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}>
+              <button onClick={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : this.state.showSignup ? this.closeLoginModal : ''}>
                 Close
             </button>
             </div>

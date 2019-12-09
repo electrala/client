@@ -90,8 +90,7 @@ export default class Signup extends Component {
     };
     return (
       <div className="signUp-form">
-
-        <form id="signUp-form" style={h1} onSubmit={this.handleSubmit}>
+        <form id="signUp-form" onSubmit={this.handleSubmit}>
           <div className="header">
             <label id="signUp-title">Sign Up</label>
           </div>
@@ -100,31 +99,31 @@ export default class Signup extends Component {
               type="text"
               name="firstName"
               id="firstName"
-              placeholder="First Name"
+              placeholder="First Name *"
               value={this.state.firstName}
               onChange={this.handleChange}
+              required
             />
             <input
               type="text"
               name="lastName"
-              placeholder="Last Name"
-              id="lastName"
+              placeholder="Last Name *"
               value={this.state.lastName}
               onChange={this.handleChange}
+              required
             />
             <input
               type="text"
               name="userName"
-              placeholder="User Name"
-              id="userName"
+              placeholder="User Name *"
               value={this.state.userName}
               onChange={this.handleChange}
+              required
             />
             <input
               type="text"
               name="pronoun"
               placeholder="Pronouns"
-              id="pronoun"
               value={this.state.pronoun}
               onChange={this.handleChange}
             />
@@ -132,36 +131,35 @@ export default class Signup extends Component {
               type="text"
               name="location"
               placeholder="Location"
-              id="location"
               value={this.state.location}
               onChange={this.handleChange}
             />
             <input
               type="text"
               name="email"
-              placeholder="Email"
-              id="email"
+              placeholder="Email *"
               value={this.state.email}
               onChange={this.handleChange}
+              required
             />
             <input
               type="password"
               name="password"
-              placeholder="Password"
-              id="password"
+              placeholder="Password *"
               value={this.state.password}
               onChange={this.handleChange}
+              required
             />
             <input
               type="password"
               name="confirmPassword"
-              placeholder="Confirm Password"
-              id="confirmPassword"
+              placeholder="Confirm Password *"
               value={this.state.confirmPassword}
               onChange={this.handleChange}
+              required
             />
             <button id="signUpButton" type="submit">
-              Sign Up
+              Let's Go!
         </button>
           </div>
         </form>
