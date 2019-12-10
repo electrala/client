@@ -56,36 +56,27 @@
 }
 
 
-.signUp-form input[type=text] {
-  transition: all 0.2s;
-}
-
-.signUp-form input[type=text]:hover {
-  background-color: var(--electra-orange);
-  transform: scale(1.1);
-}
-
-.signUp-form input[type=text]::placeholder {
-  color: var(--electra-black);
-}
-
-.signUp-form input[type=text]:hover::placeholder {
-  color: #fff;
-}
-
+.signUp-form input[type=text],
+.signUp-form input[type=email],
 .signUp-form input[type=password] {
   transition: all 0.2s;
 }
 
+.signUp-form input[type=text]:hover,
+.signUp-form input[type=email]:hover,
 .signUp-form input[type=password]:hover {
   background-color: var(--electra-orange);
   transform: scale(1.1);
 }
 
+.signUp-form input[type=text]::placeholder,
+.signUp-form input[type=email]::placeholder,
 .signUp-form input[type=password]::placeholder {
   color: var(--electra-black);
 }
 
+.signUp-form input[type=text]:hover::placeholder,
+.signUp-form input[type=email]:hover::placeholder,
 .signUp-form input[type=password]:hover::placeholder {
   color: #fff;
 }

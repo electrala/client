@@ -81,13 +81,10 @@ export default class Signup extends Component {
       this.props.createUser(this.state);
       this.signUpSuccessFunction();
       this.setState(this.baseState);
+      this.props.switchToLogin();
     }
   };
   render() {
-    let h1 = {
-      marginTop: "3rem",
-      fontSize: "3rem"
-    };
     return (
       <div className="signUp-form">
         <form id="signUp-form" onSubmit={this.handleSubmit}>
@@ -135,7 +132,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
             />
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Email *"
               value={this.state.email}
@@ -158,7 +155,7 @@ export default class Signup extends Component {
               onChange={this.handleChange}
               required
             />
-            <button id="signUpButton" type="submit">
+            <button id="signUpButton" type="submit" >
               Let's Go!
         </button>
           </div>
