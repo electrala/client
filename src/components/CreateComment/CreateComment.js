@@ -55,8 +55,9 @@ export class CreateComment extends Component {
     return (
       <div style={{ display: "grid", gridTemplateColumns: "1fr 10fr", padding: "10px", backgroundColor: "var(--electra-black)", border: "2px solid var(--electra-cool)", borderRadius: "20px" }}>
         <div className="userinfo" style={{ padding: "15px" }}>
-          <img src={this.props.userInfo.userimages3location} style={{ padding: "5px", maxWidth: "60px", borderRadius: "50%", border: "1px solid var(--electra-cool)" }} alt="user" />
-          {/* <p className="username" style={{ marginBottom: "0px", fontSize: "1rem" }}>{this.props.userInfo.username}</p> */}
+          <div id="user-pic-on-comment-create" style={{ height: "60px", width: "60px", borderRadius: "50%" }}>
+            <img src={this.props.userInfo.userimages3location} style={{ height: "100%", width: "100%", borderRadius: "50%", border: "1px solid var(--electra-cool)" }} alt="user" />
+          </div>
         </div>
         <form id="comment-upload" onSubmit={this.handleSubmit}>
           <textarea
