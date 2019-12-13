@@ -26,7 +26,6 @@ import loginSuccessAlert from './lib/loginSuccessAlert';
 import loginFailAlert from './lib/loginFailAlert';
 import critiqueFailAlert from './lib/critiqueFailAlert';
 import critiqueSuccessAlert from './lib/critiqueSuccessAlert';
-import signUp from './lib/signUp';
 
 // Analytics
 ReactGA.initialize('UA-151580479-1');
@@ -113,6 +112,13 @@ class App extends React.Component {
     this.handleOpenModal();
   };
 
+  switchToLogin = () => {
+    this.setState({
+      showSignup: false,
+      showLogin: true,
+    })
+  };
+
   closeLoginModal = event => {
     this.setState({
       showLogin: false,
@@ -148,22 +154,6 @@ class App extends React.Component {
     }
   };
 
-  /**
-   * Adds a user to our users table on postgres.
-   * Logs a user in.
-   * @param {object} data This is the data from the sign up form
-   * Added a try catch, when user signs in, modal closes, when error, alert
-   * Once user is signed in, change to photo on navbar.
-   */
-  signUp = async data => {
-    try {
-      const new_user = await axios.post('https://electra-la-development.herokuapp.com/users/register', data);
-      const new_user_data = JSON.parse(new_user.config.data);
-      console.log(new_user_data);
-    } catch {
-      alert("error");
-    }
-  }
 
   logout = () => {
     localStorage.removeItem("jwt");
@@ -202,6 +192,23 @@ class App extends React.Component {
       loginFailAlert();
     }
   };
+
+  /**
+ * Adds a user to our users table on postgres.
+ * If there's an error, alert the user.
+ * @param {object} data This is the data from the sign up form
+ */
+  signUp = async data => {
+    try {
+      const new_user = await axios.post(
+        'http://localhost:5000/users/register', data);
+      // 'https://electra-la-development.herokuapp.com/users/register', data);
+      const new_user_data = JSON.parse(new_user.config.data);
+      // console.log(new_user_data);
+    } catch (err) {
+      alert(err.message);
+    }
+  }
 
   getUserById = async () => {
     try {
@@ -267,14 +274,14 @@ class App extends React.Component {
           overlayClassName="um-overlay"
           isOpen={this.state.showModal}
           contentLabel="Universal Modal"
-          onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin ? this.closeLoginModal : ''}
+          onRequestClose={this.state.showCrit ? this.closeCritModal : this.state.showLogin || this.state.showSignup ? this.closeLoginModal : ''}
         >
           <div className="universal-modal">
             {this.state.showLogin ?
               <Login loginUser={this.logIn} />
               :
               this.state.showSignup ?
-                <Signup createUser={this.signUp} />
+                <Signup createUser={this.signUp} switchToLogin={this.switchToLogin} />
                 :
                 this.state.showCrit ? <UploadCrit userInfo={this.state.userInfo} onUpload={this.uploadCrit} /> : <div></div>}
             <div className="modal-footer">
